@@ -1,0 +1,77 @@
+@CHARSET "ISO-8859-1";
+
+#cadastro {
+	font-family: Tahoma, Georgia, Serif;;
+	font-size: 18px;
+	width: 500px;
+}
+
+#cadastro .holder {
+	font-size: 14px;
+	padding-left: 20px;
+	padding-top: 5px;
+	width: 100px;
+	float: left;
+}
+
+#cadastro input {
+	font-size: 14px;
+}
+
+#cadastro .errorMessage {
+	font-size: 12px;
+	color: #ff0000;
+	list-style-type: none;
+}
+
+#tabela table.helpT {
+	text-align: center;
+	font-family: Verdana;
+	font-weight: normal;
+	font-size: 11px;
+	color: #404040;
+	width: 500px;
+	background-color: #fafafa;
+	border: 1px #000000 solid;
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+#tabela td.helpHed {
+	border-bottom: 2px solid #6699CC;
+	border-left: 1px solid #6699CC;
+	background-color: #BEC8D1;
+	text-align: left;
+	text-indent: 5px;
+	font-family: Verdana;
+	font-weight: bold;
+	font-size: 11px;
+	color: #404040;
+}
+
+#tabela td.helpBod {
+	border-bottom: 1px solid #9CF;
+	border-top: 0px;
+	border-left: 1px solid #9CF;
+	border-right: 0px;
+	text-align: left;
+	text-indent: 10px;
+	font-family: Verdana, sans-serif, Arial;
+	font-weight: normal;
+	font-size: 11px;
+	color: #404040;
+	background-color: #fafafa;
+}
+
+#tabela table.sofT {
+	text-align: center;
+	font-family: Verdana;
+	font-weight: normal;
+	font-size: 11px;
+	color: #404040;
+	width: 400px;
+	background-color: #fafafa;
+	border: 1px #6699CC solid;
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
