@@ -30,7 +30,7 @@ public class RepresentanteDeleteAction extends ActionSupport{
 	@Action(value="representanteDelete", results={
 			@Result(name="OK", type="redirectAction", params={"actionName", "representantes"}),
 			@Result(name="ERROR", location="error.jsp"),
-			@Result(name="input", location="representanteedit.jsp"),
+			@Result(name="input", location="representanteedit.jsp")
 	})
 	
 	public String execute(){

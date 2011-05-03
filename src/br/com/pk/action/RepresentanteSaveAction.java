@@ -26,7 +26,7 @@ public class RepresentanteSaveAction extends ActionSupport{
 	@Action(value="representanteSave", results={
 			@Result(name="OK", type="redirectAction", params={"actionName", "representantes"}),
 			@Result(name="ERROR", location="error.jsp"),
-			@Result(name="input", location="representante.jsp"),
+			@Result(name="input", location="representante.jsp")
 	})
 	
 	@Validations(requiredStrings={

@@ -27,7 +27,7 @@ public class RepresentanteSearchAction extends ActionSupport{
 	@Action(value="representanteSearch", results={
 			@Result(name="OK", location="representanteedit.jsp"),
 			@Result(name="ERROR", location="error.jsp"),
-			@Result(name="input", location="listrepresentante.jsp"),
+			@Result(name="input", location="listrepresentante.jsp")
 	})
 	
 	public String execute(){

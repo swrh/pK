@@ -19,7 +19,7 @@ public class LoginAction extends ActionSupport{
 	@Action(value="login", results={
 			@Result(name="OK", location="menu.jsp"),
 			@Result(name="INVALIDO", location="login.jsp"),
-			@Result(name="input", location="login.jsp"),
+			@Result(name="input", location="login.jsp")
 	})
 	
 	@Validations(requiredStrings={
