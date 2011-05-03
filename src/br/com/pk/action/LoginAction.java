@@ -38,7 +38,7 @@ public class LoginAction extends ActionSupport{
 		
 		 }
 		 
-		addFieldError("usuario.invalid", "Usu·rio/senha inv·lidos.");
+		addFieldError("usuario.invalid", "Usu√°rio/senha inv√°lidos.");
 		return "INVALIDO";
 		
 	}

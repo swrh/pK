@@ -30,9 +30,9 @@ public class RepresentanteSaveAction extends ActionSupport{
 	})
 	
 	@Validations(requiredStrings={
-			@RequiredStringValidator(fieldName="representante.razaosocial", message="Preencha a raz„o social.", trim=true),
+			@RequiredStringValidator(fieldName="representante.razaosocial", message="Preencha a raz√£o social.", trim=true),
 			@RequiredStringValidator(fieldName="representante.contato", message="Preencha o contato.", trim=true),
-			@RequiredStringValidator(fieldName="representante.responsavel", message="Preencha o respons·vel.", trim=true)
+			@RequiredStringValidator(fieldName="representante.responsavel", message="Preencha o respons√°vel.", trim=true)
 	})
 
 	public String execute(){
