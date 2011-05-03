@@ -1,32 +1,6 @@
-<%@ page contentType="text/html; charset=utf-8" language="java"
-	import="java.sql.*" errorPage=""%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>perspeKtiva :: listar</title>
-<link href="css/general.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-
-<script type="text/javascript">
-
-function ChangeColor(tableRow, highLight) {
-		if (highLight) {
-			tableRow.style.backgroundColor = '#dcfac9';
-			tableRow.style.cursor="hand";
-		} else {
-			tableRow.style.backgroundColor = '#fafafa';
-			tableRow.style.cursor="pointer";
-		}
-	}
-</script>
-
-</head>
-
-<body>
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:import url="header.jsp"/>
 
 <jsp:useBean id="dao" class="br.com.pk.dao.impl.RepresentanteDAO" />
 <div id="tabela">
@@ -56,8 +30,6 @@ function ChangeColor(tableRow, highLight) {
 	</c:forEach>
 
 </table>
-
+<br/>
 </div>
-
-</body>
-</html>
+<c:import url="footer.jsp"/>
