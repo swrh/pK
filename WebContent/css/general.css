@@ -1,4 +1,4 @@
-@CHARSET "ISO-8859-1";
+@charset "utf-8";
 
 * {
 	font-family: Tahoma, Geneva, sans-serif;
@@ -40,7 +40,7 @@
 	color: #4919C8;
 }
 
-/* DEFINIÇÕES DA TABELA  */
+/* DEFINIÃ‡Ã•ES DA TABELA  */
 #tabela table.sofT {
 	text-align: center;
 	font-weight: normal;
