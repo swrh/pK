@@ -43,10 +43,11 @@ $.fn.clear_form = function(){
 </script>
 
 <div id="cadastro">
+<br/>
 <fieldset>
 <legend>Cadastro de Representantes</legend>
     <form id="form" name="formRep" action="representanteSave" method="post">
-        
+     	<br/>   
         <div class="holder">Código:</div> 
         <input type="text" id="representante_id" name="representante.id" size="5" maxlength="3" disabled="disabled"/><br/> 
         <div class="holder">Razão Social:</div>  
@@ -67,7 +68,6 @@ $.fn.clear_form = function(){
     </form>
     
     <div class="holder"></div>
-    <div id="lista"/>
     
 </fieldset>
 <br/>

@@ -3,9 +3,11 @@
 <c:import url="header.jsp"/>
 
 <jsp:useBean id="dao" class="br.com.pk.dao.impl.RepresentanteDAO" />
-<div id="tabela">
 
-</p><a href="representanteNew">Criar Novo Representante</a><br/><br/>
+<div id="tabela">
+<br/>
+
+<a href="representanteNew" class="linknew">Criar Novo Representante</a><br/><br/>
 
 <table class="sofT">
 
