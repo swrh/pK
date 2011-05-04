@@ -1,6 +1,5 @@
 package br.com.pk.action;
 
-import org.apache.struts2.components.ActionError;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 

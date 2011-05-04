@@ -11,8 +11,6 @@ import br.com.pk.dao.impl.RepresentanteDAO;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
-import com.opensymphony.xwork2.validator.annotations.Validations;
 
 @SuppressWarnings("serial")
 public class RepresentanteDeleteAction extends ActionSupport{
