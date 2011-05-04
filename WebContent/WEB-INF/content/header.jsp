@@ -16,6 +16,7 @@
 <link rel="shortcut icon" href="favicon.ico" />
 <!-- Image Showcase Invoke -->
 <script language="javascript" src="js/showcase.js" type="text/javascript"></script>
+<script language="javascript" src="js/all.js" type="text/javascript"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script language="javascript" type="text/javascript">
 function clearText(field)

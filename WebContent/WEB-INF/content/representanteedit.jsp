@@ -48,9 +48,11 @@ $(document).ready(function(){
 </script>
 
 <div id="cadastro">
+<br/>
 <fieldset>
 <legend>Cadastro de Representantes</legend>
     <form id="form" name="formRep" action="representanteEdit" method="post">
+        <br/>
         
         <div class="holder">Código:</div> 
         <input type="hidden" id="representante_id" name="representante.id" value="${representante.id}"/>
@@ -74,10 +76,9 @@ $(document).ready(function(){
     </form>
     
     <div class="holder"></div>
-    <div id="lista"/>
     
 </fieldset>
-</br>
+<br/>
 </div>
 
 <c:import url="footer.jsp"/>
