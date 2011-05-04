@@ -12,6 +12,7 @@ import br.com.pk.dao.impl.RepresentanteDAO;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+@SuppressWarnings("serial")
 public class RepresentanteSearchAction extends ActionSupport{
 	
 	private Representante representante;

@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.opensymphony.xwork2.validator.annotations.Validations;
 
+@SuppressWarnings("serial")
 public class LoginAction extends ActionSupport{
 	
 	private Usuario usuario;
