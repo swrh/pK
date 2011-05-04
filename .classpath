@@ -37,5 +37,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-convention-plugin-2.1.8.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-core-2.1.8.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xwork-core-2.1.6.jar"/>
+	<classpathentry kind="lib" path="lib/servlet-api-2.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
