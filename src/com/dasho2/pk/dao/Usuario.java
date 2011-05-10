@@ -1,4 +1,4 @@
-package br.com.pk.dao;
+package com.dasho2.pk.dao;
 
 import javax.persistence.*;
 

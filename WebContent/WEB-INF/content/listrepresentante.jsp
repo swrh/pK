@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:import url="header.jsp"/>
 
-<jsp:useBean id="dao" class="br.com.pk.dao.impl.RepresentanteDAO" />
+<jsp:useBean id="dao" class="com.dasho2.pk.dao.impl.RepresentanteDAO" />
 
 <div id="tabela">
 <br/>

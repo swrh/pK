@@ -1,12 +1,13 @@
-package br.com.pk.dao.impl;
+package com.dasho2.pk.dao.impl;
 
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import br.com.pk.dao.Representante;
-import br.com.pk.dao.util.HibernateUtil;
+import com.dasho2.pk.dao.Representante;
+import com.dasho2.pk.dao.util.HibernateUtil;
+
 
 public class RepresentanteDAO {
 	

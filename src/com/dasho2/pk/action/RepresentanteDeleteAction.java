@@ -1,4 +1,4 @@
-package br.com.pk.action;
+package com.dasho2.pk.action;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -6,14 +6,14 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 
-import br.com.pk.dao.Representante;
-import br.com.pk.dao.impl.RepresentanteDAO;
 
+import com.dasho2.pk.dao.Representante;
+import com.dasho2.pk.dao.impl.RepresentanteDAO;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 @SuppressWarnings("serial")
-public class RepresentanteSearchAction extends ActionSupport{
+public class RepresentanteDeleteAction extends ActionSupport{
 	
 	private Representante representante;
 	
@@ -25,10 +25,10 @@ public class RepresentanteSearchAction extends ActionSupport{
 		this.representante = representante;
 	}
 
-	@Action(value="representanteSearch", results={
-			@Result(name="OK", location="representanteedit.jsp"),
+	@Action(value="representanteDelete", results={
+			@Result(name="OK", type="redirectAction", params={"actionName", "representantes"}),
 			@Result(name="ERROR", location="error.jsp"),
-			@Result(name="input", location="listrepresentante.jsp")
+			@Result(name="input", location="representanteedit.jsp")
 	})
 	
 	public String execute(){
@@ -37,8 +37,8 @@ public class RepresentanteSearchAction extends ActionSupport{
 		
 		representante = new RepresentanteDAO().searchRepresentanteById(request.getParameter("representante.id"));
 		
-		return (representante != null ? "OK" : "ERROR");
+		return (new RepresentanteDAO().delete(representante) ? "OK" : "ERROR");
 		
 	}
-	
+
 }

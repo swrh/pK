@@ -1,11 +1,12 @@
-package br.com.pk.dao.util;
+package com.dasho2.pk.dao.util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
-import br.com.pk.dao.Usuario;
-import br.com.pk.dao.Representante;
+import com.dasho2.pk.dao.Representante;
+import com.dasho2.pk.dao.Usuario;
+
 
 public class HibernateUtil {
 	

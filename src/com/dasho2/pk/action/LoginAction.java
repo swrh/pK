@@ -1,11 +1,11 @@
-package br.com.pk.action;
+package com.dasho2.pk.action;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 
-import br.com.pk.dao.Usuario;
-import br.com.pk.dao.impl.UsuarioDAO;
 
+import com.dasho2.pk.dao.Usuario;
+import com.dasho2.pk.dao.impl.UsuarioDAO;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
