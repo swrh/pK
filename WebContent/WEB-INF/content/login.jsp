@@ -1,10 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>  
-  <header>  
+  <head>  
     <title>perspeKtiva :: login</title>  
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />  
     <link href="css/login.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">  
-  </header>  
+  </head>  
   <body>  
     <div id="login">  
       <fieldset>
