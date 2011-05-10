@@ -14,8 +14,10 @@
       so that you can be ensured the application can be built from scratch.
     -->
     <target name="clean" description="Delete old build and dist directories">
+
         <delete dir="${dist.home}" />
         <delete dir="${build.home}" />
+
     </target>
 
     <!-- Init Target -->
@@ -66,14 +68,16 @@
     <!--
       The "build" target copies all non class files to build directory
     -->
-
     <target name="build" depends="compile" description="Copies all non Java classes to build directoy">
+
         <copy todir="${build.home}">
             <fileset dir="${webapp.home}" excludes="SVN,**/*.class" />
         </copy>
+
         <copy todir="${build.home}/WEB-INF/classes">
             <fileset dir="${source.home}" excludes="SVN,**/*.java" />
         </copy>
+
     </target>
 
     <!-- Archive Target -->
@@ -81,7 +85,6 @@
     <!--
       The "archive" target create a binary archive of all files in build.home
     -->
-
     <target name="archive" depends="build" description="Create binary archive of all files in dist.home">
 
         <mkdir dir="${dist.home}" />
