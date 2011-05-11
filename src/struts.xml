@@ -5,14 +5,6 @@
 	
 	<package name="default" extends="struts-default">
 		
-		<interceptors>
-			<interceptor name="autorizador" class="br.com.caelum.tarefas.interceptor.AutorizadorInterceptor"/>
-			<interceptor-stack name="seguranca">
-				<interceptor-ref name="autorizador"></interceptor-ref>
-				<interceptor-ref name="defaultStack"></interceptor-ref>
-			</interceptor-stack>
-		</interceptors>
-		
 		<global-results>
 			<result name="NaoLogado">/WEB-INF/content/login.jsp</result>
 		</global-results>
