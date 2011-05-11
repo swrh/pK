@@ -21,6 +21,14 @@
 			<result>/WEB-INF/content/representante.jsp</result>
 		</action>
 		
+		<action name="products">
+			<result>/WEB-INF/content/listproduct.jsp</result>
+		</action>
+		
+		<action name="productNew">
+			<result>/WEB-INF/content/product.jsp</result>
+		</action>
+		
 	</package>
 	
 </struts>
