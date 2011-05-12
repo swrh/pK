@@ -1,43 +1,53 @@
 package com.dasho2.pk.action;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 
-
 import com.dasho2.pk.dao.Product;
 import com.dasho2.pk.dao.impl.ProductDAO;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
-import com.opensymphony.xwork2.validator.annotations.Validations;
 
 @SuppressWarnings("serial")
-public class ProductEditAction extends ActionSupport{
-	
+public class ProductEditAction extends ActionSupport {
 	private Product product;
-	
-	public Product getProduct() {
-		return product;
+
+	@Action(value = "product-edit", results = {
+		@Result(name = SUCCESS, location = "product-edit.jsp"),
+		@Result(name = INPUT, type = "redirect", location = "product-list"),
+		@Result(name = ERROR, location = "error.jsp")
+	})
+	public String execute() {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+
+		int id;
+		try {
+			String s = request.getParameter("product.id");
+			id = Integer.parseInt(s);
+		} catch (NumberFormatException e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace(System.err);
+			return ERROR;
+		}
+
+		ProductDAO dao = new ProductDAO();
+		setProduct(dao.read(id));
+		if (getProduct() == null)
+			return ERROR;
+
+		return SUCCESS;
 	}
 
 	public void setProduct(Product product) {
 		this.product = product;
 	}
 
-	@Action(value="productEdit", results={
-			@Result(name="OK", type="redirectAction", params={"actionName", "products"}),
-			@Result(name="ERROR", location="error.jsp"),
-			@Result(name="input", location="productedit.jsp")
-	})
-	
-	@Validations(requiredStrings={
-			@RequiredStringValidator(fieldName="product.name", message="Preencha o nome.", trim=true),
-			@RequiredStringValidator(fieldName="product.code", message="Preencha o código.", trim=true)
-	})
-
-	public String execute(){
-		
-		return (new ProductDAO().update(product) ? "OK" : "ERROR");
-		
+	public Product getProduct() {
+		return product;
 	}
-	
+
 }

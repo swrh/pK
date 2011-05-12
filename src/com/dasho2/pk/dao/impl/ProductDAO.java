@@ -9,13 +9,9 @@ import com.dasho2.pk.dao.Product;
 import com.dasho2.pk.dao.util.HibernateUtil;
 
 public class ProductDAO {
-	
-	public boolean save(Product p) {
-		
-		Boolean bResult = false;
-		
+
+	public boolean create(Product p) {
 		try {
-			
 			Session session = new HibernateUtil().getSession();
 			
 			session.beginTransaction();
@@ -24,67 +20,41 @@ public class ProductDAO {
 			
 			session.close();
 			
-			bResult = true;
-			
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
+			return true;
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace(System.err);
 		}
 		
-		return bResult;
+		return false;
 	}
 	
-	public List<Product> getList() {
-		
+	public Product read(int id) {
 		Session session = new HibernateUtil().getSession();
-		
-		Query query = session.createQuery("SELECT p FROM Product as p");
-		
-		List<Product> lResults = query.list();
-		
-		session.close();
-		
-		return lResults;
-		
-	}
-	
-	public Product searchProductById(String sId) {
-		
-		Session session = new HibernateUtil().getSession();
-		Product p = (Product) session.get(Product.class, Integer.parseInt(sId));
-		
-		return p;
-		
+		return (Product)session.get(Product.class, id);
 	}
 	
 	public boolean update(Product p) {
-		
-		Boolean bResult = false;
-		
-		try{
-			
+		try {
 			Session session = new HibernateUtil().getSession();
-			
+
 			session.beginTransaction();
 			session.update(p);
 			session.getTransaction().commit();
 			
 			session.close();
 			
-			bResult = true;
-			
-		} catch (Exception ex) {
-			System.err.println(ex.getMessage());
+			return true;
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace(System.err);
 		}
 		
-		return bResult;
+		return false;
 	}
 	
 	public boolean delete(Product p) {
-		
-		Boolean bResult = false;
-		
 		try {
-			
 			Session session = new HibernateUtil().getSession();
 			
 			session.beginTransaction();
@@ -93,13 +63,25 @@ public class ProductDAO {
 			
 			session.close();
 			
-			bResult = true;
-			
-		} catch (Exception ex) {
-			System.err.println(ex.getMessage());
+			return true;
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace(System.err);
 		}
 		
-		return bResult;
+		return false;
 	}
 
+	public List<Product> getList() {
+		Session session = new HibernateUtil().getSession();
+
+		Query query = session.createQuery("SELECT p FROM Product as p");
+		@SuppressWarnings("unchecked")
+		List<Product> list = query.list();
+
+		session.close();
+		
+		return list;
+	}
+	
 }

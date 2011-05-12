@@ -12,7 +12,7 @@ $(document).ready(function(){
 		$.fn.disable_form();
 		$.fn.clear_form();
 		$.fn.clear_errors();
-		document.location='products';
+		document.location='product-list';
 	});
 
 	$('#btn_salvar').click(function(){
@@ -45,7 +45,7 @@ $.fn.clear_form = function(){
 <br/>
 <fieldset>
 <legend>Cadastro de Produtos</legend>
-    <form id="form" name="formRep" action="productSave" method="post">
+    <form id="form" name="formRep" action="product-create" method="post">
      	<br/>
         <div class="holder">Código:</div>
         <input type="text" id="product_id" name="product.id" size="5" maxlength="3" disabled="disabled"/><br/>

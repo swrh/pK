@@ -13,32 +13,32 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 @SuppressWarnings("serial")
-public class ProductDeleteAction extends ActionSupport{
-	
-	private Product product;
-	
-	public Product getProduct() {
-		return product;
-	}
+public class ProductDeleteAction extends ActionSupport {
 
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-
-	@Action(value="productDelete", results={
-			@Result(name="OK", type="redirectAction", params={"actionName", "products"}),
-			@Result(name="ERROR", location="error.jsp"),
-			@Result(name="input", location="productedit.jsp")
+	@Action(value = "product-delete", results = {
+		@Result(name = SUCCESS, type = "redirect", location = "product-list"),
+		@Result(name = INPUT, type = "redirect", location = "product-edit"),
+		@Result(name = ERROR, location = "error.jsp")
 	})
-	
-	public String execute(){
-		
-		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		
-		product = new ProductDAO().searchProductById(request.getParameter("product.id"));
-		
-		return (new ProductDAO().delete(product) ? "OK" : "ERROR");
-		
+	public String execute() {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+
+		int id;
+		try {
+			String s = request.getParameter("product.id");
+			id = Integer.parseInt(s);
+		} catch (NumberFormatException e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace(System.err);
+			return ERROR;
+		}
+
+		ProductDAO dao = new ProductDAO();
+		Product p = dao.read(id);
+		if (p == null || !dao.delete(p))
+			return ERROR;
+
+		return SUCCESS;
 	}
 
 }

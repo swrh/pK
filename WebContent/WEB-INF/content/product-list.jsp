@@ -7,7 +7,7 @@
 <div id="tabela">
 <br/>
 
-<a href="productNew" class="linknew">Criar Novo Produto</a><br/><br/>
+<a href="product-new" class="linknew">Criar Novo Produto</a><br/><br/>
 
 <table class="sofT">
 
@@ -21,11 +21,11 @@
 		<td class="helpHed">Código</td>
 	</tr>
 
-	<c:forEach var="rep" items="${dao.list}">
-		<tr style="cursor:pointer" onclick="document.location='productSearch?product.id=${rep.id}'">
-			<td class="helpBod">${rep.id}</td>
-			<td class="helpBod">${rep.name}</td>
-			<td class="helpBod">${rep.code}</td>
+	<c:forEach var="p" items="${dao.list}">
+		<tr style="cursor:pointer" onclick="document.location='product-edit?product.id=${p.id}'">
+			<td class="helpBod">${p.id}</td>
+			<td class="helpBod">${p.name}</td>
+			<td class="helpBod">${p.code}</td>
 		</tr>
 	</c:forEach>
 

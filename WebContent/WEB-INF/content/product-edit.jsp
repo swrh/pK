@@ -13,7 +13,7 @@ $(document).ready(function(){
 		$.fn.disable_form();
 		$.fn.clear_form();
 		$.fn.clear_errors();
-		document.location='products';
+		document.location='product-list';
 	});
 
 	$('#btn_salvar').click(function(){
@@ -24,7 +24,7 @@ $(document).ready(function(){
 	$('#btn_apagar').click(function(){
 
 		if (confirm("Deseja realmente apagar este registro?")) {
-				document.location='productDelete?product.id='+$('#product_id').val();
+				document.location='product-delete?product.id='+$('#product_id').val();
 			}
 
 		});
@@ -50,7 +50,7 @@ $(document).ready(function(){
 <br/>
 <fieldset>
 <legend>Cadastro de Produtos</legend>
-    <form id="form" name="formRep" action="productEdit" method="post">
+    <form id="form" name="formRep" action="product-update" method="post">
         <br/>
 
         <div class="holder">Código:</div>
