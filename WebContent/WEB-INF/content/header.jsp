@@ -17,7 +17,7 @@
 <!-- Image Showcase Invoke -->
 <script language="javascript" src="js/showcase.js" type="text/javascript"></script>
 <script language="javascript" src="js/all.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script language="javascript" src="js/jquery-1.5.2.min.js" type="text/javascript"></script>
 <script language="javascript" type="text/javascript">
 function clearText(field)
 {
@@ -25,7 +25,7 @@ function clearText(field)
     else if (field.value == '') field.value = field.defaultValue;
 }
 </script>
-<script type="text/javascript"> 
+<script language="javascript" type="text/javascript"> 
 $(document).ready(function(){
  
 	$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
