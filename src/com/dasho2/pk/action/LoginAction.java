@@ -4,51 +4,44 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 
 
-import com.dasho2.pk.dao.Usuario;
-import com.dasho2.pk.dao.impl.UsuarioDAO;
+import com.dasho2.pk.dao.User;
+import com.dasho2.pk.dao.impl.UserDAO;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.opensymphony.xwork2.validator.annotations.Validations;
 
 @SuppressWarnings("serial")
-public class LoginAction extends ActionSupport{
+public class LoginAction extends ActionSupport {
+	private User user;
 	
-	private Usuario usuario;
-	
-	@Action(value="login", results={
-			@Result(name="OK", location="menu.jsp"),
-			@Result(name="INVALIDO", location="login.jsp"),
-			@Result(name="input", location="login.jsp")
+	@Action(value = "login", results = {
+			@Result(name = SUCCESS, location = "menu.jsp"),
+			@Result(name = ERROR, location = "login.jsp"),
+			@Result(name = INPUT, location = "login.jsp")
 	})
-	
-	@Validations(requiredStrings={
-			@RequiredStringValidator(fieldName="usuario.login", message="Preencha o login.", trim=true),
-			@RequiredStringValidator(fieldName="usuario.senha", message="Preencha a senha.", trim=true)
+	@Validations(requiredStrings = {
+			@RequiredStringValidator(fieldName = "user.login", message = "Preencha o login.", trim = true),
+			@RequiredStringValidator(fieldName = "user.password", message = "Preencha a senha.", trim = true)
 	})
+	public String execute() {
+		UserDAO usuarioDAO = new UserDAO();
+		
+		if (!usuarioDAO.matchUser(getUser())){
+			addFieldError("user.invalid", "Usuário/senha inválidos.");
+			return ERROR;
+		}
+		
+		ActionContext.getContext().getSession().put("user", getUser());
+		return SUCCESS;
+	}
 
-	public String execute(){
-		
-		UsuarioDAO usuarioDAO = new UsuarioDAO();
-		
-		 if (usuarioDAO.existeUsuario(usuario)){
-		 
-			ActionContext.getContext().getSession().put("usuarioLogado", usuario);
-			return "OK";
-		
-		 }
-		 
-		addFieldError("usuario.invalid", "Usuário/senha inválidos.");
-		return "INVALIDO";
-		
+	public void setUser(User user) {
+		this.user = user;
 	}
-	
-	public Usuario getUsuario(){
-		return usuario;
+
+	public User getUser() {
+		return user;
 	}
-	
-	public void setUsuario(Usuario usuario){
-		this.usuario = usuario;
-	}
-	
+
 }

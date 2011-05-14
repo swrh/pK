@@ -74,7 +74,7 @@ $(document).ready(function(){
                     <li><a href="#">Departamentos</a></li> 
                     <li><a href="#">Funcion&aacute;rios</a></li> 
                     <li><a href="representantes">Representantes</a></li> 
-                    <li><a href="#">Produtos</a></li> 
+                    <li><a href="product-list">Produtos</a></li> 
                     <li><a href="#">Status de Propostas</a></li> 
                     <li><a href="#">Indica&ccedil;&otilde;es</a></li> 
                     <li><a href="#">A&ccedil;&otilde;es</a></li> 

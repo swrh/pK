@@ -1,30 +1,24 @@
-<!DOCTYPE struts PUBLIC
-"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-"http://struts.apache.org/dtds/struts-2.0.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
 <struts>
-	
 	<package name="default" extends="struts-default">
-		
-		<global-results>
-			<result name="NaoLogado">/WEB-INF/content/login.jsp</result>
-		</global-results>
-		
-		<action name="loginForm">
-			<result>/WEB-INF/content/login.jsp</result>
-		</action>
-		
 		<action name="representantes">
 			<result>/WEB-INF/content/listrepresentante.jsp</result>
 		</action>
-		
+
 		<action name="representanteNew">
 			<result>/WEB-INF/content/representante.jsp</result>
 		</action>
-		
+
 		<action name="product-new">
 			<result>/WEB-INF/content/product-new.jsp</result>
 		</action>
-		
+
+		<action name="forgot-password">
+			<result>/WEB-INF/content/forgot-password.jsp</result>
+		</action>
+
 	</package>
-	
+
 </struts>
