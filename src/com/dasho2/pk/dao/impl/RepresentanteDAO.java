@@ -40,6 +40,7 @@ public class RepresentanteDAO {
 		
 		Query query = session.createQuery("SELECT r FROM Representante as r");
 		
+		@SuppressWarnings("unchecked")
 		List<Representante> lResults = query.list();
 		
 		session.close();
