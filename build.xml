@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
+<!DOCTYPE project>
 
 <project name="pK" default="archive" basedir=".">
     <description>
-        pK
+        perspeKtiva
     </description>
 
     <property file="build.properties" />
