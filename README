@@ -7,17 +7,26 @@ just need to drop it under the "webapps" folder of the Apache Tomcat
 installation directory.
 
 After that you need to setup the MySQL database. You need to install it using
-your system instructions, create a username and password, a database and set
-those entries in the "src/hibernate.properties" file like this:
+your system instructions, create an user with a password and a database:
 
-  hibernate.connection.url = jdbc:mysql://the.hostname/thedatabase
-  hibernate.connection.username = the_username
-  hibernate.connection.password = ThePassword
+  mysql> create database dbname;
+  mysql> create user 'username'@'localhost' identified by 'thePassword';
+  mysql> grant all privileges on dbname.* to 'username'@'localhost';
+  mysql> flush privileges; 
+
+Add those settings to the "src/hibernate.properties" file like this:
+
+  hibernate.connection.url = jdbc:mysql://localhost/dbname
+  hibernate.connection.username = username
+  hibernate.connection.password = thePassword
 
 You'll also need to uncomment the following line to create all needed tables
-into your database in the first time you run. Just uncomment it, start the
-server, try to login once, comment it back and then restart the server.
+into your database in the first time you run.
+
 
   hibernate.hbm2ddl.auto = update
 
-After that you're ready to go! ;)
+Just uncomment it, start the server, try to login once, comment it back and
+then restart the server.
+
+After that you're good to go! ;)
