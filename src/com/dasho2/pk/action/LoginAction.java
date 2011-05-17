@@ -16,18 +16,18 @@ public class LoginAction extends ActionSupport {
 	private User user;
 	
 	@Action(value = "login", results = {
-			@Result(name = SUCCESS, location = "menu.jsp"),
-			@Result(name = ERROR, location = "login.jsp"),
-			@Result(name = INPUT, location = "login.jsp")
+		@Result(name = SUCCESS, location = "menu.jsp"),
+		@Result(name = ERROR, location = "login.jsp"),
+		@Result(name = INPUT, location = "login.jsp")
 	})
 	@Validations(requiredStrings = {
-			@RequiredStringValidator(fieldName = "user.login", message = "Preencha o login.", trim = true),
-			@RequiredStringValidator(fieldName = "user.password", message = "Preencha a senha.", trim = true)
+		@RequiredStringValidator(fieldName = "user.login", message = "Preencha o login.", trim = true),
+		@RequiredStringValidator(fieldName = "user.password", message = "Preencha a senha.", trim = true)
 	})
 	public String execute() {
-		UserDAO usuarioDAO = new UserDAO();
+		UserDAO dao = new UserDAO();
 		
-		if (!usuarioDAO.matchUser(getUser())){
+		if (!dao.matchUser(getUser())){
 			addFieldError("user.invalid", "Usuário/senha inválidos.");
 			return ERROR;
 		}

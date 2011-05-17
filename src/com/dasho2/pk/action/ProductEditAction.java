@@ -42,7 +42,7 @@ public class ProductEditAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	public void setProduct(Product product) {
+	private void setProduct(Product product) {
 		this.product = product;
 	}
 

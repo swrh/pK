@@ -24,8 +24,11 @@ public class ProductCreateAction extends ActionSupport{
 		@RequiredStringValidator(fieldName = "product.code", message = "Preencha o código.", trim = true)
 	})
 	public String execute(){
-		if (!new ProductDAO().create(getProduct()))
+		ProductDAO dao = new ProductDAO();
+
+		if (!dao.create(getProduct()))
 			return ERROR;
+
 		return SUCCESS;
 	}
 
