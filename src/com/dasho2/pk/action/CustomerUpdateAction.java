@@ -19,10 +19,23 @@ public class CustomerUpdateAction extends ActionSupport {
 		@Result(name = INPUT, location = "customer-edit.jsp"),
 		@Result(name = ERROR, location = "error.jsp")
 	})
-//	@Validations(requiredStrings = {
-//		@RequiredStringValidator(fieldName = "customer.name", message = "Preencha o nome.", trim = true),
-//		@RequiredStringValidator(fieldName = "customer.code", message = "Preencha o código.", trim = true)
-//	})
+	@Validations(requiredStrings = {
+		@RequiredStringValidator(fieldName = "customer.code", message = "Preencha o código.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.name", message = "Preencha o nome.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.reason", message = "Preencha a razão social.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.cnpj", message = "Preencha o CNPJ.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.ie", message = "Preencha a inscrição estadual.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.email", message = "Preencha o e-mail.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.phone", message = "Preencha o telefone.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.mobile", message = "Preencha o celular.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.fax", message = "Preencha o FAX.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.address", message = "Preencha a rua.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.neighborhood", message = "Preencha o bairro.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.city", message = "Preencha a cidade.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.state", message = "Preencha o estado.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.country", message = "Preencha o país.", trim = true),
+		@RequiredStringValidator(fieldName = "customer.zipCode", message = "Preencha o CEP.", trim = true)
+	})
 	public String execute() {
 		CustomerDAO dao = new CustomerDAO();
 
