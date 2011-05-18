@@ -19,8 +19,16 @@
 			<result>/WEB-INF/content/customer-new.jsp</result>
 		</action>
 
+		<action name="department-new">
+			<result>/WEB-INF/content/department-new.jsp</result>
+		</action>
+
 		<action name="forgot-password">
 			<result>/WEB-INF/content/forgot-password.jsp</result>
+		</action>
+
+		<action name="home">
+			<result>/WEB-INF/content/menu.jsp</result>
 		</action>
 
 	</package>

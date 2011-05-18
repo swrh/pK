@@ -4,35 +4,29 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <c:import url="header.jsp" />
 
-<jsp:useBean id="dao" class="com.dasho2.pk.dao.impl.CustomerDAO" />
+<jsp:useBean id="dao" class="com.dasho2.pk.dao.impl.DepartmentDAO" />
 <div id="tabela">
 	<br />
-	<a href="customer-new" class="linknew">Criar Novo Cliente</a><br />
+	<a href="department-new" class="linknew">Criar Novo Departamento</a><br />
 	<br />
 
 	<table class="sofT">
 		<tr>
-			<td colspan="7" class="helpHed">Listagem de Clientes</td>
+			<td colspan="4" class="helpHed">Listagem de Departamentos</td>
 		</tr>
 
 		<tr>
+			<td class="helpHed">Código</td>
 			<td class="helpHed">Nome</td>
-			<td class="helpHed">Razão Social</td>
-			<td class="helpHed">Telefone</td>
-			<td class="helpHed">Cidade</td>
-			<td class="helpHed">E-mail</td>
 			<td class="helpHed">Data de Criação</td>
 			<td class="helpHed">Última modificação</td>
 		</tr>
 
 		<c:forEach var="c" items="${dao.list}">
 			<tr style="cursor: pointer"
-				onclick="document.location='customer-edit?customer.id=${c.id}'">
+				onclick="document.location='department-edit?department.id=${c.id}'">
+				<td class="helpBod">${c.id}</td>
 				<td class="helpBod">${c.name}</td>
-				<td class="helpBod">${c.reason}</td>
-				<td class="helpBod">${c.phone}</td>
-				<td class="helpBod">${c.city}</td>
-				<td class="helpBod">${c.email}</td>
 				<td class="helpBod">${c.creationDateString}</td>
 				<td class="helpBod">${c.modificationDateString}</td>
 			</tr>

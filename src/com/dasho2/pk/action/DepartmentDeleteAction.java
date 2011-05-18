@@ -6,19 +6,18 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 
-import com.dasho2.pk.dao.Product;
-import com.dasho2.pk.dao.impl.ProductDAO;
+import com.dasho2.pk.dao.Department;
+import com.dasho2.pk.dao.impl.DepartmentDAO;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 @SuppressWarnings("serial")
-public class ProductEditAction extends ActionSupport {
-	private Product product;
+public class DepartmentDeleteAction extends ActionSupport {
 
-	@Action(value = "product-edit", results = {
-		@Result(name = SUCCESS, location = "product-edit.jsp"),
-		@Result(name = INPUT, type = "redirect", location = "product-list"),
+	@Action(value = "department-delete", results = {
+		@Result(name = SUCCESS, type = "redirect", location = "department-list"),
+		@Result(name = INPUT, type = "redirect", location = "department-edit"),
 		@Result(name = ERROR, location = "error.jsp")
 	})
 	public String execute() {
@@ -26,7 +25,7 @@ public class ProductEditAction extends ActionSupport {
 
 		int id;
 		try {
-			String s = request.getParameter("product.id");
+			String s = request.getParameter("department.id");
 			id = Integer.parseInt(s);
 		} catch (NumberFormatException e) {
 			System.err.println(e.getMessage());
@@ -34,20 +33,12 @@ public class ProductEditAction extends ActionSupport {
 			return ERROR;
 		}
 
-		ProductDAO dao = new ProductDAO();
-		setProduct(dao.read(id));
-		if (getProduct() == null)
+		DepartmentDAO dao = new DepartmentDAO();
+		Department p = dao.read(id);
+		if (p == null || !dao.delete(p))
 			return ERROR;
 
 		return SUCCESS;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-
-	public Product getProduct() {
-		return product;
 	}
 
 }

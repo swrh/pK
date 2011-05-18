@@ -21,11 +21,11 @@ public class ProductUpdateAction extends ActionSupport {
 	})
 	@Validations(requiredStrings = {
 		@RequiredStringValidator(fieldName = "product.name", message = "Preencha o nome.", trim = true),
-		@RequiredStringValidator(fieldName = "product.code", message = "Preencha o código.", trim = true)
 	})
 	public String execute() {
 		ProductDAO dao = new ProductDAO();
 
+		getProduct().updateModificationDate();
 		if (!dao.update(getProduct()))
 			return ERROR;
 

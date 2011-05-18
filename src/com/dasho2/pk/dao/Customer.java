@@ -1,5 +1,9 @@
 package com.dasho2.pk.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,7 +13,6 @@ public class Customer {
 	@Id
 	@GeneratedValue
 	private int id;
-	private String code;
 	private String name;
 	private String reason;
 	private String cnpj;
@@ -37,14 +40,6 @@ public class Customer {
 	
 	public int getId() {
 		return id;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
 	}
 
 	public String getName() {
@@ -167,12 +162,28 @@ public class Customer {
 		this.creationDate = creationDate;
 	}
 
+	public String getCreationDateString() {
+		return new SimpleDateFormat("yyyy/MMM/dd HH:mm").format(new Date(creationDate));
+	}
+
+	public void updateCreationDate() {
+		creationDate = Calendar.getInstance().getTime().getTime();
+	}
+
 	public long getModificationDate() {
 		return modificationDate;
 	}
 
 	public void setModificationDate(long modificationDate) {
 		this.modificationDate = modificationDate;
+	}
+
+	public String getModificationDateString() {
+		return new SimpleDateFormat("yyyy/MMM/dd HH:mm").format(new Date(modificationDate));
+	}
+
+	public void updateModificationDate() {
+		modificationDate = Calendar.getInstance().getTime().getTime();
 	}
 
 }

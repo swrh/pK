@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
 import com.dasho2.pk.dao.Customer;
+import com.dasho2.pk.dao.Department;
 import com.dasho2.pk.dao.Product;
 import com.dasho2.pk.dao.Representante;
 import com.dasho2.pk.dao.User;
@@ -19,6 +20,7 @@ public class HibernateUtil {
 		cfg.addAnnotatedClass(Representante.class);
 		cfg.addAnnotatedClass(Product.class);
 		cfg.addAnnotatedClass(Customer.class);
+		cfg.addAnnotatedClass(Department.class);
 		factory = cfg.buildSessionFactory();
 	}
 	

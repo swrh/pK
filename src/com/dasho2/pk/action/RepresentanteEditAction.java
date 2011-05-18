@@ -37,6 +37,7 @@ public class RepresentanteEditAction extends ActionSupport{
 
 	public String execute(){
 		
+		representante.updateModificationDate();
 		return (new RepresentanteDAO().update(representante) ? "OK" : "ERROR");
 		
 	}

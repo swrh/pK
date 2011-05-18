@@ -20,7 +20,6 @@ public class CustomerUpdateAction extends ActionSupport {
 		@Result(name = ERROR, location = "error.jsp")
 	})
 	@Validations(requiredStrings = {
-		@RequiredStringValidator(fieldName = "customer.code", message = "Preencha o código.", trim = true),
 		@RequiredStringValidator(fieldName = "customer.name", message = "Preencha o nome.", trim = true),
 		@RequiredStringValidator(fieldName = "customer.reason", message = "Preencha a razão social.", trim = true),
 		@RequiredStringValidator(fieldName = "customer.cnpj", message = "Preencha o CNPJ.", trim = true),
@@ -39,6 +38,7 @@ public class CustomerUpdateAction extends ActionSupport {
 	public String execute() {
 		CustomerDAO dao = new CustomerDAO();
 
+		getCustomer().updateModificationDate();
 		if (!dao.update(getCustomer()))
 			return ERROR;
 

@@ -37,6 +37,8 @@ public class RepresentanteSaveAction extends ActionSupport{
 
 	public String execute(){
 		
+		representante.updateCreationDate();
+		representante.updateModificationDate();
 		return (new RepresentanteDAO().save(representante) ? "OK" : "ERROR");
 		
 	}

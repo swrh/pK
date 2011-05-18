@@ -16,7 +16,7 @@ public class LoginAction extends ActionSupport {
 	private User user;
 	
 	@Action(value = "login", results = {
-		@Result(name = SUCCESS, location = "menu.jsp"),
+		@Result(name = SUCCESS, type = "redirect", location = "home"),
 		@Result(name = ERROR, location = "login.jsp"),
 		@Result(name = INPUT, location = "login.jsp")
 	})

@@ -6,7 +6,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#customer_code').focus();
+		$('#customer_name').focus();
 
 		$('#btn_cancelar').click(function() {
 			$.fn.disable_form();
@@ -24,7 +24,6 @@
 
 	$.fn.disable_form = function() {
 		$('#customer_name').attr('disabled', 'disabled');
-		$('#customer_code').attr('disabled', 'disabled');
 		$('#customer_reason').attr('disabled', 'disabled');
 		$('#customer_cnpj').attr('disabled', 'disabled');
 		$('#customer_ie').attr('disabled', 'disabled');
@@ -56,80 +55,99 @@
 		<legend>Cadastro de Clientes</legend>
 		<form id="form" name="formRep" action="customer-create" method="post">
 			<br />
+			<div class="holder">Código:</div>
+			<input type="text" id="customer_id" name="customer.id"
+				value="${customer.id}" disabled="disabled" />
 			<input type="hidden" id="customer_id" name="customer.id"
 				value="${customer.id}" />
 
-			<div class="holder">Código:</div>
-			<input type="text" id="customer_code" name="customer.code" size="14"
-				maxlength="14" value="${customer.code}" /><br />
-
+			<br />
 			<div class="holder">Nome:</div>
 			<input type="text" id="customer_name" name="customer.name" size="25"
-				maxlength="40" value="${customer.name}" /><br />
+				maxlength="40" value="${customer.name}" />
 
+			<br />
 			<div class="holder">Razão Social:</div>
 			<input type="text" id="customer_reason" name="customer.reason" size="25"
-				maxlength="40" value="${customer.reason}" /><br />
+				maxlength="40" value="${customer.reason}" />
 
+			<br />
 			<div class="holder">CNPJ:</div>
 			<input type="text" id="customer_cnpj" name="customer.cnpj" size="25"
-				maxlength="40" value="${customer.cnpj}" /><br />
+				maxlength="40" value="${customer.cnpj}" />
 
+			<br />
 			<div class="holder">Inscrição Estadual:</div>
 			<input type="text" id="customer_ie" name="customer.ie" size="25"
-				maxlength="40" value="${customer.ie}" /><br />
+				maxlength="40" value="${customer.ie}" />
 
+			<br />
 			<div class="holder">E-mail:</div>
 			<input type="text" id="customer_email" name="customer.email" size="25"
-				maxlength="40" value="${customer.email}" /><br />
+				maxlength="40" value="${customer.email}" />
 
+			<br />
 			<div class="holder">Telefone:</div>
 			<input type="text" id="customer_phone" name="customer.phone" size="25"
-				maxlength="40" value="${customer.phone}" /><br />
+				maxlength="40" value="${customer.phone}" />
 
+			<br />
 			<div class="holder">Celular:</div>
 			<input type="text" id="customer_mobile" name="customer.mobile" size="25"
-				maxlength="40" value="${customer.mobile}" /><br />
+				maxlength="40" value="${customer.mobile}" />
 
+			<br />
 			<div class="holder">Fax:</div>
 			<input type="text" id="customer_fax" name="customer.fax" size="25"
-				maxlength="40" value="${customer.fax}" /><br />
+				maxlength="40" value="${customer.fax}" />
 
+			<br />
 			<div class="holder">Rua:</div>
 			<input type="text" id="customer_address" name="customer.address" size="25"
-				maxlength="40" value="${customer.address}" /><br />
+				maxlength="40" value="${customer.address}" />
 
+			<br />
 			<div class="holder">Bairro:</div>
 			<input type="text" id="customer_neighborhood" name="customer.neighborhood" size="25"
-				maxlength="40" value="${customer.neighborhood}" /><br />
+				maxlength="40" value="${customer.neighborhood}" />
 
+			<br />
 			<div class="holder">Cidade:</div>
 			<input type="text" id="customer_city" name="customer.city" size="25"
-				maxlength="40" value="${customer.city}" /><br />
+				maxlength="40" value="${customer.city}" />
 
+			<br />
 			<div class="holder">Estado:</div>
 			<input type="text" id="customer_state" name="customer.state" size="25"
-				maxlength="40" value="${customer.state}" /><br />
+				maxlength="40" value="${customer.state}" />
 
+			<br />
 			<div class="holder">País:</div>
 			<input type="text" id="customer_country" name="customer.country" size="25"
-				maxlength="40" value="${customer.country}" /><br />
+				maxlength="40" value="${customer.country}" />
 
+			<br />
 			<div class="holder">CEP:</div>
 			<input type="text" id="customer_zipCode" name="customer.zipCode" size="25"
-				maxlength="40" value="${customer.zipCode}" /><br />
+				maxlength="40" value="${customer.zipCode}" />
 
-			<div class="holder">Data de criação:</div>
+			<br />
+			<div class="holder">Criação:</div>
 			<input type="text" id="customer_creationDate" name="customer.creationDate" size="25"
-				maxlength="40" value="${customer.creationDate}" /><br />
+				maxlength="40" value="${customer.creationDateString}" disabled="disabled" />
+			<input type="hidden" id="customer_creationDate" name="customer.creationDate"
+				value="${customer.creationDate}" />
 
+			<br />
 			<div class="holder">Última modificação:</div>
 			<input type="text" id="customer_modificationDate" name="customer.modificationDate" size="25"
-				maxlength="40" value="${customer.modificationDate}" /><br />
+				maxlength="40" value="${customer.modificationDateString}" disabled="disabled" />
+			<input type="hidden" id="customer_modificationDate" name="customer.modificationDate"
+				value="${customer.modificationDate}" />
 
+			<br />
 			<div class="holder"></div>
 
-			<s:fielderror fieldName="customer.code" />
 			<s:fielderror fieldName="customer.name" />
 			<s:fielderror fieldName="customer.reason" />
 			<s:fielderror fieldName="customer.cnpj" />
@@ -145,6 +163,7 @@
 			<s:fielderror fieldName="customer.country" />
 			<s:fielderror fieldName="customer.zipCode" />
 
+			<br />
 			<input type="submit" id="btn_salvar" value="Salvar" />
 			<input type="button" id="btn_cancelar" value="Cancelar" />
 

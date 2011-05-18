@@ -6,7 +6,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#product_code').focus();
+		$('#product_name').focus();
 
 		$('#btn_cancelar').click(function() {
 			$.fn.disable_form();
@@ -29,7 +29,7 @@
 
 	$.fn.disable_form = function() {
 		$('#product_name').attr('disabled', 'disabled');
-		$('#product_code').attr('disabled', 'disabled');
+		$('#product_description').attr('disabled', 'disabled');
 	};
 
 	$.fn.clear_errors = function() {
@@ -37,8 +37,7 @@
 	};
 
 	$.fn.clear_form = function() {
-		$(':input', '#form').not(':button, :submit, :reset, :hidden').val('')
-				.removeAttr('checked').removeAttr('selected');
+		$(':input', '#form').not(':button, :submit, :reset, :hidden').val('').removeAttr('checked').removeAttr('selected');
 	};
 </script>
 
@@ -48,21 +47,43 @@
 		<legend>Cadastro de Produtos</legend>
 		<form id="form" name="formRep" action="product-update" method="post">
 			<br />
+			<div class="holder">Código:</div>
+			<input type="text" id="product_id" name="product.id"
+				value="${product.id}" disabled="disabled" />
 			<input type="hidden" id="product_id" name="product.id"
 				value="${product.id}" />
 
-			<div class="holder">Código:</div>
-			<input type="text" id="product_code" name="product.code" size="14"
-				maxlength="14" value="${product.code}" /><br />
-
+			<br />
 			<div class="holder">Nome:</div>
 			<input type="text" id="product_name" name="product.name" size="25"
-				maxlength="40" value="${product.name}" /><br />
+				maxlength="40" value="${product.name}" />
 
+			<br />
+			<div class="holder">Descrição:</div>
+			<input type="text" id="product_description" name="product.description" size="25"
+				maxlength="40" value="${product.description}" />
+
+			<br />
+			<div class="holder">Criação:</div>
+			<input type="text" id="product_creationDate" name="product.creationDate" size="25"
+				maxlength="40" value="${product.creationDateString}" disabled="disabled" />
+			<input type="hidden" id="product_creationDate" name="product.creationDate"
+				value="${product.creationDate}" />
+
+			<br />
+			<div class="holder">Última modificação:</div>
+			<input type="text" id="product_modificationDate" name="product.modificationDate" size="25"
+				maxlength="40" value="${product.modificationDateString}" disabled="disabled" />
+			<input type="hidden" id="product_modificationDate" name="product.modificationDate"
+				value="${product.modificationDate}" />
+
+			<br />
 			<div class="holder"></div>
-			<s:fielderror fieldName="product.code" />
-			<s:fielderror fieldName="product.name" />
 
+			<s:fielderror fieldName="product.name" />
+			<s:fielderror fieldName="product.description" />
+
+			<br />
 			<input type="submit" id="btn_salvar" value="Salvar" />
 			<input type="button" id="btn_cancelar" value="Cancelar" />
 			<input type="button" id="btn_apagar" value="Apagar" />

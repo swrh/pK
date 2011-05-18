@@ -12,19 +12,25 @@
 
 	<table class="sofT">
 		<tr>
-			<td colspan="2" class="helpHed">Listagem de Produtos</td>
+			<td colspan="5" class="helpHed">Listagem de Produtos</td>
 		</tr>
 
 		<tr>
 			<td class="helpHed">Código</td>
 			<td class="helpHed">Nome</td>
+			<td class="helpHed">Descrição</td>
+			<td class="helpHed">Data de Criação</td>
+			<td class="helpHed">Última modificação</td>
 		</tr>
 
 		<c:forEach var="p" items="${dao.list}">
 			<tr style="cursor: pointer"
 				onclick="document.location='product-edit?product.id=${p.id}'">
-				<td class="helpBod">${p.code}</td>
+				<td class="helpBod">${p.id}</td>
 				<td class="helpBod">${p.name}</td>
+				<td class="helpBod">${p.description}</td>
+				<td class="helpBod">${p.creationDateString}</td>
+				<td class="helpBod">${p.modificationDateString}</td>
 			</tr>
 		</c:forEach>
 

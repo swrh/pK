@@ -9,12 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Product {
+public class Department {
 	@Id
 	@GeneratedValue
 	private int id;
 	private String name;
-	private String description;
 
 	private long creationDate;
 	private long modificationDate;
@@ -27,22 +26,14 @@ public class Product {
 		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getName() {
 		return name;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-	
 	public long getCreationDate() {
 		return creationDate;
 	}
