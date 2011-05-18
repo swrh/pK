@@ -12,7 +12,7 @@
 <table class="sofT">
 
 	<tr>
-		<td colspan="4" class="helpHed">Listagem de Representantes</td>
+		<td colspan="6" class="helpHed">Listagem de Representantes</td>
 	</tr>
 
 	<tr>
@@ -20,14 +20,18 @@
 		<td class="helpHed">Razão Social</td>
 		<td class="helpHed">Contato</td>
 		<td class="helpHed">Responsável</td>
+		<td class="helpHed">Data de Criação</td>
+		<td class="helpHed">Última modificação</td>
 	</tr>
 
-	<c:forEach var="rep" items="${dao.lista}">
-		<tr style="cursor:pointer" onclick="document.location='representanteSearch?representante.id=${rep.id}'">
-			<td class="helpBod">${rep.id}</td>
-			<td class="helpBod">${rep.razaosocial}</td>
-			<td class="helpBod">${rep.contato}</td>
-			<td class="helpBod">${rep.responsavel}</td>
+	<c:forEach var="i" items="${dao.lista}">
+		<tr style="cursor:pointer" onclick="document.location='representanteSearch?representante.id=${i.id}'">
+			<td class="helpBod">${i.id}</td>
+			<td class="helpBod">${i.razaosocial}</td>
+			<td class="helpBod">${i.contato}</td>
+			<td class="helpBod">${i.responsavel}</td>
+			<td class="helpBod">${i.creationDateString}</td>
+			<td class="helpBod">${i.modificationDateString}</td>
 		</tr>
 	</c:forEach>
 

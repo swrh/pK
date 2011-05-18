@@ -64,6 +64,20 @@ $(document).ready(function(){
         <div class="holder">Responsável:</div> 
         <input type="text" id="representante_responsavel" name="representante.responsavel" size="25" maxlength="40" value="${representante.responsavel}"/><br />
         
+		<div class="holder">Criação:</div>
+		<input type="text" id="representante_creationDate" name="representante.creationDate" size="25"
+			maxlength="40" value="${representante.creationDateString}" disabled="disabled" />
+		<input type="hidden" id="representante_creationDate" name="representante.creationDate"
+			value="${representante.creationDate}" />
+
+		<br />
+		<div class="holder">Última modificação:</div>
+		<input type="text" id="representante_modificationDate" name="representante.modificationDate" size="25"
+			maxlength="40" value="${representante.modificationDateString}" disabled="disabled" />
+		<input type="hidden" id="representante_modificationDate" name="representante.modificationDate"
+			value="${representante.modificationDate}" />
+
+		<br />
         <div class="holder"></div>
         <s:fielderror fieldName="representante.razaosocial"/>
         <s:fielderror fieldName="representante.contato"/>
