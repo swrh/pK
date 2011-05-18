@@ -16,7 +16,7 @@ public class ProductUpdateAction extends ActionSupport {
 
 	@Action(value = "product-update", results = {
 		@Result(name = SUCCESS, type = "redirect", location = "product-list"),
-		@Result(name = INPUT, type = "redirect", location = "product-edit"),
+		@Result(name = INPUT, location = "product-edit.jsp"),
 		@Result(name = ERROR, location = "error.jsp")
 	})
 	@Validations(requiredStrings = {
