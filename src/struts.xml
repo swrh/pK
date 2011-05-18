@@ -15,6 +15,10 @@
 			<result>/WEB-INF/content/product-new.jsp</result>
 		</action>
 
+		<action name="customer-new">
+			<result>/WEB-INF/content/customer-new.jsp</result>
+		</action>
+
 		<action name="forgot-password">
 			<result>/WEB-INF/content/forgot-password.jsp</result>
 		</action>

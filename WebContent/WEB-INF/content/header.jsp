@@ -25,30 +25,30 @@ function clearText(field)
     else if (field.value == '') field.value = field.defaultValue;
 }
 </script>
-<script language="javascript" type="text/javascript"> 
+<script language="javascript" type="text/javascript">
 $(document).ready(function(){
- 
+
 	$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
-	
+
 	$("ul.topnav li span").click(function() { //When trigger is clicked...
-		
+
 		//Following events are applied to the subnav itself (moving subnav up and down)
 		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
- 
+
 		$(this).parent().hover(function() {
-		}, function(){	
+		}, function(){
 			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
 		});
- 
+
 		//Following events are applied to the trigger (Hover events for the trigger)
-		}).hover(function() { 
+		}).hover(function() {
 			$(this).addClass("subhover"); //On hover over, add class "subhover"
 		}, function(){	//On Hover Out
 			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
 	});
- 
+
 });
-</script> 
+</script>
 <!-- Image Showcase Invoke End -->
 </head>
 <!-- Head End -->
@@ -64,35 +64,35 @@ $(document).ready(function(){
             </div>
     <!-- Logo End -->
     <!-- Nav Menu -->
-    <div id="menu">            
-		<ul class="topnav"> 
-            <li><a href="#">Home</a></li> 
-            <li> 
-                <a href="#">Cadastros</a> 
-              <ul class="subnav"> 
-                    <li><a href="#">Clientes</a></li> 
-                    <li><a href="#">Departamentos</a></li> 
-                    <li><a href="#">Funcion&aacute;rios</a></li> 
-                    <li><a href="representantes">Representantes</a></li> 
-                    <li><a href="product-list">Produtos</a></li> 
-                    <li><a href="#">Status de Propostas</a></li> 
-                    <li><a href="#">Indica&ccedil;&otilde;es</a></li> 
-                    <li><a href="#">A&ccedil;&otilde;es</a></li> 
-                    <li><a href="#">Motivos Encerramento</a></li> 
-                </ul> 
-            </li> 
-          <li><a href="#">Prospects</a></li> 
-          <li><a href="#">Relat&oacute;rios</a></li> 
-          <li><a href="#">Op&ccedil;&otilde;es</a></li> 
-            <li><a href="#">Logout</a></li> 
-        </ul> 
-	</div>            
+    <div id="menu">
+		<ul class="topnav">
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#">Cadastros</a>
+              <ul class="subnav">
+                    <li><a href="customer-list">Clientes</a></li>
+                    <li><a href="#">Departamentos</a></li>
+                    <li><a href="#">Funcion&aacute;rios</a></li>
+                    <li><a href="representantes">Representantes</a></li>
+                    <li><a href="product-list">Produtos</a></li>
+                    <li><a href="#">Status de Propostas</a></li>
+                    <li><a href="#">Indica&ccedil;&otilde;es</a></li>
+                    <li><a href="#">A&ccedil;&otilde;es</a></li>
+                    <li><a href="#">Motivos Encerramento</a></li>
+                </ul>
+            </li>
+          <li><a href="#">Prospects</a></li>
+          <li><a href="#">Relat&oacute;rios</a></li>
+          <li><a href="#">Op&ccedil;&otilde;es</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+	</div>
       </div>
              <!-- Nav Menu End -->
              <!-- Image Showcase Embed -->
              <!-- Image Showcase Embed End -->
-             <!-- Begin Left Page Content -->		
+             <!-- Begin Left Page Content -->
 		     <div id="content_area">
              <div id="left">
-             
-             
+
+
