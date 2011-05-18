@@ -6,7 +6,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#product_name').focus();
+		$('#product_code').focus();
 
 		$('#btn_cancelar').click(function() {
 			$.fn.disable_form();
@@ -47,6 +47,7 @@
 	<fieldset>
 		<legend>Cadastro de Produtos</legend>
 		<form id="form" name="formRep" action="product-update" method="post">
+			<br />
 			<input type="hidden" id="product_id" name="product.id"
 				value="${product.id}" />
 

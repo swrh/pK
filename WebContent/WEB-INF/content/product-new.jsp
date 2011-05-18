@@ -6,7 +6,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#product_name').focus();
+		$('#product_code').focus();
 
 		$('#btn_cancelar').click(function() {
 			$.fn.disable_form();
@@ -43,15 +43,16 @@
 		<legend>Cadastro de Produtos</legend>
 		<form id="form" name="formRep" action="product-create" method="post">
 			<br />
-			<div class="holder">Código:</div>
-			<input type="text" id="product_id" name="product.id" size="5"
-				maxlength="3" disabled="disabled" /><br />
-			<div class="holder">Nome:</div>
-			<input type="text" id="product_name" name="product.name" size="25"
-				maxlength="40" /><br />
+			<input type="hidden" id="product_id" name="product.id"
+				value="${product.id}" />
+
 			<div class="holder">Código:</div>
 			<input type="text" id="product_code" name="product.code" size="14"
 				maxlength="14" /><br />
+
+			<div class="holder">Nome:</div>
+			<input type="text" id="product_name" name="product.name" size="25"
+				maxlength="40" /><br />
 
 			<div class="holder"></div>
 			<s:fielderror fieldName="product.name" />
