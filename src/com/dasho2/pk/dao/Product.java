@@ -9,23 +9,15 @@ public class Product {
 	@Id
 	@GeneratedValue
 	private int id;
-	private String name;
 	private String code;
-	
+	private String name;
+
 	public void setId(int id) {
 		this.id = id;
 	}
 	
 	public int getId() {
 		return id;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getName() {
-		return name;
 	}
 
 	public void setCode(String code) {
@@ -36,4 +28,12 @@ public class Product {
 		return code;
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
 }
