@@ -12,7 +12,7 @@ body {
 	line-height: 1.4em;
 	width: 100%;
 	display: table;
-	background: url(images/header.jpg) repeat-x;
+	/* background: url(images/header.jpg) repeat-x; */
 }	
 
 a:link, a:visited {	color: #1a8fd5; text-decoration: none; }
@@ -181,7 +181,7 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 .content_banner {
 	width: 578px;
 	height: 30px;
-	background:  url(../images/content_header.jpg) no-repeat;
+	/* background:  url(../images/content_header.jpg) no-repeat; */
 	border-left: 1px solid #000000;
 	border-right: 1px solid #000000;
 	font-size: 18px;
@@ -235,7 +235,7 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 .sidebar_banner {
 	width: 278px;
 	height: 30px;
-	background: url(../images/right_header.jpg);
+	/* background: url(../images/right_header.jpg); */
 	border-left: 1px solid #000000;
 	border-right: 1px solid #000000;	
 	font-size: 18px;

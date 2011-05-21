@@ -65,6 +65,17 @@
 	border-spacing: 0px;
 }
 
+#tabela th.helpHed {
+	border-bottom: 2px solid #6699CC;
+	border-left: 1px solid #6699CC;
+	background-color: #BEC8D1;
+	text-align: left;
+	text-indent: 5px;
+	font-weight: bold;
+	font-size: 14px;
+	color: #404040;
+}
+
 #tabela td.helpHed {
 	border-bottom: 2px solid #6699CC;
 	border-left: 1px solid #6699CC;

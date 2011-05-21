@@ -3,6 +3,9 @@
 
 <struts>
 	<package name="default" extends="struts-default">
+		<!-- Default interceptor stack. -->
+		<default-interceptor-ref name="paramsPrepareParamsStack"/>
+
 		<action name="representantes">
 			<result>/WEB-INF/content/listrepresentante.jsp</result>
 		</action>
@@ -29,6 +32,17 @@
 
 		<action name="home">
 			<result>/WEB-INF/content/menu.jsp</result>
+		</action>
+
+		<action name="indication-index" class="com.dasho2.pk.action.IndicationAction" method="list">
+			<result name="success">/WEB-INF/pages/indication-index.jsp</result>
+			<interceptor-ref name="basicStack"/>
+		</action>
+
+		<action name="indication-crud" class="com.dasho2.pk.action.IndicationAction" method="input">
+			<result name="success" type="redirectAction">indication-index</result>
+			<result name="input">/WEB-INF/pages/indication-form.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
 		</action>
 
 	</package>
