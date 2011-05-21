@@ -4,10 +4,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <s:if test="indication == null || indication.id == null">
-	<s:set name="title" value="Adicionar nova indicação" />
+	<s:set name="title" value="%{'Adicionar nova indicação'}" />
 </s:if>
 <s:else>
-	<s:set name="title" value="Atualizar indicação" />
+	<s:set name="title" value="%{'Atualizar indicação'}" />
 </s:else>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
