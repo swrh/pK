@@ -22,8 +22,11 @@ public class IndicationAction extends ActionSupport implements Preparable {
 
 	public String save() {
 		if (indication.getId() == null) {
+			indication.updateCreationDate();
+			indication.updateModificationDate();
 			service.insert(indication);
 		} else {
+			indication.updateModificationDate();
 			service.update(indication);
 		}
 		return SUCCESS;

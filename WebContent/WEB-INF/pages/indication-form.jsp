@@ -42,6 +42,9 @@
 							<s:textfield name="indication.partner" value="%{indication.partner}" label="Parceiro" size="40" />
 							<s:textfield name="indication.region" value="%{indication.region}" label="Região" size="40" />
 
+							<s:textfield name="indication.creationDateString" value="%{indication.creationDateString}" label="Criado em" size="40" disabled="true" />
+							<s:textfield name="indication.modificationDateString" value="%{indication.modificationDateString}" label="Modificado em" size="40" disabled="true" />
+
 							<s:submit id="btn_salvar" value="Salvar" />
 							<s:submit id="btn_apagar" value="Excluir" />
 							<s:submit id="btn_cancelar" value="Cancelar" />
