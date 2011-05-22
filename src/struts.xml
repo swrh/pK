@@ -14,10 +14,6 @@
 			<result>/WEB-INF/content/representante.jsp</result>
 		</action>
 
-		<action name="product-new">
-			<result>/WEB-INF/content/product-new.jsp</result>
-		</action>
-
 		<action name="department-new">
 			<result>/WEB-INF/content/department-new.jsp</result>
 		</action>
@@ -60,6 +56,17 @@
 		<action name="indication-crud" class="com.dasho2.pk.action.IndicationAction" method="input">
 			<result name="success" type="redirectAction">indication-index</result>
 			<result name="input">/WEB-INF/pages/indication-form.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
+		<action name="product-index" class="com.dasho2.pk.action.ProductAction" method="list">
+			<result name="success">/WEB-INF/pages/product-index.jsp</result>
+			<interceptor-ref name="basicStack"/>
+		</action>
+
+		<action name="product-crud" class="com.dasho2.pk.action.ProductAction" method="input">
+			<result name="success" type="redirectAction">product-index</result>
+			<result name="input">/WEB-INF/pages/product-form.jsp</result>
 			<result name="error">/WEB-INF/pages/error.jsp</result>
 		</action>
 

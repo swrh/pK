@@ -85,7 +85,7 @@
 		                    <li><a href="department-index">Departamentos</a></li>
 		                    <li><a href="#">Funcion&aacute;rios</a></li>
 		                    <li><a href="representantes">Representantes</a></li>
-		                    <li><a href="product-list">Produtos</a></li>
+		                    <li><a href="product-index">Produtos</a></li>
 		                    <li><a href="#">Status de Propostas</a></li>
 		                    <li><a href="indication-index">Indica&ccedil;&otilde;es</a></li>
 		                    <li><a href="#">A&ccedil;&otilde;es</a></li>
