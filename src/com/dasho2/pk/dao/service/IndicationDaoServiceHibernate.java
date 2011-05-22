@@ -13,7 +13,7 @@ public class IndicationDaoServiceHibernate implements IndicationDaoServiceInterf
 	public List<Indication> getAll() {
 		Session session = new HibernateUtil().getSession();
 
-		Query query = session.createQuery("SELECT i FROM Indication as i");
+		Query query = session.createQuery("SELECT indication FROM Indication as indication");
 		@SuppressWarnings("unchecked")
 		List<Indication> list = query.list();
 

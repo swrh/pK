@@ -13,20 +13,12 @@ public class Indication {
 	@Id
 	@GeneratedValue
 	private Integer id;
+
 	private String partner;
 	private String region;
 
 	private long creationDate;
 	private long modificationDate;
-
-	public Indication() {
-	}
-
-	public Indication(Integer id, String partner, String region) {
-		this.id = id;
-		this.partner = partner;
-		this.region = region;
-	}
 
 	public Integer getId() {
 		return id;
