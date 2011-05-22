@@ -1,0 +1,22 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+  <field name="customer.name">
+     <field-validator type="requiredstring">
+          <message key="É obrigatório preencher o nome do cliente" />
+      </field-validator>
+  </field>
+  <field name="customer.email">
+     <field-validator type="requiredstring">
+          <message key="É obrigatório preencher o e-mail do cliente" />
+      </field-validator>
+     <field-validator type="email">
+          <message key="Preencha o campo com um e-mail válido" />
+      </field-validator>
+  </field>
+  <field name="customer.phone">
+     <field-validator type="requiredstring">
+          <message key="É obrigatório preencher o telefone do cliente" />
+      </field-validator>
+  </field>
+</validators>
