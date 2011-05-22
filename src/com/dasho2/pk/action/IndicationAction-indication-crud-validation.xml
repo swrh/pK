@@ -3,12 +3,12 @@
 <validators>
   <field name="indication.partner">
      <field-validator type="requiredstring">
-          <message key="Falta o nome do parceiro" />
+          <message key="É obrigatório indicar o nome do parceiro" />
       </field-validator>
   </field>
   <field name="indication.region">
      <field-validator type="requiredstring">
-          <message key="Falta a região a ser indicada" />
+          <message key="É obrigatório indicar a região na qual o parceiro atua" />
       </field-validator>
   </field>
 </validators>
