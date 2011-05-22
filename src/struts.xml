@@ -6,16 +6,14 @@
 		<!-- Default interceptor stack. -->
 		<default-interceptor-ref name="paramsPrepareParamsStack"/>
 
-		<action name="department-new">
-			<result>/WEB-INF/content/department-new.jsp</result>
-		</action>
-
 		<action name="forgot-password">
 			<result>/WEB-INF/content/forgot-password.jsp</result>
+			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="home">
-			<result>/WEB-INF/content/menu.jsp</result>
+			<result>/WEB-INF/pages/home.jsp</result>
+			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="customer-index" class="com.dasho2.pk.action.CustomerAction" method="list">
