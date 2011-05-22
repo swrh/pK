@@ -4,11 +4,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
-import com.dasho2.pk.dao.Department;
 import com.dasho2.pk.dao.Product;
 import com.dasho2.pk.dao.Representante;
 import com.dasho2.pk.dao.User;
 import com.dasho2.pk.dao.entity.Customer;
+import com.dasho2.pk.dao.entity.Department;
 import com.dasho2.pk.dao.entity.Indication;
 
 public class HibernateUtil {
