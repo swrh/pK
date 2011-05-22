@@ -51,7 +51,8 @@
                 debug="${compile.debug}"
                 deprecation="${compile.deprecation}"
                 optimize="${compile.optimize}"
-                 source="1.5" target="1.5">
+                source="1.5" target="1.5"
+        		includeantruntime="no">
 
             <classpath>
                 <path>

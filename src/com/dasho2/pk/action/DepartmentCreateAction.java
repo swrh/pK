@@ -19,7 +19,7 @@ public class DepartmentCreateAction extends ActionSupport{
 		@Result(name = ERROR, location = "error.jsp")
 	})
 	@Validations(requiredStrings = {
-		@RequiredStringValidator(fieldName = "department.name", message = "Preencha o nome.", trim = true),
+		@RequiredStringValidator(fieldName = "department.name", message = "Preencha o nome.", trim = true)
 	})
 	public String execute(){
 		DepartmentDAO dao = new DepartmentDAO();
