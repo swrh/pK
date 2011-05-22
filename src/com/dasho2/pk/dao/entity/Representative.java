@@ -1,4 +1,4 @@
-package com.dasho2.pk.dao;
+package com.dasho2.pk.dao.entity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -9,42 +9,50 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Representante {
+public class Representative {
 	@Id
 	@GeneratedValue
-	private int id;
-	private String razaosocial;
-	private String contato;
-	private String responsavel;
-	
+	private Integer id;
+
+	private String companyName;
+	private String contactName;
+	private String responsibleName;
+
 	private long creationDate;
 	private long modificationDate;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getRazaosocial() {
-		return razaosocial;
+
+	public String getCompanyName() {
+		return companyName;
 	}
-	public void setRazaosocial(String razaosocial) {
-		this.razaosocial = razaosocial;
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
-	public String getContato() {
-		return contato;
+
+	public String getContactName() {
+		return contactName;
 	}
-	public void setContato(String contato) {
-		this.contato = contato;
+
+	public void setContactName(String contactName) {
+		this.contactName = contactName;
 	}
-	public String getResponsavel() {
-		return responsavel;
+
+	public String getResponsibleName() {
+		return responsibleName;
 	}
-	public void setResponsavel(String responsavel) {
-		this.responsavel = responsavel;
+
+	public void setResponsibleName(String responsibleName) {
+		this.responsibleName = responsibleName;
 	}
-	
+
 	public long getCreationDate() {
 		return creationDate;
 	}

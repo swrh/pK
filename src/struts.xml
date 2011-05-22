@@ -6,14 +6,6 @@
 		<!-- Default interceptor stack. -->
 		<default-interceptor-ref name="paramsPrepareParamsStack"/>
 
-		<action name="representantes">
-			<result>/WEB-INF/content/listrepresentante.jsp</result>
-		</action>
-
-		<action name="representanteNew">
-			<result>/WEB-INF/content/representante.jsp</result>
-		</action>
-
 		<action name="department-new">
 			<result>/WEB-INF/content/department-new.jsp</result>
 		</action>
@@ -67,6 +59,17 @@
 		<action name="product-crud" class="com.dasho2.pk.action.ProductAction" method="input">
 			<result name="success" type="redirectAction">product-index</result>
 			<result name="input">/WEB-INF/pages/product-form.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
+		<action name="representative-index" class="com.dasho2.pk.action.RepresentativeAction" method="list">
+			<result name="success">/WEB-INF/pages/representative-index.jsp</result>
+			<interceptor-ref name="basicStack"/>
+		</action>
+
+		<action name="representative-crud" class="com.dasho2.pk.action.RepresentativeAction" method="input">
+			<result name="success" type="redirectAction">representative-index</result>
+			<result name="input">/WEB-INF/pages/representative-form.jsp</result>
 			<result name="error">/WEB-INF/pages/error.jsp</result>
 		</action>
 
