@@ -15,7 +15,7 @@ public class Customer {
 	private Integer id;
 
 	private String name;
-	private String reason;
+	private String companyName;
 	private String cnpj;
 	private String ie;
 
@@ -51,12 +51,12 @@ public class Customer {
 		this.name = name;
 	}
 
-	public String getReason() {
-		return reason;
+	public String getCompanyName() {
+		return companyName;
 	}
 
-	public void setReason(String reason) {
-		this.reason = reason;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
 	public String getCnpj() {

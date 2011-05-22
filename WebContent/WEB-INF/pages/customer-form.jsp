@@ -40,7 +40,7 @@
 
 							<s:textfield name="customer.id"                        value="%{customer.id}"                        label="Código"         size="20" disabled="true" />
 							<s:textfield name="customer.name"                      value="%{customer.name}"                      label="Nome"           size="40" />
-							<s:textfield name="customer.reason"                    value="%{customer.reason}"                    label="Razão Social"   size="40" />
+							<s:textfield name="customer.companyName"               value="%{customer.companyName}"               label="Razão Social"   size="40" />
 							<s:textfield name="customer.cnpj"                      value="%{customer.cnpj}"                      label="CNPJ"           size="40" />
 							<s:textfield name="customer.ie"                        value="%{customer.ie}"                        label="I.E."           size="40" />
 							<s:textfield name="customer.email"                     value="%{customer.email}"                     label="E-mail"         size="40" />

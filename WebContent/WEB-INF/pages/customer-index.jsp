@@ -46,7 +46,7 @@
 								<tr style="cursor: pointer" onclick="document.location='<s:property value="#editUrl"/>'">
 									<td class="helpBod"><s:property value="id" /></td>
 									<td class="helpBod"><s:property value="name" /></td>
-									<td class="helpBod"><s:property value="reason" /></td>
+									<td class="helpBod"><s:property value="companyName" /></td>
 									<td class="helpBod"><s:property value="email" /></td>
 									<td class="helpBod"><s:property value="phone" /></td>
 									<td class="helpBod"><s:property value="mobile" /></td>
