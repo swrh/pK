@@ -1,4 +1,4 @@
-package com.dasho2.pk.dao;
+package com.dasho2.pk.dao.entity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -12,7 +12,8 @@ import javax.persistence.Id;
 public class Customer {
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
+
 	private String name;
 	private String reason;
 	private String cnpj;
@@ -34,12 +35,12 @@ public class Customer {
 	private long creationDate;
 	private long modificationDate;
 
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public int getId() {
+	public Integer getId() {
 		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {

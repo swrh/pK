@@ -18,10 +18,6 @@
 			<result>/WEB-INF/content/product-new.jsp</result>
 		</action>
 
-		<action name="customer-new">
-			<result>/WEB-INF/content/customer-new.jsp</result>
-		</action>
-
 		<action name="department-new">
 			<result>/WEB-INF/content/department-new.jsp</result>
 		</action>
@@ -32,6 +28,17 @@
 
 		<action name="home">
 			<result>/WEB-INF/content/menu.jsp</result>
+		</action>
+
+		<action name="customer-index" class="com.dasho2.pk.action.CustomerAction" method="list">
+			<result name="success">/WEB-INF/pages/customer-index.jsp</result>
+			<interceptor-ref name="basicStack"/>
+		</action>
+
+		<action name="customer-crud" class="com.dasho2.pk.action.CustomerAction" method="input">
+			<result name="success" type="redirectAction">customer-index</result>
+			<result name="input">/WEB-INF/pages/customer-form.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
 		</action>
 
 		<action name="indication-index" class="com.dasho2.pk.action.IndicationAction" method="list">

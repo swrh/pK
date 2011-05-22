@@ -13,7 +13,7 @@
 						<li><a href="home">Home</a></li>
 						<li><a href="#">Cadastros</a>
 							<ul class="subnav">
-			                    <li><a href="customer-list">Clientes</a></li>
+			                    <li><a href="customer-index">Clientes</a></li>
 			                    <li><a href="department-list">Departamentos</a></li>
 			                    <li><a href="#">Funcion&aacute;rios</a></li>
 			                    <li><a href="representantes">Representantes</a></li>
