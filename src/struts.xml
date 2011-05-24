@@ -49,6 +49,12 @@
 			<result name="error">/WEB-INF/pages/error.jsp</result>
 		</action>
 
+		<action name="employeePassword-update" class="com.dasho2.pk.action.EmployeePasswordAction" method="input">
+			<result name="success" type="redirectAction">employee-index</result>
+			<result name="input">/WEB-INF/pages/employeePassword-form.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
 		<action name="finishingReason-index" class="com.dasho2.pk.action.FinishingReasonAction" method="list">
 			<result name="success">/WEB-INF/pages/finishingReason-index.jsp</result>
 			<interceptor-ref name="basicStack"/>

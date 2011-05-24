@@ -20,6 +20,7 @@ public class EmployeeAction extends ActionSupport implements Preparable {
 	private List<Department> departments;
 	private List<Representative> representatives;
 	private Employee employee;
+	private String changePassword, confirmChangePassword;
 	private static EmployeeDaoServiceInterface service = new EmployeeDaoServiceHibernate();
 	private static DepartmentDaoServiceInterface departmentService = new DepartmentDaoServiceHibernate();
 	private static RepresentativeDaoServiceInterface representativeService = new RepresentativeDaoServiceHibernate();
@@ -58,12 +59,32 @@ public class EmployeeAction extends ActionSupport implements Preparable {
 		return INPUT;
 	}
 
+	public String password() {
+		return INPUT;
+	}
+
 	public Employee getEmployee() {
 		return employee;
 	}
 
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+
+	public String getChangePassword() {
+		return changePassword;
+	}
+
+	public void setChangePassword(String changePassword) {
+		this.changePassword = changePassword;
+	}
+
+	public String getConfirmChangePassword() {
+		return confirmChangePassword;
+	}
+
+	public void setConfirmChangePassword(String confirmChangePassword) {
+		this.confirmChangePassword = confirmChangePassword;
 	}
 
 	public List<Employee> getEmployees() {
