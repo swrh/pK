@@ -23,7 +23,7 @@
 					<s:fielderror fieldName="user.login" />
 					<s:fielderror fieldName="user.password" />
 					<s:fielderror fieldName="user.invalid" />
-					<div class="holder"><input type="submit" value="Login" /></div>
+					<div class="cssbutton sample a"><input type="submit" value="Login" /></div>
 				</form>
 			</fieldset>
 		</div>
