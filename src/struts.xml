@@ -6,16 +6,14 @@
 		<!-- Default interceptor stack. -->
 		<default-interceptor-ref name="paramsPrepareParamsStack"/>
 
-		<action name="department-new">
-			<result>/WEB-INF/content/department-new.jsp</result>
-		</action>
-
 		<action name="forgot-password">
 			<result>/WEB-INF/content/forgot-password.jsp</result>
+			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="home">
-			<result>/WEB-INF/content/menu.jsp</result>
+			<result>/WEB-INF/pages/home.jsp</result>
+			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="customer-index" class="com.dasho2.pk.action.CustomerAction" method="list">
@@ -40,6 +38,17 @@
 			<result name="error">/WEB-INF/pages/error.jsp</result>
 		</action>
 
+		<action name="finishingReason-index" class="com.dasho2.pk.action.FinishingReasonAction" method="list">
+			<result name="success">/WEB-INF/pages/finishingReason-index.jsp</result>
+			<interceptor-ref name="basicStack"/>
+		</action>
+
+		<action name="finishingReason-crud" class="com.dasho2.pk.action.FinishingReasonAction" method="input">
+			<result name="success" type="redirectAction">finishingReason-index</result>
+			<result name="input">/WEB-INF/pages/finishingReason-form.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
 		<action name="indication-index" class="com.dasho2.pk.action.IndicationAction" method="list">
 			<result name="success">/WEB-INF/pages/indication-index.jsp</result>
 			<interceptor-ref name="basicStack"/>
@@ -59,6 +68,17 @@
 		<action name="product-crud" class="com.dasho2.pk.action.ProductAction" method="input">
 			<result name="success" type="redirectAction">product-index</result>
 			<result name="input">/WEB-INF/pages/product-form.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
+		<action name="proposalStatus-index" class="com.dasho2.pk.action.ProposalStatusAction" method="list">
+			<result name="success">/WEB-INF/pages/proposalStatus-index.jsp</result>
+			<interceptor-ref name="basicStack"/>
+		</action>
+
+		<action name="proposalStatus-crud" class="com.dasho2.pk.action.ProposalStatusAction" method="input">
+			<result name="success" type="redirectAction">proposalStatus-index</result>
+			<result name="input">/WEB-INF/pages/proposalStatus-form.jsp</result>
 			<result name="error">/WEB-INF/pages/error.jsp</result>
 		</action>
 

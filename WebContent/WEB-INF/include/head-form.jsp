@@ -8,7 +8,7 @@
 			});
 		
 			$(document).ready(function() {
-		        $('input:#btn_cancelar').click(function(e) {
+				$('input:#btn_cancelar').click(function(e) {
 					e.preventDefault();
 					$.fn.disable_form();
 					$.fn.clear_form();

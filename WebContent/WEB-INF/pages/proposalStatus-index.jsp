@@ -19,26 +19,32 @@
 
 					<br />
 					<div id="tabela">
-						<s:url id="createUrl" action="product-crud!input" />
-						<a href="<s:property value="#createUrl" />" class="linknew">Criar Nova Produto</a>
+						<s:url id="createUrl" action="proposalStatus-crud!input" />
+						<a href="<s:property value="#createUrl" />" class="linknew">Criar Novo Estado de Proposta</a>
 						<br />
 						<br />
-							<h1>Listagem de Produtos</h1>
+							<h1>Listagem de Estados de Proposta</h1>
 						<br />
 						<table class="sofT">
 							<tr>
 								<th class="helpHed">Código</th>
 								<th class="helpHed">Nome</th>
+								<th class="helpHed">Fechamento</th>
 								<th class="helpHed">Criado em</th>
 								<th class="helpHed">Modificado em</th>
 							</tr>
-							<s:iterator value="products" status="status">
-								<s:url action="product-crud!input" id="editUrl">
-									<s:param name="product.id" value="id" />
+							<s:iterator value="proposalStatuss" status="status">
+								<s:url action="proposalStatus-crud!input" id="editUrl">
+									<s:param name="proposalStatus.id" value="id" />
 								</s:url>
 								<tr style="cursor: pointer" onclick="document.location='<s:property value="#editUrl"/>'">
 									<td class="helpBod"><s:property value="id" /></td>
 									<td class="helpBod"><s:property value="name" /></td>
+									<td class="helpBod">
+										<s:if test="finishing">
+											x
+										</s:if>
+									</td>
 									<td class="helpBod"><s:property value="creationDateString" /></td>
 									<td class="helpBod"><s:property value="modificationDateString" /></td>
 								</tr>

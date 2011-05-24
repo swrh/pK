@@ -19,11 +19,11 @@
 
 					<br />
 					<div id="tabela">
-						<s:url id="createUrl" action="product-crud!input" />
-						<a href="<s:property value="#createUrl" />" class="linknew">Criar Nova Produto</a>
+						<s:url id="createUrl" action="finishingReason-crud!input" />
+						<a href="<s:property value="#createUrl" />" class="linknew">Criar Novo Motivo de Encerramento</a>
 						<br />
 						<br />
-							<h1>Listagem de Produtos</h1>
+							<h1>Listagem de Motivos de Encerramento</h1>
 						<br />
 						<table class="sofT">
 							<tr>
@@ -32,9 +32,9 @@
 								<th class="helpHed">Criado em</th>
 								<th class="helpHed">Modificado em</th>
 							</tr>
-							<s:iterator value="products" status="status">
-								<s:url action="product-crud!input" id="editUrl">
-									<s:param name="product.id" value="id" />
+							<s:iterator value="finishingReasons" status="status">
+								<s:url action="finishingReason-crud!input" id="editUrl">
+									<s:param name="finishingReason.id" value="id" />
 								</s:url>
 								<tr style="cursor: pointer" onclick="document.location='<s:property value="#editUrl"/>'">
 									<td class="helpBod"><s:property value="id" /></td>

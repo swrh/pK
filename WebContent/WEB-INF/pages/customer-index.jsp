@@ -6,7 +6,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<jsp:include page="../include/head.jsp" />
-		<jsp:include page="../include/head-index.jsp" />
 	</head>
 
 	<body>
