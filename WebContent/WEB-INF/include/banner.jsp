@@ -15,7 +15,7 @@
 							<ul class="subnav">
 								<li><a href="customer-index">Clientes</a></li>
 								<li><a href="department-index">Departamentos</a></li>
-								<li><a href="#">Funcion&aacute;rios</a></li>
+								<li><a href="employee-index">Funcion&aacute;rios</a></li>
 								<li><a href="representative-index">Representantes</a></li>
 								<li><a href="product-index">Produtos</a></li>
 								<li><a href="proposalStatus-index">Status de Propostas</a></li>

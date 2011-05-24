@@ -38,6 +38,17 @@
 			<result name="error">/WEB-INF/pages/error.jsp</result>
 		</action>
 
+		<action name="employee-index" class="com.dasho2.pk.action.EmployeeAction" method="list">
+			<result name="success">/WEB-INF/pages/employee-index.jsp</result>
+			<interceptor-ref name="basicStack"/>
+		</action>
+
+		<action name="employee-crud" class="com.dasho2.pk.action.EmployeeAction" method="input">
+			<result name="success" type="redirectAction">employee-index</result>
+			<result name="input">/WEB-INF/pages/employee-form.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
 		<action name="finishingReason-index" class="com.dasho2.pk.action.FinishingReasonAction" method="list">
 			<result name="success">/WEB-INF/pages/finishingReason-index.jsp</result>
 			<interceptor-ref name="basicStack"/>
