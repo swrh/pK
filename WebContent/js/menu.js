@@ -2,6 +2,10 @@
  * Script for the navigation menu.
  */
 $(document).ready(function() {
+	
+	$('#btn_salvar').wrap('<div class="cssbutton sample a"></div>');
+	$('#btn_apagar').wrap('<div class="cssbutton sample a"></div>');
+	$('#btn_cancelar').wrap('<div class="cssbutton sample a"></div>');
 
 	$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
 
