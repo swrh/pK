@@ -20,7 +20,7 @@
 								<li><a href="product-index">Produtos</a></li>
 								<li><a href="proposalStatus-index">Status de Propostas</a></li>
 								<li><a href="indication-index">Indica&ccedil;&otilde;es</a></li>
-								<li><a href="#">A&ccedil;&otilde;es</a></li>
+								<li><a href="operation-index">A&ccedil;&otilde;es</a></li>
 								<li><a href="finishingReason-index">Motivos Encerramento</a></li>
 							</ul>
 						</li>
