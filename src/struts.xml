@@ -60,6 +60,17 @@
 			<result name="error">/WEB-INF/pages/error.jsp</result>
 		</action>
 
+		<action name="proposalStatus-index" class="com.dasho2.pk.action.ProposalStatusAction" method="list">
+			<result name="success">/WEB-INF/pages/proposalStatus-index.jsp</result>
+			<interceptor-ref name="basicStack"/>
+		</action>
+
+		<action name="proposalStatus-crud" class="com.dasho2.pk.action.ProposalStatusAction" method="input">
+			<result name="success" type="redirectAction">proposalStatus-index</result>
+			<result name="input">/WEB-INF/pages/proposalStatus-form.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
 		<action name="representative-index" class="com.dasho2.pk.action.RepresentativeAction" method="list">
 			<result name="success">/WEB-INF/pages/representative-index.jsp</result>
 			<interceptor-ref name="basicStack"/>

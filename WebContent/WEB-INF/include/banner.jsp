@@ -18,7 +18,7 @@
 								<li><a href="#">Funcion&aacute;rios</a></li>
 								<li><a href="representative-index">Representantes</a></li>
 								<li><a href="product-index">Produtos</a></li>
-								<li><a href="#">Status de Propostas</a></li>
+								<li><a href="proposalStatus-index">Status de Propostas</a></li>
 								<li><a href="indication-index">Indica&ccedil;&otilde;es</a></li>
 								<li><a href="#">A&ccedil;&otilde;es</a></li>
 								<li><a href="#">Motivos Encerramento</a></li>
