@@ -21,7 +21,7 @@
 								<li><a href="proposalStatus-index">Status de Propostas</a></li>
 								<li><a href="indication-index">Indica&ccedil;&otilde;es</a></li>
 								<li><a href="#">A&ccedil;&otilde;es</a></li>
-								<li><a href="#">Motivos Encerramento</a></li>
+								<li><a href="finishingReason-index">Motivos Encerramento</a></li>
 							</ul>
 						</li>
 						<li><a href="#">Prospects</a></li>
