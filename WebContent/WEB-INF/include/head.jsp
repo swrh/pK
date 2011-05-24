@@ -6,6 +6,10 @@
 
 		<link rel="stylesheet" type="text/css" href="<s:url value='/css/style_sheet.css' />" />
 		<link rel="stylesheet" type="text/css" href="<s:url value='/css/general.css' />" />
+		
+		<link rel="stylesheet" type="text/css" href="<s:url value='/css/cssbuttons/cssbuttons.css' />" />
+		<link rel="stylesheet" type="text/css" href="<s:url value='/css/cssbuttons/skins/sample/sample.css' />" />
+		
 		<link rel="shortcut icon" href="<s:url value='/favicon.ico' />" />
 
 		<script language="javascript" type="text/javascript" src="<s:url value='/js/jquery-1.5.2.min.js' />"></script>
