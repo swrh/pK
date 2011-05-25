@@ -17,6 +17,7 @@
 			<jsp:param name="cancelUrl" value="prospecting-index" />
 			<jsp:param name="deleteUrl" value="prospecting-crud!delete?prospecting.id=${prospecting.id}" />
 		</jsp:include>
+		<script language="javascript" type="text/javascript" src="<s:url value='/js/prospect.js' />"></script>
 	</head>
 
 	<body>
@@ -55,6 +56,42 @@
 					</div>
 
 				</div>
+				
+				<!-- Right menu  -->
+				
+				<div id="right">
+            	<div class="sidebar">
+                	<div class="sidebar_banner">
+                    Histórico
+                    </div>
+                    <div class="sidebar_content">
+	                    <div id="#history">
+
+							<div id="historydata">
+								<table>
+									<tr id="nohistory">
+										<td>Sem histórico</td>
+									</tr>
+								</table>
+							</div>
+							
+							<a href="#" id="new_hist_link"><img src="<s:url value='/images/add.png' />" alt="Adiciona novo histórico de contato" /></a>
+							
+							<div id="new_hist">
+								Novo Item de Histórico<br/>
+								<textarea rows="5" cols="37" id="history_text"></textarea><br/>
+								<a href="#" id="new_hist_ok"><img src="<s:url value='/images/ok.png' />" alt="Salva histórico de contato" /></a><a href="#" id="new_hist_cancel"><img src="<s:url value='/images/cancel.png' />" alt="Cancela operação" /></a>
+							</div>
+							
+						</div>
+                    </div>
+				</div>
+                   
+                </div>
+				
+				<!--  Right menu -->
+				
+				
 			</div>
 			<div class="cleaner"></div>
 			<div id="footer_background">

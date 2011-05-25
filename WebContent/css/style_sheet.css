@@ -26,7 +26,7 @@ p {
 
 h1 {
 	font-size: 18px;
-	color: #999;
+	color: #fff;
 	margin: 0 0 10px 0;
 }
 
@@ -169,7 +169,7 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 }
 
 #left {
-	width: 600px;
+	width: 500px;
 	float: left;
 }
 
@@ -225,6 +225,8 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 #right {
 	float: right;
 	width: 300px;	
+	padding-right: 30px;
+	padding-top: 15px;
 }
 
 .sidebar {
@@ -237,7 +239,9 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 	height: 30px;
 	/* background: url(../images/right_header.jpg); */
 	border-left: 1px solid #000000;
-	border-right: 1px solid #000000;	
+	border-right: 1px solid #000000;
+	border-top: 1px solid #000000;
+	font-weight: bolder;
 	font-size: 18px;
 	color: #ffffff;
 	padding: 10px 0 0 20px;
