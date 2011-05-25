@@ -29,8 +29,6 @@
 							<tr>
 								<th class="helpHed">Código</th>
 								<th class="helpHed">Nome</th>
-								<th class="helpHed">Criado em</th>
-								<th class="helpHed">Modificado em</th>
 							</tr>
 							<s:iterator value="finishingReasons" status="status">
 								<s:url action="finishingReason-crud!input" id="editUrl">
@@ -39,8 +37,6 @@
 								<tr style="cursor: pointer" onclick="document.location='<s:property value="#editUrl"/>'">
 									<td class="helpBod"><s:property value="id" /></td>
 									<td class="helpBod"><s:property value="name" /></td>
-									<td class="helpBod"><s:property value="creationDateString" /></td>
-									<td class="helpBod"><s:property value="modificationDateString" /></td>
 								</tr>
 							</s:iterator>
 						</table>

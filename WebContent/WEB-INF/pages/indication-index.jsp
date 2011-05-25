@@ -30,8 +30,6 @@
 								<th class="helpHed">Código</th>
 								<th class="helpHed">Parceiro</th>
 								<th class="helpHed">Região</th>
-								<th class="helpHed">Criado em</th>
-								<th class="helpHed">Modificado em</th>
 							</tr>
 							<s:iterator value="indications" status="status">
 								<s:url action="indication-crud!input" id="editUrl">
@@ -41,8 +39,6 @@
 									<td class="helpBod"><s:property value="id" /></td>
 									<td class="helpBod"><s:property value="partner" /></td>
 									<td class="helpBod"><s:property value="region" /></td>
-									<td class="helpBod"><s:property value="creationDateString" /></td>
-									<td class="helpBod"><s:property value="modificationDateString" /></td>
 								</tr>
 							</s:iterator>
 						</table>

@@ -31,8 +31,6 @@
 								<th class="helpHed">Razão Social</th>
 								<th class="helpHed">Contato</th>
 								<th class="helpHed">Responsável</th>
-								<th class="helpHed">Criado em</th>
-								<th class="helpHed">Modificado em</th>
 							</tr>
 							<s:iterator value="representatives" status="status">
 								<s:url action="representative-crud!input" id="editUrl">
@@ -43,8 +41,6 @@
 									<td class="helpBod"><s:property value="companyName" /></td>
 									<td class="helpBod"><s:property value="contactName" /></td>
 									<td class="helpBod"><s:property value="responsibleName" /></td>
-									<td class="helpBod"><s:property value="creationDateString" /></td>
-									<td class="helpBod"><s:property value="modificationDateString" /></td>
 								</tr>
 							</s:iterator>
 						</table>

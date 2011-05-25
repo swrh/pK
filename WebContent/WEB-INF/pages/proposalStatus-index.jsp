@@ -30,8 +30,6 @@
 								<th class="helpHed">Código</th>
 								<th class="helpHed">Nome</th>
 								<th class="helpHed">Fechamento</th>
-								<th class="helpHed">Criado em</th>
-								<th class="helpHed">Modificado em</th>
 							</tr>
 							<s:iterator value="proposalStatuss" status="status">
 								<s:url action="proposalStatus-crud!input" id="editUrl">
@@ -45,8 +43,6 @@
 											x
 										</s:if>
 									</td>
-									<td class="helpBod"><s:property value="creationDateString" /></td>
-									<td class="helpBod"><s:property value="modificationDateString" /></td>
 								</tr>
 							</s:iterator>
 						</table>

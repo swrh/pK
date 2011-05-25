@@ -35,8 +35,6 @@
 								<th class="helpHed">Celular</th>
 								<th class="helpHed">Cidade</th>
 								<th class="helpHed">Estado</th>
-								<th class="helpHed">Criado em</th>
-								<th class="helpHed">Modificado em</th>
 							</tr>
 							<s:iterator value="customers" status="status">
 								<s:url action="customer-crud!input" id="editUrl">
@@ -51,8 +49,6 @@
 									<td class="helpBod"><s:property value="mobile" /></td>
 									<td class="helpBod"><s:property value="city" /></td>
 									<td class="helpBod"><s:property value="state" /></td>
-									<td class="helpBod"><s:property value="creationDateString" /></td>
-									<td class="helpBod"><s:property value="modificationDateString" /></td>
 								</tr>
 							</s:iterator>
 						</table>

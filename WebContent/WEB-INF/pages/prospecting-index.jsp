@@ -34,7 +34,6 @@
 								<th class="helpHed">Proposta</th>
 								<th class="helpHed">Cliente</th>
 								<th class="helpHed">Motivo de Encerramento</th>
-								<th class="helpHed">Modificado em</th>
 							</tr>
 							<s:iterator value="prospectings" status="status">
 								<s:url action="prospecting-crud!input" id="editUrl">
@@ -48,7 +47,6 @@
 									<td class="helpBod"><s:property value="proposalStatus.name" /></td>
 									<td class="helpBod"><s:property value="customer.name" /></td>
 									<td class="helpBod"><s:property value="finishingReason.name" /></td>
-									<td class="helpBod"><s:property value="modificationDateString" /></td>
 								</tr>
 							</s:iterator>
 						</table>

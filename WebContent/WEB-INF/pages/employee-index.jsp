@@ -32,8 +32,6 @@
 								<th class="helpHed">E-mail</th>
 								<th class="helpHed">Departamento</th>
 								<th class="helpHed">Representante</th>
-								<th class="helpHed">Criado em</th>
-								<th class="helpHed">Modificado em</th>
 							</tr>
 							<s:iterator value="employees" status="status">
 								<s:url action="employee-crud!input" id="editUrl">
@@ -45,8 +43,6 @@
 									<td class="helpBod"><s:property value="email" /></td>
 									<td class="helpBod"><s:property value="department.name" /></td>
 									<td class="helpBod"><s:property value="representative.companyName" /></td>
-									<td class="helpBod"><s:property value="creationDateString" /></td>
-									<td class="helpBod"><s:property value="modificationDateString" /></td>
 								</tr>
 							</s:iterator>
 						</table>
