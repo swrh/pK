@@ -29,7 +29,6 @@ public class Customer {
 	private String neighborhood;
 	private String city;
 	private String state;
-	private String country;
 	private String zipCode;
 
 	private long creationDate;
@@ -137,14 +136,6 @@ public class Customer {
 
 	public void setState(String state) {
 		this.state = state;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
 	}
 
 	public String getZipCode() {

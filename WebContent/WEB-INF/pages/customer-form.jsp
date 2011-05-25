@@ -51,7 +51,6 @@
 							<s:textfield name="customer.neighborhood"              value="%{customer.neighborhood}"              label="Bairro"         size="40" />
 							<s:textfield name="customer.city"                      value="%{customer.city}"                      label="Cidade"         size="40" />
 							<s:textfield name="customer.state"                     value="%{customer.state}"                     label="Estado"         size="40" />
-							<s:textfield name="customer.country"                   value="%{customer.country}"                   label="País"           size="40" />
 							<s:textfield name="customer.zipCode"                   value="%{customer.zipCode}"                   label="CEP"            size="40" />
 							<s:textfield name="customer.creationDateString"        value="%{customer.creationDateString}"        label="Criado em"      size="40" disabled="true" />
 							<s:textfield name="customer.modificationDateString"    value="%{customer.modificationDateString}"    label="Modificado em"  size="40" disabled="true" />
