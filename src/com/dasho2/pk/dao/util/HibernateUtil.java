@@ -13,6 +13,7 @@ import com.dasho2.pk.dao.entity.Indication;
 import com.dasho2.pk.dao.entity.Operation;
 import com.dasho2.pk.dao.entity.Product;
 import com.dasho2.pk.dao.entity.ProposalStatus;
+import com.dasho2.pk.dao.entity.Prospecting;
 import com.dasho2.pk.dao.entity.Representative;
 
 public class HibernateUtil {
@@ -29,6 +30,7 @@ public class HibernateUtil {
 		cfg.addAnnotatedClass(Operation.class);
 		cfg.addAnnotatedClass(Product.class);
 		cfg.addAnnotatedClass(ProposalStatus.class);
+		cfg.addAnnotatedClass(Prospecting.class);
 		cfg.addAnnotatedClass(Representative.class);
 		cfg.addAnnotatedClass(User.class);
 		factory = cfg.buildSessionFactory();

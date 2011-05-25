@@ -121,6 +121,17 @@
 			<result name="error">/WEB-INF/pages/error.jsp</result>
 		</action>
 
+		<action name="prospecting-index" class="com.dasho2.pk.action.ProspectingAction" method="list">
+			<result name="success">/WEB-INF/pages/prospecting-index.jsp</result>
+			<interceptor-ref name="basicStack"/>
+		</action>
+
+		<action name="prospecting-crud" class="com.dasho2.pk.action.ProspectingAction" method="input">
+			<result name="success" type="redirectAction">prospecting-index</result>
+			<result name="input">/WEB-INF/pages/prospecting-form.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
 	</package>
 
 </struts>

@@ -24,7 +24,7 @@
 								<li><a href="finishingReason-index">Motivos Encerramento</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Prospects</a></li>
+						<li><a href="prospecting-index">Prospecções</a></li>
 						<li><a href="#">Relat&oacute;rios</a></li>
 						<li><a href="#">Op&ccedil;&otilde;es</a></li>
 						<li><a href="#">Logout</a></li>
