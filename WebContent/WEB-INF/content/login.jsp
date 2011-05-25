@@ -17,13 +17,34 @@
 		<div id="login">
 			<fieldset>
 				<form name="formLogin" action="login" method="post">
-					<div class="holder">Login:</div><input type="text" id="user_login" name="user.login" size="20" maxlength="45"/><br />
-					<div class="holder">Senha:</div><input type="password" id="user_password" name="user.password" size="20" maxlength="20"/><br />
-					<div class="holder"><a href="forgot-password">Esqueci a senha!</a></div><br />
-					<s:fielderror fieldName="user.login" />
-					<s:fielderror fieldName="user.password" />
-					<s:fielderror fieldName="user.invalid" />
-					<div class="cssbutton sample a"><input type="submit" value="Login" /></div>
+					<table>	
+						<tr>
+							<td width="75">Login:</td>
+							<td><input type="text" id="user_login" name="user.login" size="20" maxlength="45"/></td>
+						</tr>
+						<tr>
+							<td>Senha:</td>
+							<td><input type="password" id="user_password" name="user.password" size="20" maxlength="20"/></td>
+						</tr>
+						<tr>
+							<td colspan="2"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><a href="forgot-password">Esqueci a senha!</a></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<s:fielderror fieldName="user.login" />
+								<s:fielderror fieldName="user.password" />
+								<s:fielderror fieldName="user.invalid" />							
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><div class="cssbutton sample a"><input type="submit" value="Login" /></div></td>
+						</tr>
+					</table>
 				</form>
 			</fieldset>
 		</div>

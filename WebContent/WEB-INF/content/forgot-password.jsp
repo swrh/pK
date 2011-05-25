@@ -15,9 +15,28 @@
     <div id="login">
       <fieldset>
         <form name="formSenha" action="senhaRecover" method="post">
-          <div class="holder">E-mail:</div><input type="text" name="user.login" size="20" maxlength="45" /><br /><br />
-          <s:fielderror fieldName="user.login"/>
-          <div class="cssbutton sample a"><input type="submit" value="Recuperar senha!" /></div>
+        	<table>
+        		<tr>
+					<td width="75">E-mail:</td>
+					<td><input type="text" name="user.email" size="20" maxlength="45" /></td>
+        		</tr>
+        		<tr>
+					<td colspan="2"></td>
+				</tr>
+				<tr>
+					<td colspan="2"></td>
+				</tr>
+				<tr>
+					<td colspan="2"></td>
+				</tr>
+	        	<tr>
+					<td colspan="2"><s:fielderror fieldName="user.login"/></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><div class="cssbutton sample a"><input type="submit" value="Recuperar senha!" /></div></td>
+				</tr>
+        	</table>
         </form>
       </fieldset>
     </div>
