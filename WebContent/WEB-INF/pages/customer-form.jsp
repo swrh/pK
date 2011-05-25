@@ -38,22 +38,22 @@
 						<s:form action="customer-crud!save.action" method="post">
 							<s:hidden name="customer.id" value="%{customer.id}" />
 
-							<s:textfield name="customer.id"                        value="%{customer.id}"                        label="Código"         size="20" disabled="true" />
-							<s:textfield name="customer.name"                      value="%{customer.name}"                      label="Nome"           size="40" />
-							<s:textfield name="customer.companyName"               value="%{customer.companyName}"               label="Razão Social"   size="40" />
-							<s:textfield name="customer.cnpj"                      value="%{customer.cnpj}"                      label="CNPJ"           size="40" />
-							<s:textfield name="customer.ie"                        value="%{customer.ie}"                        label="I.E."           size="40" />
-							<s:textfield name="customer.email"                     value="%{customer.email}"                     label="E-mail"         size="40" />
-							<s:textfield name="customer.phone"                     value="%{customer.phone}"                     label="Telefone"       size="40" />
-							<s:textfield name="customer.mobile"                    value="%{customer.mobile}"                    label="Celular"        size="40" />
-							<s:textfield name="customer.fax"                       value="%{customer.fax}"                       label="FAX"            size="40" />
-							<s:textfield name="customer.address"                   value="%{customer.address}"                   label="Rua"            size="40" />
-							<s:textfield name="customer.neighborhood"              value="%{customer.neighborhood}"              label="Bairro"         size="40" />
-							<s:textfield name="customer.city"                      value="%{customer.city}"                      label="Cidade"         size="40" />
-							<s:textfield name="customer.state"                     value="%{customer.state}"                     label="Estado"         size="40" />
-							<s:textfield name="customer.zipCode"                   value="%{customer.zipCode}"                   label="CEP"            size="40" />
-							<s:textfield name="customer.creationDateString"        value="%{customer.creationDateString}"        label="Criado em"      size="40" disabled="true" />
-							<s:textfield name="customer.modificationDateString"    value="%{customer.modificationDateString}"    label="Modificado em"  size="40" disabled="true" />
+							<s:textfield name="customer.id"                        value="%{customer.id}"                        label="Código"         cssClass="textField_id"           disabled="true" />
+							<s:textfield name="customer.name"                      value="%{customer.name}"                      label="Nome"           cssClass="textField_name"         />
+							<s:textfield name="customer.companyName"               value="%{customer.companyName}"               label="Razão Social"   cssClass="textField_companyName"  />
+							<s:textfield name="customer.cnpj"                      value="%{customer.cnpj}"                      label="CNPJ"           cssClass="textField_any"          />
+							<s:textfield name="customer.ie"                        value="%{customer.ie}"                        label="I.E."           cssClass="textField_any"          />
+							<s:textfield name="customer.email"                     value="%{customer.email}"                     label="E-mail"         cssClass="textField_email"        />
+							<s:textfield name="customer.phone"                     value="%{customer.phone}"                     label="Telefone"       cssClass="textField_phone"        />
+							<s:textfield name="customer.mobile"                    value="%{customer.mobile}"                    label="Celular"        cssClass="textField_phone"        />
+							<s:textfield name="customer.fax"                       value="%{customer.fax}"                       label="FAX"            cssClass="textField_phone"        />
+							<s:textfield name="customer.address"                   value="%{customer.address}"                   label="Rua"            cssClass="textField_address"      />
+							<s:textfield name="customer.neighborhood"              value="%{customer.neighborhood}"              label="Bairro"         cssClass="textField_address"      />
+							<s:textfield name="customer.city"                      value="%{customer.city}"                      label="Cidade"         cssClass="textField_address"      />
+							<s:textfield name="customer.state"                     value="%{customer.state}"                     label="Estado"         cssClass="textField_address"      />
+							<s:textfield name="customer.zipCode"                   value="%{customer.zipCode}"                   label="CEP"            cssClass="textField_zipCode"      />
+							<s:textfield name="customer.creationDateString"        value="%{customer.creationDateString}"        label="Criado em"      cssClass="textField_dateTime"     disabled="true" />
+							<s:textfield name="customer.modificationDateString"    value="%{customer.modificationDateString}"    label="Modificado em"  cssClass="textField_dateTime"     disabled="true" />
 
 							<s:submit id="btn_salvar" value="Salvar" />
 							<s:submit id="btn_apagar" value="Excluir" />

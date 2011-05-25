@@ -38,10 +38,10 @@
 						<s:form action="product-crud!save.action" method="post">
 							<s:hidden name="product.id" value="%{product.id}" />
 
-							<s:textfield name="product.id"                      value="%{product.id}"                      label="Código"         size="20" disabled="true" />
-							<s:textfield name="product.name"                    value="%{product.name}"                    label="Nome"           size="40" />
-							<s:textfield name="product.creationDateString"      value="%{product.creationDateString}"      label="Criado em"      size="40" disabled="true" />
-							<s:textfield name="product.modificationDateString"  value="%{product.modificationDateString}"  label="Modificado em"  size="40" disabled="true" />
+							<s:textfield name="product.id"                      value="%{product.id}"                      label="Código"         cssClass="textField_id"           disabled="true" />
+							<s:textfield name="product.name"                    value="%{product.name}"                    label="Nome"           cssClass="textField_name"         />
+							<s:textfield name="product.creationDateString"      value="%{product.creationDateString}"      label="Criado em"      cssClass="textField_dateTime"     disabled="true" />
+							<s:textfield name="product.modificationDateString"  value="%{product.modificationDateString}"  label="Modificado em"  cssClass="textField_dateTime"     disabled="true" />
 
 							<s:submit id="btn_salvar" value="Salvar" />
 							<s:submit id="btn_apagar" value="Excluir" />

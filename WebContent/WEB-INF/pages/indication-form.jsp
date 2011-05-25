@@ -38,11 +38,11 @@
 						<s:form action="indication-crud!save.action" method="post">
 							<s:hidden name="indication.id" value="%{indication.id}" />
 
-							<s:textfield name="indication.id"                      value="%{indication.id}"                      label="Código"         size="20" disabled="true" />
-							<s:textfield name="indication.partner"                 value="%{indication.partner}"                 label="Parceiro"       size="40" />
-							<s:textfield name="indication.region"                  value="%{indication.region}"                  label="Região"         size="40" />
-							<s:textfield name="indication.creationDateString"      value="%{indication.creationDateString}"      label="Criado em"      size="40" disabled="true" />
-							<s:textfield name="indication.modificationDateString"  value="%{indication.modificationDateString}"  label="Modificado em"  size="40" disabled="true" />
+							<s:textfield name="indication.id"                      value="%{indication.id}"                      label="Código"         cssClass="textField_id"           disabled="true" />
+							<s:textfield name="indication.partner"                 value="%{indication.partner}"                 label="Parceiro"       cssClass="textField_name"         />
+							<s:textfield name="indication.region"                  value="%{indication.region}"                  label="Região"         cssClass="textField_companyName"  />
+							<s:textfield name="indication.creationDateString"      value="%{indication.creationDateString}"      label="Criado em"      cssClass="textField_dateTime"     disabled="true" />
+							<s:textfield name="indication.modificationDateString"  value="%{indication.modificationDateString}"  label="Modificado em"  cssClass="textField_dateTime"     disabled="true" />
 
 							<s:submit id="btn_salvar" value="Salvar" />
 							<s:submit id="btn_apagar" value="Excluir" />

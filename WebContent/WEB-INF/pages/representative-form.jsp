@@ -38,12 +38,12 @@
 						<s:form action="representative-crud!save.action" method="post">
 							<s:hidden name="representative.id" value="%{representative.id}" />
 
-							<s:textfield name="representative.id"                      value="%{representative.id}"                      label="Código"         size="20" disabled="true" />
-							<s:textfield name="representative.companyName"             value="%{representative.companyName}"             label="Razão Social"   size="40" />
-							<s:textfield name="representative.contactName"             value="%{representative.contactName}"             label="Contato"        size="40" />
-							<s:textfield name="representative.responsibleName"         value="%{representative.responsibleName}"         label="Responsável"    size="40" />
-							<s:textfield name="representative.creationDateString"      value="%{representative.creationDateString}"      label="Criado em"      size="40" disabled="true" />
-							<s:textfield name="representative.modificationDateString"  value="%{representative.modificationDateString}"  label="Modificado em"  size="40" disabled="true" />
+							<s:textfield name="representative.id"                      value="%{representative.id}"                      label="Código"         cssClass="textField_id"           disabled="true" />
+							<s:textfield name="representative.companyName"             value="%{representative.companyName}"             label="Razão Social"   cssClass="textField_companyName"  />
+							<s:textfield name="representative.contactName"             value="%{representative.contactName}"             label="Contato"        cssClass="textField_companyName"  />
+							<s:textfield name="representative.responsibleName"         value="%{representative.responsibleName}"         label="Responsável"    cssClass="textField_companyName"  />
+							<s:textfield name="representative.creationDateString"      value="%{representative.creationDateString}"      label="Criado em"      cssClass="textField_dateTime"     disabled="true" />
+							<s:textfield name="representative.modificationDateString"  value="%{representative.modificationDateString}"  label="Modificado em"  cssClass="textField_dateTime"     disabled="true" />
 
 							<s:submit id="btn_salvar" value="Salvar" />
 							<s:submit id="btn_apagar" value="Excluir" />

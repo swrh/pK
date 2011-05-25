@@ -196,3 +196,40 @@
 h1 {
 	color: #404040;
 }
+
+input.textField_id {
+	width: 50px;
+}
+
+input.textField_name {
+	width: 200px;
+}
+
+input.textField_companyName {
+	width: 250px;
+}
+
+input.textField_any {
+	width: 200px;
+}
+
+input.textField_email {
+	width: 250px;
+}
+
+input.textField_phone {
+	width: 100px;
+}
+
+input.textField_address {
+	width: 250px;
+}
+
+input.textField_zipCode {
+	width: 100px;
+}
+
+input.textField_dateTime {
+	width: 125px;
+}
+

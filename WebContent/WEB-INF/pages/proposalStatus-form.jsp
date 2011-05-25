@@ -38,11 +38,11 @@
 						<s:form action="proposalStatus-crud!save.action" method="post">
 							<s:hidden name="proposalStatus.id" value="%{proposalStatus.id}" />
 
-							<s:textfield name="proposalStatus.id"                      value="%{proposalStatus.id}"                      label="Código"         size="20" disabled="true" />
-							<s:textfield name="proposalStatus.name"                    value="%{proposalStatus.name}"                    label="Nome"           size="40" />
-							<s:checkbox  name="proposalStatus.finishing"               value="%{proposalStatus.finishing}"               label="Fechamento" />
-							<s:textfield name="proposalStatus.creationDateString"      value="%{proposalStatus.creationDateString}"      label="Criado em"      size="40" disabled="true" />
-							<s:textfield name="proposalStatus.modificationDateString"  value="%{proposalStatus.modificationDateString}"  label="Modificado em"  size="40" disabled="true" />
+							<s:textfield name="proposalStatus.id"                      value="%{proposalStatus.id}"                      label="Código"         cssClass="textField_id"           disabled="true" />
+							<s:textfield name="proposalStatus.name"                    value="%{proposalStatus.name}"                    label="Nome"           cssClass="textField_name"         />
+							<s:checkbox  name="proposalStatus.finishing"               value="%{proposalStatus.finishing}"               label="Fechamento"     />
+							<s:textfield name="proposalStatus.creationDateString"      value="%{proposalStatus.creationDateString}"      label="Criado em"      cssClass="textField_dateTime"     disabled="true" />
+							<s:textfield name="proposalStatus.modificationDateString"  value="%{proposalStatus.modificationDateString}"  label="Modificado em"  cssClass="textField_dateTime"     disabled="true" />
 
 							<s:submit id="btn_salvar" value="Salvar" />
 							<s:submit id="btn_apagar" value="Excluir" />

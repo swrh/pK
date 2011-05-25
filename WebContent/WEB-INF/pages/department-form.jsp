@@ -38,10 +38,10 @@
 						<s:form action="department-crud!save.action" method="post">
 							<s:hidden name="department.id" value="%{department.id}" />
 
-							<s:textfield name="department.id"                      value="%{department.id}"                      label="Código"         size="20" disabled="true" />
-							<s:textfield name="department.name"                    value="%{department.name}"                    label="Nome"           size="40" />
-							<s:textfield name="department.creationDateString"      value="%{department.creationDateString}"      label="Criado em"      size="40" disabled="true" />
-							<s:textfield name="department.modificationDateString"  value="%{department.modificationDateString}"  label="Modificado em"  size="40" disabled="true" />
+							<s:textfield name="department.id"                      value="%{department.id}"                      label="Código"         cssClass="textField_id"        disabled="true" />
+							<s:textfield name="department.name"                    value="%{department.name}"                    label="Nome"           cssClass="textField_name"      />
+							<s:textfield name="department.creationDateString"      value="%{department.creationDateString}"      label="Criado em"      cssClass="textField_dateTime"  disabled="true" />
+							<s:textfield name="department.modificationDateString"  value="%{department.modificationDateString}"  label="Modificado em"  cssClass="textField_dateTime"  disabled="true" />
 
 							<s:submit id="btn_salvar" value="Salvar" />
 							<s:submit id="btn_apagar" value="Excluir" />

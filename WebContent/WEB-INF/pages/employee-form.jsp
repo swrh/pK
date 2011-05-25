@@ -45,13 +45,13 @@
 						<s:form action="employee-crud!save.action" method="post">
 							<s:hidden name="employee.id" value="%{employee.id}" />
 
-							<s:textfield name="employee.id"                      value="%{employee.id}"                      label="Código"         size="20" disabled="true" />
-							<s:textfield name="employee.name"                    value="%{employee.name}"                    label="Nome"           size="40" />
-							<s:textfield name="employee.email"                   value="%{employee.email}"                   label="E-mail"         size="40" />
+							<s:textfield name="employee.id"                      value="%{employee.id}"                      label="Código"         cssClass="textField_id"           disabled="true" />
+							<s:textfield name="employee.name"                    value="%{employee.name}"                    label="Nome"           cssClass="textField_name"         />
+							<s:textfield name="employee.email"                   value="%{employee.email}"                   label="E-mail"         cssClass="textField_email"        />
 							<s:select    name="employee.department.id"           value="%{employee.department.id}"           label="Departamento"   listKey="id" listValue="name"        list="departments" />
 							<s:select    name="employee.representative.id"       value="%{employee.representative.id}"       label="Representante"  listKey="id" listValue="companyName" list="representatives" />
-							<s:textfield name="employee.creationDateString"      value="%{employee.creationDateString}"      label="Criado em"      size="40" disabled="true" />
-							<s:textfield name="employee.modificationDateString"  value="%{employee.modificationDateString}"  label="Modificado em"  size="40" disabled="true" />
+							<s:textfield name="employee.creationDateString"      value="%{employee.creationDateString}"      label="Criado em"      cssClass="textField_dateTime"     disabled="true" />
+							<s:textfield name="employee.modificationDateString"  value="%{employee.modificationDateString}"  label="Modificado em"  cssClass="textField_dateTime"     disabled="true" />
 
 							<s:submit id="btn_salvar" value="Salvar" />
 							<s:submit id="btn_apagar" value="Excluir" />

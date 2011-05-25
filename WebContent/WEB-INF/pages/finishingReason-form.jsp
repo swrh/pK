@@ -38,10 +38,10 @@
 						<s:form action="finishingReason-crud!save.action" method="post">
 							<s:hidden name="finishingReason.id" value="%{finishingReason.id}" />
 
-							<s:textfield name="finishingReason.id"                      value="%{finishingReason.id}"                      label="Código"         size="20" disabled="true" />
-							<s:textfield name="finishingReason.name"                    value="%{finishingReason.name}"                    label="Nome"           size="40" />
-							<s:textfield name="finishingReason.creationDateString"      value="%{finishingReason.creationDateString}"      label="Criado em"      size="40" disabled="true" />
-							<s:textfield name="finishingReason.modificationDateString"  value="%{finishingReason.modificationDateString}"  label="Modificado em"  size="40" disabled="true" />
+							<s:textfield name="finishingReason.id"                      value="%{finishingReason.id}"                      label="Código"         cssClass="textField_id"           disabled="true" />
+							<s:textfield name="finishingReason.name"                    value="%{finishingReason.name}"                    label="Nome"           cssClass="textField_name"         />
+							<s:textfield name="finishingReason.creationDateString"      value="%{finishingReason.creationDateString}"      label="Criado em"      cssClass="textField_dateTime"     disabled="true" />
+							<s:textfield name="finishingReason.modificationDateString"  value="%{finishingReason.modificationDateString}"  label="Modificado em"  cssClass="textField_dateTime"     disabled="true" />
 
 							<s:submit id="btn_salvar" value="Salvar" />
 							<s:submit id="btn_apagar" value="Excluir" />

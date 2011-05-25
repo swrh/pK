@@ -38,10 +38,10 @@
 						<s:form action="operation-crud!save.action" method="post">
 							<s:hidden name="operation.id" value="%{operation.id}" />
 
-							<s:textfield name="operation.id"                      value="%{operation.id}"                      label="Código"         size="20" disabled="true" />
-							<s:textfield name="operation.name"                    value="%{operation.name}"                    label="Nome"           size="40" />
-							<s:textfield name="operation.creationDateString"      value="%{operation.creationDateString}"      label="Criado em"      size="40" disabled="true" />
-							<s:textfield name="operation.modificationDateString"  value="%{operation.modificationDateString}"  label="Modificado em"  size="40" disabled="true" />
+							<s:textfield name="operation.id"                      value="%{operation.id}"                      label="Código"         cssClass="textField_id"           disabled="true" />
+							<s:textfield name="operation.name"                    value="%{operation.name}"                    label="Nome"           cssClass="textField_name"         />
+							<s:textfield name="operation.creationDateString"      value="%{operation.creationDateString}"      label="Criado em"      cssClass="textField_dateTime"     disabled="true" />
+							<s:textfield name="operation.modificationDateString"  value="%{operation.modificationDateString}"  label="Modificado em"  cssClass="textField_dateTime"     disabled="true" />
 
 							<s:submit id="btn_salvar" value="Salvar" />
 							<s:submit id="btn_apagar" value="Excluir" />
