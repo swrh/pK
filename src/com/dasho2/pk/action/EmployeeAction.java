@@ -16,18 +16,20 @@ import com.opensymphony.xwork2.Preparable;
 
 @SuppressWarnings("serial")
 public class EmployeeAction extends ActionSupport implements Preparable {
-	private List<Employee> employees;
 	private List<Department> departments;
+	private static DepartmentDaoServiceInterface departmentDaoService = new DepartmentDaoServiceHibernate();
+
 	private List<Representative> representatives;
-	private Employee employee;
-	private String changePassword, confirmChangePassword;
+	private static RepresentativeDaoServiceInterface representativeDaoService = new RepresentativeDaoServiceHibernate();
+
+	private List<Employee> employees;
 	private static EmployeeDaoServiceInterface service = new EmployeeDaoServiceHibernate();
-	private static DepartmentDaoServiceInterface departmentService = new DepartmentDaoServiceHibernate();
-	private static RepresentativeDaoServiceInterface representativeService = new RepresentativeDaoServiceHibernate();
+
+	private Employee employee;
 
 	public void prepare() throws Exception {
-		departments = departmentService.getAll();
-		representatives = representativeService.getAll();
+		departments = departmentDaoService.getAll();
+		representatives = representativeDaoService.getAll();
 		if (employee != null && employee.getId() != null) {
 			employee = service.getById(employee.getId());
 		}
@@ -59,8 +61,16 @@ public class EmployeeAction extends ActionSupport implements Preparable {
 		return INPUT;
 	}
 
-	public String password() {
-		return INPUT;
+	public List<Department> getDepartments() {
+		return departments;
+	}
+
+	public List<Representative> getRepresentatives() {
+		return representatives;
+	}
+
+	public List<Employee> getEmployees() {
+		return employees;
 	}
 
 	public Employee getEmployee() {
@@ -69,34 +79,6 @@ public class EmployeeAction extends ActionSupport implements Preparable {
 
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
-	}
-
-	public String getChangePassword() {
-		return changePassword;
-	}
-
-	public void setChangePassword(String changePassword) {
-		this.changePassword = changePassword;
-	}
-
-	public String getConfirmChangePassword() {
-		return confirmChangePassword;
-	}
-
-	public void setConfirmChangePassword(String confirmChangePassword) {
-		this.confirmChangePassword = confirmChangePassword;
-	}
-
-	public List<Employee> getEmployees() {
-		return employees;
-	}
-
-	public List<Department> getDepartments() {
-		return departments;
-	}
-
-	public List<Representative> getRepresentatives() {
-		return representatives;
 	}
 
 }

@@ -33,10 +33,10 @@
 						<h1>
 							<s:property value="#title" />
 						</h1>
-						<s:url id="passwordUpdateUrl" action="employeePassword-update!input" >
-							<s:param name="employee.id" value="%{employee.id}" />
-						</s:url>
 						<s:if test="employee != null && employee.id != null">
+							<s:url id="passwordUpdateUrl" action="employeePassword-update!input" >
+								<s:param name="employee.id" value="%{employee.id}" />
+							</s:url>
 							<a href="<s:property value="#passwordUpdateUrl" />" class="linknew">Trocar senha do usuário</a>
 							<br />
 						</s:if>
