@@ -25,9 +25,9 @@
 						<br />
 							<h1>Listagem de Prospecções</h1>
 						<br />
-						<table class="sofT">
+						<table class="sofT_125">
 							<tr>
-								<th class="helpHed">Código</th>
+								<th class="helpHedCodigo">Código</th>
 								<th class="helpHed">Visita</th>
 								<th class="helpHed">Funcionário</th>
 								<th class="helpHed">Ação</th>

@@ -27,7 +27,7 @@
 						<br />
 						<table class="sofT">
 							<tr>
-								<th class="helpHed">Código</th>
+								<th class="helpHedCodigo">Código</th>
 								<th class="helpHed">Parceiro</th>
 								<th class="helpHed">Região</th>
 							</tr>

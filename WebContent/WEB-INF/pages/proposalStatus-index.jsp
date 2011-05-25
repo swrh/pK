@@ -25,11 +25,11 @@
 						<br />
 							<h1>Listagem de Estados de Proposta</h1>
 						<br />
-						<table class="sofT">
+						<table class="sofT_75">
 							<tr>
-								<th class="helpHed">Código</th>
+								<th class="helpHedCodigo">Código</th>
 								<th class="helpHed">Nome</th>
-								<th class="helpHed">Fechamento</th>
+								<th class="helpHedCodigo">Fechamento</th>
 							</tr>
 							<s:iterator value="proposalStatuss" status="status">
 								<s:url action="proposalStatus-crud!input" id="editUrl">
@@ -40,8 +40,11 @@
 									<td class="helpBod"><s:property value="name" /></td>
 									<td class="helpBod">
 										<s:if test="finishing">
-											x
+											Sim
 										</s:if>
+										<s:else>
+											Não
+										</s:else>
 									</td>
 								</tr>
 							</s:iterator>

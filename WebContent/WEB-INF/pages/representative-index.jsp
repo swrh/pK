@@ -27,7 +27,7 @@
 						<br />
 						<table class="sofT">
 							<tr>
-								<th class="helpHed">Código</th>
+								<th class="helpHedCodigo">Código</th>
 								<th class="helpHed">Razão Social</th>
 								<th class="helpHed">Contato</th>
 								<th class="helpHed">Responsável</th>

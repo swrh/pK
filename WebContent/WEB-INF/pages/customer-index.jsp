@@ -25,9 +25,9 @@
 						<br />
 							<h1>Listagem de Clientes</h1>
 						<br />
-						<table class="sofT">
+						<table class="sofT_125">
 							<tr>
-								<th class="helpHed">Código</th>
+								<th class="helpHedCodigo">Código</th>
 								<th class="helpHed">Nome</th>
 								<th class="helpHed">Razão Social</th>
 								<th class="helpHed">E-mail</th>

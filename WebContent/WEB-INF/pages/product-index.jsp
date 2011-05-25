@@ -25,9 +25,9 @@
 						<br />
 							<h1>Listagem de Produtos</h1>
 						<br />
-						<table class="sofT">
+						<table class="sofT_75">
 							<tr>
-								<th class="helpHed">Código</th>
+								<th class="helpHedCodigo">Código</th>
 								<th class="helpHed">Nome</th>
 							</tr>
 							<s:iterator value="products" status="status">
