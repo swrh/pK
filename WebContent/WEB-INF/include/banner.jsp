@@ -15,13 +15,13 @@
 							<ul class="subnav">
 								<li><a href="department-index">Departamentos</a></li>
 								<li><a href="product-index">Produtos</a></li>
-								<li><a href="operation-index">A&ccedil;&otilde;es</a></li>
-								<li><a href="finishingReason-index">Motivos Encerramento</a></li>
-								<li><a href="proposalStatus-index">Status de Propostas</a></li>
-								<li><a href="indication-index">Indica&ccedil;&otilde;es</a></li>
+								<li><a href="operation-index">Ações</a></li>
+								<li><a href="finishingReason-index">Motivos de Encerramento</a></li>
+								<li><a href="proposalStatus-index">Estados de Proposta</a></li>
+								<li><a href="indication-index">Indicações</a></li>
 								<li><a href="representative-index">Representantes</a></li>
 								<li><a href="customer-index">Clientes</a></li>
-								<li><a href="employee-index">Funcion&aacute;rios</a></li>
+								<li><a href="employee-index">Funcionários</a></li>
 							</ul>
 						</li>
 						<li><a href="prospecting-index">Prospecções</a></li>
