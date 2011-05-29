@@ -2,7 +2,7 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="default" extends="struts-default">
+	<package name="default" extends="json-default">
 		<!-- Default interceptor stack. -->
 		<default-interceptor-ref name="paramsPrepareParamsStack"/>
 
@@ -14,6 +14,12 @@
 		<action name="home">
 			<result>/WEB-INF/pages/home.jsp</result>
 			<interceptor-ref name="basicStack"/>
+		</action>
+
+		<action name="customer-json" class="com.dasho2.pk.action.CustomerAction">
+		    <result type="json" />
+		    <result name="error">/WEB-INF/pages/error.jsp</result>
+			<param name="root">customer</param>
 		</action>
 
 		<action name="customer-index" class="com.dasho2.pk.action.CustomerAction" method="list">
