@@ -16,15 +16,15 @@
 			<interceptor-ref name="basicStack"/>
 		</action>
 
+		<action name="customer-index" class="com.dasho2.pk.action.CustomerAction" method="list">
+			<result name="success">/WEB-INF/pages/customer-index.jsp</result>
+			<interceptor-ref name="basicStack"/>
+		</action>
+
 		<action name="customer-json" class="com.dasho2.pk.action.CustomerAction">
 		    <result type="json" />
 		    <result name="error">/WEB-INF/pages/error.jsp</result>
 			<param name="root">customer</param>
-		</action>
-
-		<action name="customer-index" class="com.dasho2.pk.action.CustomerAction" method="list">
-			<result name="success">/WEB-INF/pages/customer-index.jsp</result>
-			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="customer-crud" class="com.dasho2.pk.action.CustomerAction" method="input">
@@ -108,6 +108,12 @@
 		<action name="proposalStatus-index" class="com.dasho2.pk.action.ProposalStatusAction" method="list">
 			<result name="success">/WEB-INF/pages/proposalStatus-index.jsp</result>
 			<interceptor-ref name="basicStack"/>
+		</action>
+
+		<action name="proposalStatus-json" class="com.dasho2.pk.action.ProposalStatusAction">
+		    <result type="json" />
+		    <result name="error">/WEB-INF/pages/error.jsp</result>
+			<param name="root">proposalStatus</param>
 		</action>
 
 		<action name="proposalStatus-crud" class="com.dasho2.pk.action.ProposalStatusAction" method="input">

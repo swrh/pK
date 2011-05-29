@@ -23,12 +23,12 @@
 				$("select:#selected_customer_id").change(function () {
 					var id = $("select:#selected_customer_id option:selected").val();
 					$.post("customer-json", { "customer.id" : id }, function(json) {
-						c = json.customer;
+						var c = json.customer;
 
 						$.fn.update_customer(c);
 					})
 					.error(function() {
-						c = {
+						var c = {
 							id                     : "",
 							companyName            : "",
 							cnpj                   : "",
@@ -47,6 +47,22 @@
 						};
 
 						$.fn.update_customer(c);
+					});
+				}).trigger('change');
+
+				$("select:#selected_proposalStatus_id").change(function () {
+					var id = $("select:#selected_proposalStatus_id option:selected").val();
+					$.post("proposalStatus-json", { "proposalStatus.id" : id }, function(json) {
+						var s = json.proposalStatus;
+
+						$.fn.update_proposalStatus(s);
+					})
+					.error(function() {
+						var s = {
+							finishing              : false
+						};
+
+						$.fn.update_proposalStatus(s);
 					});
 				}).trigger('change');
 			});
@@ -68,7 +84,15 @@
 				$("input:#customer_creationDateString"     ).val(c.creationDateString     );
 				$("input:#customer_modificationDateString" ).val(c.modificationDateString );
 			};
-		</script>
+
+			$.fn.update_proposalStatus = function(s) {
+				if (s.finishing)
+					$("input:#proposalStatus_finishing"        ).attr("checked", "checked");
+				else
+					$("input:#proposalStatus_finishing"        ).removeAttr("checked");
+			};
+
+			</script>
 	</head>
 
 	<body>
@@ -90,33 +114,35 @@
 						<s:form action="prospecting-crud!save.action" method="post">
 							<s:hidden name="prospecting.id" value="%{prospecting.id}" />
 
-							<s:textfield name="prospecting.id"                      value="%{prospecting.id}"                      label="Código"                 cssClass="textField_id"           disabled="true" />
-							<s:select    name="prospecting.customer.id"             value="%{prospecting.customer.id}"             label="Cliente"                listKey="id" listValue="name"     list="customers" id="selected_customer_id"/>
+							<s:textfield name="prospecting.id"                         value="%{prospecting.id}"                         label="Código"                  cssClass="textField_id"           disabled="true" />
+							<s:select    name="prospecting.customer.id"                value="%{prospecting.customer.id}"                label="Cliente"                 listKey="id" listValue="name"     list="customers"                    id="selected_customer_id" />
 
-							<s:textfield name="customer.id"                         value=""                                       label="Código"                 cssClass="textField_id"           id="customer_id"                     disabled="true"  />
-							<s:textfield name="customer.companyName"                value=""                                       label="Razão Social"           cssClass="textField_companyName"  id="customer_companyName"            disabled="true"  />
-							<s:textfield name="customer.cnpj"                       value=""                                       label="CNPJ"                   cssClass="textField_any"          id="customer_cnpj"                   disabled="true"  />
-							<s:textfield name="customer.ie"                         value=""                                       label="I.E."                   cssClass="textField_any"          id="customer_ie"                     disabled="true"  />
-							<s:textfield name="customer.email"                      value=""                                       label="E-mail"                 cssClass="textField_email"        id="customer_email"                  disabled="true"  />
-							<s:textfield name="customer.phone"                      value=""                                       label="Telefone"               cssClass="textField_phone"        id="customer_phone"                  disabled="true"  />
-							<s:textfield name="customer.mobile"                     value=""                                       label="Celular"                cssClass="textField_phone"        id="customer_mobile"                 disabled="true"  />
-							<s:textfield name="customer.fax"                        value=""                                       label="FAX"                    cssClass="textField_phone"        id="customer_fax"                    disabled="true"  />
-							<s:textfield name="customer.address"                    value=""                                       label="Rua"                    cssClass="textField_address"      id="customer_address"                disabled="true"  />
-							<s:textfield name="customer.neighborhood"               value=""                                       label="Bairro"                 cssClass="textField_address"      id="customer_neighborhood"           disabled="true"  />
-							<s:textfield name="customer.city"                       value=""                                       label="Cidade"                 cssClass="textField_address"      id="customer_city"                   disabled="true"  />
-							<s:textfield name="customer.state"                      value=""                                       label="Estado"                 cssClass="textField_address"      id="customer_state"                  disabled="true"  />
-							<s:textfield name="customer.zipCode"                    value=""                                       label="CEP"                    cssClass="textField_zipCode"      id="customer_zipCode"                disabled="true"  />
-							<s:textfield name="customer.creationDateString"         value=""                                       label="Criado em"              cssClass="textField_dateTime"     id="customer_creationDateString"     disabled="true"  />
-							<s:textfield name="customer.modificationDateString"     value=""                                       label="Modificado em"          cssClass="textField_dateTime"     id="customer_modificationDateString" disabled="true"  />
+							<s:textfield name="customer.id"                            value=""                                          label="Código"                  cssClass="textField_id"           id="customer_id"                     disabled="true" />
+							<s:textfield name="customer.companyName"                   value=""                                          label="Razão Social"            cssClass="textField_companyName"  id="customer_companyName"            disabled="true" />
+							<s:textfield name="customer.cnpj"                          value=""                                          label="CNPJ"                    cssClass="textField_any"          id="customer_cnpj"                   disabled="true" />
+							<s:textfield name="customer.ie"                            value=""                                          label="I.E."                    cssClass="textField_any"          id="customer_ie"                     disabled="true" />
+							<s:textfield name="customer.email"                         value=""                                          label="E-mail"                  cssClass="textField_email"        id="customer_email"                  disabled="true" />
+							<s:textfield name="customer.phone"                         value=""                                          label="Telefone"                cssClass="textField_phone"        id="customer_phone"                  disabled="true" />
+							<s:textfield name="customer.mobile"                        value=""                                          label="Celular"                 cssClass="textField_phone"        id="customer_mobile"                 disabled="true" />
+							<s:textfield name="customer.fax"                           value=""                                          label="FAX"                     cssClass="textField_phone"        id="customer_fax"                    disabled="true" />
+							<s:textfield name="customer.address"                       value=""                                          label="Rua"                     cssClass="textField_address"      id="customer_address"                disabled="true" />
+							<s:textfield name="customer.neighborhood"                  value=""                                          label="Bairro"                  cssClass="textField_address"      id="customer_neighborhood"           disabled="true" />
+							<s:textfield name="customer.city"                          value=""                                          label="Cidade"                  cssClass="textField_address"      id="customer_city"                   disabled="true" />
+							<s:textfield name="customer.state"                         value=""                                          label="Estado"                  cssClass="textField_address"      id="customer_state"                  disabled="true" />
+							<s:textfield name="customer.zipCode"                       value=""                                          label="CEP"                     cssClass="textField_zipCode"      id="customer_zipCode"                disabled="true" />
+							<s:textfield name="customer.creationDateString"            value=""                                          label="Criado em"               cssClass="textField_dateTime"     id="customer_creationDateString"     disabled="true" />
+							<s:textfield name="customer.modificationDateString"        value=""                                          label="Modificado em"           cssClass="textField_dateTime"     id="customer_modificationDateString" disabled="true" />
 
-							<s:select    name="prospecting.finishingReason.id"      value="%{prospecting.finishingReason.id}"      label="Razão de Encerramento"  listKey="id" listValue="name"     list="finishingReasons" />
-							<s:select    name="prospecting.employee.id"             value="%{prospecting.employee.id}"             label="Funcionário"            listKey="id" listValue="name"     list="employees" />
-							<s:select    name="prospecting.operation.id"            value="%{prospecting.operation.id}"            label="Ação"                   listKey="id" listValue="name"     list="operations" />
-							<s:select    name="prospecting.indication.id"           value="%{prospecting.indication.id}"           label="Indicação"              listKey="id" listValue="partner"  list="indications" />
-							<s:select    name="prospecting.proposalStatus.id"       value="%{prospecting.proposalStatus.id}"       label="Estado da Proposta"     listKey="id" listValue="name"     list="proposalStatuss" />
+							<s:select    name="prospecting.finishingReason.id"         value="%{prospecting.finishingReason.id}"         label="Motivo de Encerramento"  listKey="id" listValue="name"     list="finishingReasons" />
+							<s:select    name="prospecting.employee.id"                value="%{prospecting.employee.id}"                label="Funcionário"             listKey="id" listValue="name"     list="employees" />
+							<s:select    name="prospecting.operation.id"               value="%{prospecting.operation.id}"               label="Ação"                    listKey="id" listValue="name"     list="operations" />
+							<s:select    name="prospecting.indication.id"              value="%{prospecting.indication.id}"              label="Indicação"               listKey="id" listValue="partner"  list="indications" />
+							<s:select    name="prospecting.proposalStatus.id"          value="%{prospecting.proposalStatus.id}"          label="Estado da Proposta"      listKey="id" listValue="name"     list="proposalStatuss"               id="selected_proposalStatus_id" />
 
-							<s:textfield name="prospecting.creationDateString"      value="%{prospecting.creationDateString}"      label="Criado em"              cssClass="textField_dateTime"     disabled="true" />
-							<s:textfield name="prospecting.modificationDateString"  value="%{prospecting.modificationDateString}"  label="Modificado em"          cssClass="textField_dateTime"     disabled="true" />
+							<s:checkbox  name="proposalStatus.finishing"               value=""                                          label="Fechamento"                                                id="proposalStatus_finishing"        disabled="true" />
+
+							<s:textfield name="prospecting.creationDateString"         value="%{prospecting.creationDateString}"         label="Criado em"               cssClass="textField_dateTime"     disabled="true" />
+							<s:textfield name="prospecting.modificationDateString"     value="%{prospecting.modificationDateString}"     label="Modificado em"           cssClass="textField_dateTime"     disabled="true" />
 
 							<s:submit id="btn_salvar" value="Salvar" />
 							<s:submit id="btn_apagar" value="Excluir" />
