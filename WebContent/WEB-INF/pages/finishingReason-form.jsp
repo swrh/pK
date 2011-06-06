@@ -35,7 +35,7 @@
 						</h1>
 						<s:actionerror />
 						<s:actionmessage />
-						<s:form action="finishingReason-crud!save.action" method="post">
+						<s:form action="finishingReason-crud!save" method="post">
 							<s:hidden name="finishingReason.id" value="%{finishingReason.id}" />
 
 							<s:textfield name="finishingReason.id"                      value="%{finishingReason.id}"                      label="Código"         cssClass="textField_id"           disabled="true" />

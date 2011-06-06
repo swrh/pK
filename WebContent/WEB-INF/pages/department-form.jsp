@@ -35,7 +35,7 @@
 						</h1>
 						<s:actionerror />
 						<s:actionmessage />
-						<s:form action="department-crud!save.action" method="post">
+						<s:form action="department-crud!save" method="post">
 							<s:hidden name="department.id" value="%{department.id}" />
 
 							<s:textfield name="department.id"                      value="%{department.id}"                      label="Código"         cssClass="textField_id"        disabled="true" />

@@ -42,7 +42,7 @@
 						</s:if>
 						<s:actionerror />
 						<s:actionmessage />
-						<s:form action="employee-crud!save.action" method="post">
+						<s:form action="employee-crud!save" method="post">
 							<s:hidden name="employee.id" value="%{employee.id}" />
 
 							<s:textfield name="employee.id"                      value="%{employee.id}"                      label="Código"         cssClass="textField_id"           disabled="true" />

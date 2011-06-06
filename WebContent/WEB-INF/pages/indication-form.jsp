@@ -35,7 +35,7 @@
 						</h1>
 						<s:actionerror />
 						<s:actionmessage />
-						<s:form action="indication-crud!save.action" method="post">
+						<s:form action="indication-crud!save" method="post">
 							<s:hidden name="indication.id" value="%{indication.id}" />
 
 							<s:textfield name="indication.id"                      value="%{indication.id}"                      label="Código"         cssClass="textField_id"           disabled="true" />

@@ -36,7 +36,7 @@
 						</h1>
 						<s:actionerror />
 						<s:actionmessage />
-						<s:form action="prospecting-crud!save.action" method="post">
+						<s:form action="prospecting-crud!save" method="post">
 							<s:hidden name="prospecting.id" value="%{prospecting.id}" />
 
 							<s:textfield name="prospecting.id"                         value="%{prospecting.id}"                         label="Código"                  cssClass="textField_id"           disabled="true" />

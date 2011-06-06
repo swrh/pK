@@ -3,27 +3,60 @@
 
 <struts>
 	<package name="default" extends="json-default">
-		<!-- Default interceptor stack. -->
-		<default-interceptor-ref name="paramsPrepareParamsStack"/>
+		<interceptors>
+			<interceptor name="authentication"
+				class="com.dasho2.pk.interceptor.AuthenticationInterceptor" />
+
+			<interceptor-stack name="privateStack">
+				<interceptor-ref name="authentication" />
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+
+			<interceptor-stack name="publicStack">
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+		</interceptors>
+
+		<default-interceptor-ref name="privateStack" />
+
+		<global-results>
+			<result name="login">/WEB-INF/pages/authentication.jsp</result>
+		</global-results>
+
+		<action name="" class="com.dasho2.pk.action.AuthenticationAction" method="input">
+			<result name="input">/WEB-INF/pages/login.jsp</result>
+			<interceptor-ref name="publicStack" />
+		</action>
+
+		<action name="login" class="com.dasho2.pk.action.AuthenticationAction" method="login">
+			<result name="success" type="redirectAction">home</result>
+			<result name="input">/WEB-INF/pages/login.jsp</result>
+			<result name="error">/WEB-INF/pages/login.jsp</result>
+			<interceptor-ref name="publicStack" />
+		</action>
+
+		<action name="logout" class="com.dasho2.pk.action.AuthenticationAction" method="logout">
+			<result name="success" type="redirectAction">${}</result>
+			<interceptor-ref name="publicStack" />
+		</action>
 
 		<action name="forgot-password">
-			<result>/WEB-INF/content/forgot-password.jsp</result>
-			<interceptor-ref name="basicStack"/>
+			<result>/WEB-INF/pages/forgot-password.jsp</result>
+			<interceptor-ref name="publicStack" />
 		</action>
 
 		<action name="home">
 			<result>/WEB-INF/pages/home.jsp</result>
-			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="customer-index" class="com.dasho2.pk.action.CustomerAction" method="list">
 			<result name="success">/WEB-INF/pages/customer-index.jsp</result>
-			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="customer-json" class="com.dasho2.pk.action.CustomerAction">
-		    <result type="json" />
-		    <result name="error">/WEB-INF/pages/error.jsp</result>
+			<result type="json" />
+			<result name="error">/WEB-INF/pages/error.jsp</result>
 			<param name="root">customer</param>
 		</action>
 
@@ -35,7 +68,6 @@
 
 		<action name="department-index" class="com.dasho2.pk.action.DepartmentAction" method="list">
 			<result name="success">/WEB-INF/pages/department-index.jsp</result>
-			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="department-crud" class="com.dasho2.pk.action.DepartmentAction" method="input">
@@ -46,7 +78,6 @@
 
 		<action name="employee-index" class="com.dasho2.pk.action.EmployeeAction" method="list">
 			<result name="success">/WEB-INF/pages/employee-index.jsp</result>
-			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="employee-crud" class="com.dasho2.pk.action.EmployeeAction" method="input">
@@ -63,7 +94,6 @@
 
 		<action name="finishingReason-index" class="com.dasho2.pk.action.FinishingReasonAction" method="list">
 			<result name="success">/WEB-INF/pages/finishingReason-index.jsp</result>
-			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="finishingReason-crud" class="com.dasho2.pk.action.FinishingReasonAction" method="input">
@@ -74,7 +104,6 @@
 
 		<action name="indication-index" class="com.dasho2.pk.action.IndicationAction" method="list">
 			<result name="success">/WEB-INF/pages/indication-index.jsp</result>
-			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="indication-crud" class="com.dasho2.pk.action.IndicationAction" method="input">
@@ -85,7 +114,6 @@
 
 		<action name="operation-index" class="com.dasho2.pk.action.OperationAction" method="list">
 			<result name="success">/WEB-INF/pages/operation-index.jsp</result>
-			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="operation-crud" class="com.dasho2.pk.action.OperationAction" method="input">
@@ -96,7 +124,6 @@
 
 		<action name="product-index" class="com.dasho2.pk.action.ProductAction" method="list">
 			<result name="success">/WEB-INF/pages/product-index.jsp</result>
-			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="product-crud" class="com.dasho2.pk.action.ProductAction" method="input">
@@ -107,12 +134,11 @@
 
 		<action name="proposalStatus-index" class="com.dasho2.pk.action.ProposalStatusAction" method="list">
 			<result name="success">/WEB-INF/pages/proposalStatus-index.jsp</result>
-			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="proposalStatus-json" class="com.dasho2.pk.action.ProposalStatusAction">
-		    <result type="json" />
-		    <result name="error">/WEB-INF/pages/error.jsp</result>
+			<result type="json" />
+			<result name="error">/WEB-INF/pages/error.jsp</result>
 			<param name="root">proposalStatus</param>
 		</action>
 
@@ -124,7 +150,6 @@
 
 		<action name="representative-index" class="com.dasho2.pk.action.RepresentativeAction" method="list">
 			<result name="success">/WEB-INF/pages/representative-index.jsp</result>
-			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="representative-crud" class="com.dasho2.pk.action.RepresentativeAction" method="input">
@@ -135,7 +160,6 @@
 
 		<action name="prospecting-index" class="com.dasho2.pk.action.ProspectingAction" method="list">
 			<result name="success">/WEB-INF/pages/prospecting-index.jsp</result>
-			<interceptor-ref name="basicStack"/>
 		</action>
 
 		<action name="prospecting-crud" class="com.dasho2.pk.action.ProspectingAction" method="input">

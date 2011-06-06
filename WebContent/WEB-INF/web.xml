@@ -5,10 +5,6 @@
 	id="WebApp_ID" version="2.5">
 	<display-name>pK</display-name>
 
-	<welcome-file-list>
-		<welcome-file>/WEB-INF/content/login.jsp</welcome-file>
-	</welcome-file-list>
-
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>

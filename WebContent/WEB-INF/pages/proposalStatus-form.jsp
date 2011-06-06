@@ -35,7 +35,7 @@
 						</h1>
 						<s:actionerror />
 						<s:actionmessage />
-						<s:form action="proposalStatus-crud!save.action" method="post">
+						<s:form action="proposalStatus-crud!save" method="post">
 							<s:hidden name="proposalStatus.id" value="%{proposalStatus.id}" />
 
 							<s:textfield name="proposalStatus.id"                      value="%{proposalStatus.id}"                      label="Código"         cssClass="textField_id"           disabled="true" />

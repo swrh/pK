@@ -35,7 +35,7 @@
 						</h1>
 						<s:actionerror />
 						<s:actionmessage />
-						<s:form action="representative-crud!save.action" method="post">
+						<s:form action="representative-crud!save" method="post">
 							<s:hidden name="representative.id" value="%{representative.id}" />
 
 							<s:textfield name="representative.id"                      value="%{representative.id}"                      label="Código"         cssClass="textField_id"           disabled="true" />

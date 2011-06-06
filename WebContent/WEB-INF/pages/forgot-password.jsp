@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
+	<head>
 		<jsp:include page="../include/head.jsp" />
 		<script language="javascript" type="text/javascript">
 			$(window).load(function () {
@@ -11,16 +11,16 @@
 			});
 		</script>
 	</head>
-  <body>
-    <div id="login">
-      <fieldset>
-        <form name="formSenha" action="senhaRecover" method="post">
-        	<table>
-        		<tr>
+	<body>
+		<div id="login">
+			<fieldset>
+				<form name="formSenha" action="senhaRecover" method="post">
+					<table>
+						<tr>
 					<td width="75">E-mail:</td>
 					<td><input type="text" name="user.email" size="20" maxlength="45" /></td>
-        		</tr>
-        		<tr>
+						</tr>
+						<tr>
 					<td colspan="2"></td>
 				</tr>
 				<tr>
@@ -29,18 +29,18 @@
 				<tr>
 					<td colspan="2"></td>
 				</tr>
-	        	<tr>
+						<tr>
 					<td colspan="2"><s:fielderror fieldName="user.login"/></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td><div class="cssbutton sample a"><input type="submit" value="Recuperar senha!" /></div></td>
 				</tr>
-        	</table>
-        </form>
-      </fieldset>
-    </div>
-  </body>
+					</table>
+				</form>
+			</fieldset>
+		</div>
+	</body>
 </html>
 
 <!-- vim:set et: -->
