@@ -1,13 +1,14 @@
 package com.dasho2.pk.action;
 
-import com.dasho2.pk.dao.User;
-import com.dasho2.pk.dao.impl.UserDAO;
+import com.dasho2.pk.dao.entity.Employee;
+import com.dasho2.pk.dao.service.EmployeeDaoServiceHibernate;
+import com.dasho2.pk.dao.service.EmployeeDaoServiceInterface;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 @SuppressWarnings("serial")
 public class AuthenticationAction extends ActionSupport {
-	private User user;
+	private Employee employee;
 
 	@Override
 	public String input() throws Exception {
@@ -15,29 +16,29 @@ public class AuthenticationAction extends ActionSupport {
 	}
 
 	public String login() {
-		UserDAO dao = new UserDAO();
+		EmployeeDaoServiceInterface dao = new EmployeeDaoServiceHibernate();
 
-		if (!dao.matchUser(getUser())) {
-			addFieldError("user.invalid", "Usuário/senha inválidos.");
+		if (!dao.authenticate(getEmployee())) {
+			addFieldError("employee.invalid", "Usuário/senha inválidos.");
 			return ERROR;
 		}
 
-		ActionContext.getContext().getSession().put("user", getUser());
+		ActionContext.getContext().getSession().put("employee", getEmployee());
 		return SUCCESS;
 	}
 
 	public String logout() {
-		setUser(null);
-		ActionContext.getContext().getSession().remove("user");
+		setEmployee(null);
+		ActionContext.getContext().getSession().remove("employee");
 		return SUCCESS;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 
-	public User getUser() {
-		return user;
+	public Employee getEmployee() {
+		return employee;
 	}
 
 }

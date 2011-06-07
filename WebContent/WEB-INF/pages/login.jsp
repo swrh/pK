@@ -19,11 +19,11 @@
 				<s:actionerror />
 				<s:actionmessage />
 				<s:form action="login" method="post">
-					<s:textfield name="user.login"    label="E-mail" size="30" />
-					<s:password  name="user.password" label="Senha"  size="30" />
+					<s:textfield name="employee.email"    label="E-mail" size="20" />
+					<s:password  name="employee.password" label="Senha"  size="20" />
 					<s:submit id="btn_salvar" value="Login" />
 				</s:form>
-				<s:fielderror fieldName="user.invalid" />
+				<s:fielderror fieldName="employee.invalid" />
 				<a href="forgot-password">Esqueci a senha!</a>
 			</fieldset>
 		</div>

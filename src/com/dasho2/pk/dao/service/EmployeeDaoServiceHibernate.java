@@ -18,14 +18,14 @@ public class EmployeeDaoServiceHibernate implements EmployeeDaoServiceInterface 
 		List<Employee> list = query.list();
 
 		session.close();
-		
+
 		return list;
 	}
 
 	@Override
 	public Employee getById(Integer id) {
 		Session session = new HibernateUtil().getSession();
-		return (Employee)session.get(Employee.class, id);
+		return (Employee) session.get(Employee.class, id);
 	}
 
 	@Override
@@ -35,28 +35,41 @@ public class EmployeeDaoServiceHibernate implements EmployeeDaoServiceInterface 
 		session.beginTransaction();
 		session.update(employee);
 		session.getTransaction().commit();
-		
-		session.close();
-    }
 
-    public void insert(Employee employee) {
+		session.close();
+	}
+
+	public void insert(Employee employee) {
 		Session session = new HibernateUtil().getSession();
-		
+
 		session.beginTransaction();
 		session.save(employee);
 		session.getTransaction().commit();
-		
-		session.close();
-    }
 
-    public void delete(Integer id) {
+		session.close();
+	}
+
+	public void delete(Integer id) {
 		Session session = new HibernateUtil().getSession();
-		
+
 		session.beginTransaction();
 		session.delete(getById(id));
 		session.getTransaction().commit();
-		
+
 		session.close();
-    }
+	}
+
+	public boolean authenticate(Employee employee) {
+		Session session = new HibernateUtil().getSession();
+
+		Query query = session.createQuery("SELECT employee FROM Employee as employee WHERE employee.email = :email AND employee.password = :password");
+		query.setParameter("email", employee.getEmail());
+		query.setParameter("password", employee.getPassword());
+
+		@SuppressWarnings("unchecked")
+		List<Employee> list = query.list();
+
+		return list.size() > 0;
+	}
 
 }

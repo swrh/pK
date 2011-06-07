@@ -18,7 +18,7 @@
 					<table>
 						<tr>
 					<td width="75">E-mail:</td>
-					<td><input type="text" name="user.email" size="20" maxlength="45" /></td>
+					<td><input type="text" name="employee.email" size="20" maxlength="45" /></td>
 						</tr>
 						<tr>
 					<td colspan="2"></td>
@@ -30,7 +30,7 @@
 					<td colspan="2"></td>
 				</tr>
 						<tr>
-					<td colspan="2"><s:fielderror fieldName="user.login"/></td>
+					<td colspan="2"><s:fielderror fieldName="employee.email"/></td>
 				</tr>
 				<tr>
 					<td></td>

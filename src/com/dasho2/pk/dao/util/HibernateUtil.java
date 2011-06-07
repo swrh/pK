@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
-import com.dasho2.pk.dao.User;
 import com.dasho2.pk.dao.entity.Customer;
 import com.dasho2.pk.dao.entity.Department;
 import com.dasho2.pk.dao.entity.Employee;
@@ -32,7 +31,6 @@ public class HibernateUtil {
 		cfg.addAnnotatedClass(ProposalStatus.class);
 		cfg.addAnnotatedClass(Prospecting.class);
 		cfg.addAnnotatedClass(Representative.class);
-		cfg.addAnnotatedClass(User.class);
 		factory = cfg.buildSessionFactory();
 	}
 	
