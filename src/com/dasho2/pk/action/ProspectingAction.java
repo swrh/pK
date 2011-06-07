@@ -5,6 +5,7 @@ import java.util.List;
 import com.dasho2.pk.dao.entity.Customer;
 import com.dasho2.pk.dao.entity.Employee;
 import com.dasho2.pk.dao.entity.FinishingReason;
+import com.dasho2.pk.dao.entity.History;
 import com.dasho2.pk.dao.entity.Indication;
 import com.dasho2.pk.dao.entity.Operation;
 import com.dasho2.pk.dao.entity.ProposalStatus;
@@ -15,6 +16,8 @@ import com.dasho2.pk.dao.service.EmployeeDaoServiceHibernate;
 import com.dasho2.pk.dao.service.EmployeeDaoServiceInterface;
 import com.dasho2.pk.dao.service.FinishingReasonDaoServiceHibernate;
 import com.dasho2.pk.dao.service.FinishingReasonDaoServiceInterface;
+import com.dasho2.pk.dao.service.HistoryDaoServiceHibernate;
+import com.dasho2.pk.dao.service.HistoryDaoServiceInterface;
 import com.dasho2.pk.dao.service.IndicationDaoServiceHibernate;
 import com.dasho2.pk.dao.service.IndicationDaoServiceInterface;
 import com.dasho2.pk.dao.service.OperationDaoServiceHibernate;
@@ -23,6 +26,7 @@ import com.dasho2.pk.dao.service.ProposalStatusDaoServiceHibernate;
 import com.dasho2.pk.dao.service.ProposalStatusDaoServiceInterface;
 import com.dasho2.pk.dao.service.ProspectingDaoServiceHibernate;
 import com.dasho2.pk.dao.service.ProspectingDaoServiceInterface;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 
@@ -50,6 +54,9 @@ public class ProspectingAction extends ActionSupport implements Preparable {
 	private List<Prospecting> prospectings;
 
 	private Prospecting prospecting;
+
+	private static HistoryDaoServiceInterface historyDaoService = new HistoryDaoServiceHibernate();
+	private History history;
 
 	public void prepare() throws Exception {
 		finishingReasons = finishingReasonDaoService.getAll();
@@ -89,6 +96,19 @@ public class ProspectingAction extends ActionSupport implements Preparable {
 		return INPUT;
 	}
 
+	public String addHistory() {
+		history.setId(null);
+		history.updateTime();
+		history.setEmployee((Employee)ActionContext.getContext().getSession().get("employee"));
+		historyDaoService.insert(history);
+
+		prospecting.getHistory().add(history);
+		prospecting.updateModificationDate();
+		service.update(prospecting);
+
+		return SUCCESS;
+	}
+
 	public List<FinishingReason> getFinishingReasons() {
 		return finishingReasons;
 	}
@@ -123,6 +143,14 @@ public class ProspectingAction extends ActionSupport implements Preparable {
 
 	public void setProspecting(Prospecting prospecting) {
 		this.prospecting = prospecting;
+	}
+
+	public void setHistory(History history) {
+		this.history = history;
+	}
+
+	public History getHistory() {
+		return history;
 	}
 
 }

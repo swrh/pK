@@ -15,6 +15,6 @@ public interface EmployeeDaoServiceInterface {
 
 	public void delete(Integer id);
 
-	public boolean authenticate(Employee employee);
+	public Employee authenticate(Employee employee);
 
 }

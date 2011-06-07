@@ -3,11 +3,14 @@ package com.dasho2.pk.dao.entity;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 @Entity
 public class Prospecting {
@@ -29,6 +32,10 @@ public class Prospecting {
 	private ProposalStatus proposalStatus;
 	@ManyToOne
 	private Customer customer;
+
+	@OneToMany
+	@OrderBy("time, id")
+	private List<History> history;
 
 	private long creationDate;
 	private long modificationDate;
@@ -87,6 +94,14 @@ public class Prospecting {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	public void setHistory(List<History> history) {
+		this.history = history;
+	}
+
+	public List<History> getHistory() {
+		return history;
 	}
 
 	public long getCreationDate() {

@@ -81,13 +81,11 @@
 				
 				<div id="right">
             	<div class="sidebar">
-                	<div class="sidebar_banner">
-                    Histórico
-                    </div>
+					<div class="sidebar_banner">Histórico</div>
                     <div class="sidebar_content">
 	                    <div id="#history">
 
-							<div id="historydata">
+							<div id="historydata_whatever">
 								<table>
 									<tr id="nohistory">
 										<td>Sem histórico</td>
@@ -95,6 +93,9 @@
 								</table>
 							</div>
 							
+							<div id="historydata"></div>
+
+							<br />
 							<a href="#" id="new_hist_link"><img src="<s:url value='/images/add.png' />" alt="Adiciona novo histórico de contato" /></a>
 							
 							<div id="new_hist">

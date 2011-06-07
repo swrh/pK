@@ -18,7 +18,8 @@ public class AuthenticationAction extends ActionSupport {
 	public String login() {
 		EmployeeDaoServiceInterface dao = new EmployeeDaoServiceHibernate();
 
-		if (!dao.authenticate(getEmployee())) {
+		setEmployee(dao.authenticate(getEmployee()));
+		if (getEmployee() == null) {
 			addFieldError("employee.invalid", "Usuário/senha inválidos.");
 			return ERROR;
 		}

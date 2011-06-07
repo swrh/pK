@@ -1,14 +1,14 @@
 $(document).ready(function() {
 	$('#new_hist').hide();
 
-	//Shows the textbox and allows the user to enter text.
+	// Shows the textbox and allows the user to enter text.
 	$('#new_hist_link').click(function(e) {
 		$('#new_hist').show("fast");
 		$('#new_hist_link').hide('fast');
 		$('#history_text').focus();
 	});
 
-	//Cancel the history item
+	// Cancel the history item
 	$('#new_hist_cancel').click(function(e) {
 		$('#history_text').val('');
 		$('#new_hist').hide('fast');
@@ -18,38 +18,26 @@ $(document).ready(function() {
 	$('#new_hist_ok').click(function(e) {
 
 		if($('#history_text').val() == ''){
-
 			alert('Por favor, digite informações válidas no histórico.');
 			$('#history_text').focus();
-
 		} else {
+			var text = $('#history_text').val();
+			var id = $("input[type=hidden][name=prospecting.id]").val();
+			$.post("prospecting-crud!addHistory", { "prospecting.id" : id, "history.text" : text }, function() {
+				$.fn.reload_history();
+			})
+			.error(function() {
+				alert('Erro enviando histórico ao servidor!');
+			});
 
-			//alert('HistoryAdd?prospect.id=' + 'path do prospect id.val' + '&prospect.history=' + $('#history_text').val());
-			//$.post('HistoryAdd?prospect.id=' + 'path do prospect id.val' + '&prospect.history=' + $('#history_text').val()), function(data) {
-
-				//Perform POST to URL and check 200 status
-				//alert('Post feito');
-
-			//}
-
-			//Remove the #nohistory node if it exists.
-			if ($('#nohistory').length != 0)
-				$('#nohistory').remove();
-
-			//alert('<tr id="history_item"><td>' + $('#history_text').val() + '</td></tr>');
-
-			//Add a new item to the history list after post
-			//You have to add the <table> tag otherwise it doesn't works on IE.
-			$('#historydata').append('<table><tr id="history_item"><td>' + $('#history_text').val() + '</td></tr></table><hr>');
-
-			//Calls the cancel button
+			// Calls the cancel button
 			$('#new_hist_cancel').click();
 
 		}
 
 	});
 
-	$("select:#selected_customer_id").change(function () {
+	$("select:#selected_customer_id").change(function() {
 		var id = $("select:#selected_customer_id option:selected").val();
 		$.post("customer-json", { "customer.id" : id }, function(json) {
 			var c = json.customer;
@@ -79,7 +67,7 @@ $(document).ready(function() {
 		});
 	}).trigger('change');
 
-	$("select:#selected_proposalStatus_id").change(function () {
+	$("select:#selected_proposalStatus_id").change(function() {
 		var id = $("select:#selected_proposalStatus_id option:selected").val();
 		$.post("proposalStatus-json", { "proposalStatus.id" : id }, function(json) {
 			var s = json.proposalStatus;
@@ -94,6 +82,8 @@ $(document).ready(function() {
 			$.fn.update_proposalStatus(s);
 		});
 	}).trigger('change');
+
+	$.fn.reload_history();
 });
 
 $.fn.update_customer = function(c) {
@@ -120,3 +110,27 @@ $.fn.update_proposalStatus = function(s) {
 	else
 		$("input:#proposalStatus_finishing"        ).removeAttr("checked");
 };
+
+$.fn.update_history = function(h) {
+	$('#historydata').html('');
+	if (h.length <= 0) {
+		$('#nohistory').show();
+		return;
+	}
+
+	$('#nohistory').hide();
+
+	for (var i = 0; i < h.length; i++)
+		$('#historydata').append('<table><tr id="history_item"><td>' + h[i].text + '</td></tr></table><hr>');
+};
+
+$.fn.reload_history = function() {
+	var id = $("input[type=hidden][name=prospecting.id]").val();
+	$.post("prospecting-json", { "prospecting.id" : id }, function(h) {
+		$.fn.update_history(h.prospecting.history);
+	})
+	.error(function() {
+		alert('Erro obtendo histórico do servidor!');
+	});
+};
+

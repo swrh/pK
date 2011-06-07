@@ -168,6 +168,11 @@
 			<result name="error">/WEB-INF/pages/error.jsp</result>
 		</action>
 
+		<action name="prospecting-json" class="com.dasho2.pk.action.ProspectingAction">
+			<result type="json" />
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+			<param name="root">prospecting</param>
+		</action>
 	</package>
 
 </struts>

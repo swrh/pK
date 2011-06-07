@@ -242,8 +242,8 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 	border-right: 1px solid #000000;
 	border-top: 1px solid #000000;
 	font-weight: bolder;
-	font-size: 18px;
-	color: #ffffff;
+	font-size: 16px;
+	color: #404040;
 	padding: 10px 0 0 20px;
 }
 

@@ -59,7 +59,7 @@ public class EmployeeDaoServiceHibernate implements EmployeeDaoServiceInterface 
 		session.close();
 	}
 
-	public boolean authenticate(Employee employee) {
+	public Employee authenticate(Employee employee) {
 		Session session = new HibernateUtil().getSession();
 
 		Query query = session.createQuery("SELECT employee FROM Employee as employee WHERE employee.email = :email AND employee.password = :password");
@@ -69,7 +69,10 @@ public class EmployeeDaoServiceHibernate implements EmployeeDaoServiceInterface 
 		@SuppressWarnings("unchecked")
 		List<Employee> list = query.list();
 
-		return list.size() > 0;
+		if (list.size() <= 0)
+			return null;
+
+		return list.get(0);
 	}
 
 }
