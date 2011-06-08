@@ -101,11 +101,11 @@ ul.topnav {
 ul.topnav li {
 	float: left;
 	margin: 0;	
-	padding: 0 15px 0 0;
+	padding: 0 12px 0 0;
 	position: relative; /*--Declare X and Y axis base--*/
 }
 ul.topnav li a{
-	padding: 10px 5px;
+	padding: 5px 5px;
 	color: #fff;
 	display: block;
 	text-decoration: none;
