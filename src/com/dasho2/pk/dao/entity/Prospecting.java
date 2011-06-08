@@ -1,5 +1,6 @@
 package com.dasho2.pk.dao.entity;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,13 +13,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
+import com.dasho2.pk.util.StrutsSucks;
+
 @Entity
 public class Prospecting {
 	@Id
 	@GeneratedValue
 	private Integer id;
 
-	private long visitDate;
+	private Date visitDateTime;
 
 	@ManyToOne
 	private FinishingReason finishingReason;
@@ -120,20 +123,58 @@ public class Prospecting {
 		creationDate = Calendar.getInstance().getTime().getTime();
 	}
 
-	public long getVisitDate() {
-		return visitDate;
+	public Date getVisitDateTime() {
+		return visitDateTime;
 	}
 
-	public void setVisitDate(long visitDate) {
-		this.visitDate = visitDate;
+	public void setVisitDateTime(Date visitDateTime) {
+		this.visitDateTime = visitDateTime;
 	}
 
-	public String getVisitDateString() {
-		return new SimpleDateFormat("yyyy/MMM/dd HH:mm").format(new Date(visitDate));
+	public String getVisitDate() {
+		if (getVisitDateTime() == null)
+			return "";
+		return new SimpleDateFormat("dd/MM/yy").format(getVisitDateTime());
 	}
 
-	public void updateVisitDate() {
-		visitDate = Calendar.getInstance().getTime().getTime();
+	public void setVisitDate(String visitDate) {
+		try {
+			Date date = StrutsSucks.parseRFC3339Date(visitDate);
+			Date time = getVisitDateTime();
+			if (time == null)
+				time = date;
+			Date newDate = new Date(date.getYear(), date.getMonth(), date.getDate(), time.getHours(), time.getMinutes(), time.getSeconds());
+			setVisitDateTime(newDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IndexOutOfBoundsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public String getVisitTime() {
+		if (getVisitDateTime() == null)
+			return "";
+		return new SimpleDateFormat("HH:mm").format(getVisitDateTime());
+	}
+
+	public void setVisitTime(String visitTime) {
+		try {
+			Date date = getVisitDateTime();
+			Date time = StrutsSucks.parseRFC3339Date(visitTime);
+			if (date == null)
+				date = time;
+			Date newDate = new Date(date.getYear(), date.getMonth(), date.getDate(), time.getHours(), time.getMinutes(), time.getSeconds());
+			setVisitDateTime(newDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IndexOutOfBoundsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public long getModificationDate() {

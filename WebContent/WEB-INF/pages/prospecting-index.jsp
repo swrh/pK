@@ -28,7 +28,7 @@
 						<table class="sofT_125">
 							<tr>
 								<th class="helpHedCodigo">Código</th>
-								<th class="helpHed">Visita</th>
+								<th class="helpHed">Última Visita</th>
 								<th class="helpHed">Funcionário</th>
 								<th class="helpHed">Ação</th>
 								<th class="helpHed">Proposta</th>
@@ -41,7 +41,7 @@
 								</s:url>
 								<tr style="cursor: pointer" onclick="document.location='<s:property value="#editUrl"/>'">
 									<td class="helpBod"><s:property value="id" /></td>
-									<td class="helpBod"><s:property value="visitDateString" /></td>
+									<td class="helpBod"><s:property value="visitDate" /></td>
 									<td class="helpBod"><s:property value="employee.name" /></td>
 									<td class="helpBod"><s:property value="operation.name" /></td>
 									<td class="helpBod"><s:property value="proposalStatus.name" /></td>
