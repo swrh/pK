@@ -120,8 +120,9 @@ $.fn.update_history = function(h) {
 
 	$('#nohistory').hide();
 
-	for (var i = 0; i < h.length; i++)
-		$('#historydata').append('<table><tr id="history_item"><td>' + h[i].text + '</td></tr></table><hr>');
+	for (var i = 0; i < h.length; i++) {
+		$('#historydata').append('<table><tr id="history_item"><tr><a href="employee-crud!input?employee.id=' + h[i].employee.id + '">' + h[i].employee.name + '</a> - ' + h[i].timeString + '</td><td>' + h[i].text + '</td></tr></table><hr>');
+	}
 };
 
 $.fn.reload_history = function() {
