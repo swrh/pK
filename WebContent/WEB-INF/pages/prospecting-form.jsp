@@ -43,7 +43,7 @@
                                                
 							<s:textfield       name="prospecting.id"                         value="%{prospecting.id}"                         label="Código"                  cssClass="textField_id"                                                                                     disabled="true" />
 							<s:select          name="prospecting.customer.id"                value="%{prospecting.customer.id}"                label="Cliente"                 listKey="id" listValue="name"     list="customers"                     id="selected_customer_id" />
-                                               
+
 							<s:textfield       name="customer.companyName"                   value=""                                          label="Razão Social"            cssClass="textField_companyName"                                       id="customer_companyName"            disabled="true" />
 							<s:textfield       name="customer.email"                         value=""                                          label="E-mail"                  cssClass="textField_email"                                             id="customer_email"                  disabled="true" />
 							<s:textfield       name="customer.phone"                         value=""                                          label="Telefone"                cssClass="textField_phone"                                             id="customer_phone"                  disabled="true" />
@@ -52,7 +52,10 @@
 							<s:textfield       name="customer.city"                          value=""                                          label="Cidade"                  cssClass="textField_address"                                           id="customer_city"                   disabled="true" />
 							<s:textfield       name="customer.state"                         value=""                                          label="Estado"                  cssClass="textField_address"                                           id="customer_state"                  disabled="true" />
 							<s:textfield       name="customer.zipCode"                       value=""                                          label="CEP"                     cssClass="textField_zipCode"                                           id="customer_zipCode"                disabled="true" />
-                                               
+
+							<s:select          name="prospecting.product.id"                 value="%{prospecting.product.id}"                 label="Produto"                 listKey="id" listValue="name"     list="products" />
+							<s:textfield       name="prospecting.productValue"               value="%{prospecting.productValue}"               label="Valor (R$)"              cssClass="textField_priceValue"  />
+<s:if test="prospecting != null && prospecting.id != null">
 							<s:select          name="prospecting.finishingReason.id"         value="%{prospecting.finishingReason.id}"         label="Motivo de Encerramento"  listKey="id" listValue="name"     list="finishingReasons" />
 							<s:select          name="prospecting.employee.id"                value="%{prospecting.employee.id}"                label="Funcionário"             listKey="id" listValue="name"     list="employees" />
 							<s:select          name="prospecting.operation.id"               value="%{prospecting.operation.id}"               label="Ação"                    listKey="id" listValue="name"     list="operations" />
@@ -62,9 +65,10 @@
 
 							<sx:datetimepicker name="prospecting.visitDate"                  value="%{prospecting.visitDate}"                  label="Última Visita"           displayFormat="dd/MM/yy"  />
 							<sx:datetimepicker name="prospecting.visitTime"                  value="%{prospecting.visitTime}"                  label="-"                       displayFormat="HH:mm"     type="time" />
+</s:if>
 
-							<s:textfield name="prospecting.creationDateString"         value="%{prospecting.creationDateString}"         label="Criado em"                     cssClass="textField_dateTime"                                                                               disabled="true" />
-							<s:textfield name="prospecting.modificationDateString"     value="%{prospecting.modificationDateString}"     label="Modificado em"                 cssClass="textField_dateTime"                                                                               disabled="true" />
+							<s:textfield       name="prospecting.creationDateString"         value="%{prospecting.creationDateString}"         label="Criado em"               cssClass="textField_dateTime"                                                                               disabled="true" />
+							<s:textfield       name="prospecting.modificationDateString"     value="%{prospecting.modificationDateString}"     label="Modificado em"           cssClass="textField_dateTime"                                                                               disabled="true" />
 
 							<s:submit id="btn_salvar" value="Salvar" />
 							<s:submit id="btn_apagar" value="Excluir" />
@@ -76,36 +80,37 @@
 				
 				<!-- Right menu  -->
 				
+<s:if test="prospecting != null && prospecting.id != null">
 				<div id="right">
-            	<div class="sidebar">
-					<div class="sidebar_banner">Histórico</div>
-                    <div class="sidebar_content">
-	                    <div id="#history">
-
-							<div id="historydata_whatever">
-								<table>
-									<tr id="nohistory">
-										<td>Sem histórico</td>
-									</tr>
-								</table>
+	            	<div class="sidebar">
+						<div class="sidebar_banner">Histórico</div>
+	                    <div class="sidebar_content">
+		                    <div id="#history">
+	
+								<div id="historydata_whatever">
+									<table>
+										<tr id="nohistory">
+											<td>Sem histórico</td>
+										</tr>
+									</table>
+								</div>
+								
+								<div id="historydata"></div>
+	
+								<br />
+								<a href="#" id="new_hist_link"><img src="<s:url value='/images/add.png' />" alt="Adiciona novo histórico de contato" /></a>
+								
+								<div id="new_hist">
+									Novo Item de Histórico<br/>
+									<textarea rows="5" cols="37" id="history_text"></textarea><br/>
+									<a href="#" id="new_hist_ok"><img src="<s:url value='/images/ok.png' />" alt="Salva histórico de contato" /></a><a href="#" id="new_hist_cancel"><img src="<s:url value='/images/cancel.png' />" alt="Cancela operação" /></a>
+								</div>
+								
 							</div>
-							
-							<div id="historydata"></div>
-
-							<br />
-							<a href="#" id="new_hist_link"><img src="<s:url value='/images/add.png' />" alt="Adiciona novo histórico de contato" /></a>
-							
-							<div id="new_hist">
-								Novo Item de Histórico<br/>
-								<textarea rows="5" cols="37" id="history_text"></textarea><br/>
-								<a href="#" id="new_hist_ok"><img src="<s:url value='/images/ok.png' />" alt="Salva histórico de contato" /></a><a href="#" id="new_hist_cancel"><img src="<s:url value='/images/cancel.png' />" alt="Cancela operação" /></a>
-							</div>
-							
-						</div>
-                    </div>
-				</div>
-                   
+	                    </div>
+					</div>
                 </div>
+</s:if>
 
 			</div>
 			<div class="cleaner"></div>

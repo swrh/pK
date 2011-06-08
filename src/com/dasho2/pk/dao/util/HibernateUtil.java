@@ -14,6 +14,7 @@ import com.dasho2.pk.dao.entity.Operation;
 import com.dasho2.pk.dao.entity.Product;
 import com.dasho2.pk.dao.entity.ProposalStatus;
 import com.dasho2.pk.dao.entity.Prospecting;
+import com.dasho2.pk.dao.entity.Report;
 import com.dasho2.pk.dao.entity.Representative;
 
 public class HibernateUtil {
@@ -32,6 +33,7 @@ public class HibernateUtil {
 		cfg.addAnnotatedClass(Product.class);
 		cfg.addAnnotatedClass(ProposalStatus.class);
 		cfg.addAnnotatedClass(Prospecting.class);
+		cfg.addAnnotatedClass(Report.class);
 		cfg.addAnnotatedClass(Representative.class);
 		factory = cfg.buildSessionFactory();
 	}

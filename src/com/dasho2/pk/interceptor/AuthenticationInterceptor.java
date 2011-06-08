@@ -11,7 +11,7 @@ public class AuthenticationInterceptor extends AbstractInterceptor {
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		Map<String, Object> session = invocation.getInvocationContext().getSession();
-		if(session.get("employee") == null)
+		if (session.get("employee") == null)
 			return Action.LOGIN;
 
 		return invocation.invoke();

@@ -14,7 +14,7 @@
 	<body>
 		<div id="login">
 			<fieldset>
-				<form name="formSenha" action="senhaRecover" method="post">
+				<form name="formSenha" action=".action" method="post">
 					<table>
 						<tr>
 					<td width="75">E-mail:</td>

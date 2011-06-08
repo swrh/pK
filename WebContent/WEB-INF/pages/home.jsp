@@ -1,3 +1,4 @@
+<%@page import="com.dasho2.pk.dao.entity.Employee"%>
 <%@ page contentType="text/html; charset=utf-8" language="java"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -17,6 +18,12 @@
 			<div id="content_area">
 				<div id="left">
 
+					<br/>
+					<center><h1 style="font-size: 24px;">Seja bem vindo, <%= ((Employee)session.getAttribute("employee")).getName() %></h1></center>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
 					<br/>
 					<br/>
 					<br/>

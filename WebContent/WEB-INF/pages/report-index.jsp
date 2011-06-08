@@ -19,32 +19,34 @@
 
 					<br />
 					<div id="tabela">
-						<s:url id="createUrl" action="prospecting-crud!input" />
-						<a href="<s:property value="#createUrl" />" class="linknew">Criar Nova Prospecção</a>
+						<s:url id="createUrl" action="report-create" />
+						<a href="<s:property value="#createUrl" />" class="linknew">Criar Novo Relatório</a>
 						<br />
 						<br />
-							<h1>Listagem de Prospecções</h1>
+							<h1>Listagem de Relatórios</h1>
 						<br />
 						<table class="sofT_125">
 							<tr>
 								<th class="helpHedCodigo">Código</th>
 								<th class="helpHed">Última Visita</th>
 								<th class="helpHed">Responsável</th>
-								<th class="helpHed">Produto</th>
+								<th class="helpHed">Ação</th>
 								<th class="helpHed">Proposta</th>
 								<th class="helpHed">Cliente</th>
+								<th class="helpHed">Motivo de Encerramento</th>
 							</tr>
-							<s:iterator value="prospectings" status="status">
-								<s:url action="prospecting-crud!input" id="editUrl">
-									<s:param name="prospecting.id" value="id" />
+							<s:iterator value="reports" status="status">
+								<s:url action="report-read" id="readUrl">
+									<s:param name="report.id" value="id" />
 								</s:url>
-								<tr style="cursor: pointer" onclick="document.location='<s:property value="#editUrl"/>'">
+								<tr style="cursor: pointer" onclick="document.location='<s:property value="#readUrl"/>'">
 									<td class="helpBod"><s:property value="id" /></td>
-									<td class="helpBod"><s:property value="visitDate" /></td>
-									<td class="helpBod"><s:property value="employee.name" /></td>
-									<td class="helpBod"><s:property value="product.name" /></td>
-									<td class="helpBod"><s:property value="proposalStatus.name" /></td>
-									<td class="helpBod"><s:property value="customer.name" /></td>
+									<td class="helpBod"><s:property value="prospecting.visitDate" /></td>
+									<td class="helpBod"><s:property value="prospecting.employee.name" /></td>
+									<td class="helpBod"><s:property value="prospecting.operation.name" /></td>
+									<td class="helpBod"><s:property value="prospecting.proposalStatus.name" /></td>
+									<td class="helpBod"><s:property value="prospecting.customer.name" /></td>
+									<td class="helpBod"><s:property value="prospecting.finishingReason.name" /></td>
 								</tr>
 							</s:iterator>
 						</table>

@@ -8,6 +8,7 @@ import com.dasho2.pk.dao.entity.FinishingReason;
 import com.dasho2.pk.dao.entity.History;
 import com.dasho2.pk.dao.entity.Indication;
 import com.dasho2.pk.dao.entity.Operation;
+import com.dasho2.pk.dao.entity.Product;
 import com.dasho2.pk.dao.entity.ProposalStatus;
 import com.dasho2.pk.dao.entity.Prospecting;
 import com.dasho2.pk.dao.service.CustomerDaoServiceHibernate;
@@ -22,6 +23,8 @@ import com.dasho2.pk.dao.service.IndicationDaoServiceHibernate;
 import com.dasho2.pk.dao.service.IndicationDaoServiceInterface;
 import com.dasho2.pk.dao.service.OperationDaoServiceHibernate;
 import com.dasho2.pk.dao.service.OperationDaoServiceInterface;
+import com.dasho2.pk.dao.service.ProductDaoServiceHibernate;
+import com.dasho2.pk.dao.service.ProductDaoServiceInterface;
 import com.dasho2.pk.dao.service.ProposalStatusDaoServiceHibernate;
 import com.dasho2.pk.dao.service.ProposalStatusDaoServiceInterface;
 import com.dasho2.pk.dao.service.ProspectingDaoServiceHibernate;
@@ -50,6 +53,9 @@ public class ProspectingAction extends ActionSupport implements Preparable {
 	private static CustomerDaoServiceInterface customerDaoService = new CustomerDaoServiceHibernate();
 	private List<Customer> customers;
 
+	private static ProductDaoServiceInterface productDaoService = new ProductDaoServiceHibernate();
+	private List<Product> products;
+
 	private static ProspectingDaoServiceInterface service = new ProspectingDaoServiceHibernate();
 	private List<Prospecting> prospectings;
 
@@ -65,6 +71,7 @@ public class ProspectingAction extends ActionSupport implements Preparable {
 		indications = indicationDaoService.getAll();
 		proposalStatuss = proposalStatusDaoService.getAll();
 		customers = customerDaoService.getAll();
+		products = productDaoService.getAll();
 		if (prospecting != null && prospecting.getId() != null) {
 			prospecting = service.getById(prospecting.getId());
 		}
@@ -72,6 +79,7 @@ public class ProspectingAction extends ActionSupport implements Preparable {
 
 	public String save() {
 		if (prospecting.getId() == null) {
+			prospecting.setEmployee((Employee)ActionContext.getContext().getSession().get("employee"));
 			prospecting.updateCreationDate();
 			prospecting.updateModificationDate();
 			service.insert(prospecting);
@@ -131,6 +139,10 @@ public class ProspectingAction extends ActionSupport implements Preparable {
 
 	public List<Customer> getCustomers() {
 		return customers;
+	}
+
+	public List<Product> getProducts() {
+		return products;
 	}
 
 	public List<Prospecting> getProspectings() {

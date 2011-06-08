@@ -148,16 +148,6 @@
 			<result name="error">/WEB-INF/pages/error.jsp</result>
 		</action>
 
-		<action name="representative-index" class="com.dasho2.pk.action.RepresentativeAction" method="list">
-			<result name="success">/WEB-INF/pages/representative-index.jsp</result>
-		</action>
-
-		<action name="representative-crud" class="com.dasho2.pk.action.RepresentativeAction" method="input">
-			<result name="success" type="redirectAction">representative-index</result>
-			<result name="input">/WEB-INF/pages/representative-form.jsp</result>
-			<result name="error">/WEB-INF/pages/error.jsp</result>
-		</action>
-
 		<action name="prospecting-index" class="com.dasho2.pk.action.ProspectingAction" method="list">
 			<result name="success">/WEB-INF/pages/prospecting-index.jsp</result>
 		</action>
@@ -173,6 +163,47 @@
 			<result name="error">/WEB-INF/pages/error.jsp</result>
 			<param name="root">prospecting</param>
 		</action>
+
+		<action name="report-index" class="com.dasho2.pk.action.ReportAction" method="list">
+			<result name="success">/WEB-INF/pages/report-index.jsp</result>
+		</action>
+
+		<action name="report-create" class="com.dasho2.pk.action.ReportAction" method="input">
+			<result name="success" type="redirectAction">report-index</result>
+			<result name="input">/WEB-INF/pages/report-create.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
+		<action name="report-read" class="com.dasho2.pk.action.ReportAction" method="read">
+			<result name="success">/WEB-INF/pages/report-read.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
+		<action name="report-delete" class="com.dasho2.pk.action.ReportAction" method="delete">
+			<result name="success" type="redirectAction">report-index</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
+		<action name="proposal-read" class="com.dasho2.pk.action.ReportAction" method="read">
+			<result name="success">/WEB-INF/pages/proposal-read.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
+		<action name="proposal-print" class="com.dasho2.pk.action.ReportAction" method="print">
+			<result name="success">/WEB-INF/pages/proposal-print.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
+		<action name="representative-index" class="com.dasho2.pk.action.RepresentativeAction" method="list">
+			<result name="success">/WEB-INF/pages/representative-index.jsp</result>
+		</action>
+
+		<action name="representative-crud" class="com.dasho2.pk.action.RepresentativeAction" method="input">
+			<result name="success" type="redirectAction">representative-index</result>
+			<result name="input">/WEB-INF/pages/representative-form.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</action>
+
 	</package>
 
 </struts>

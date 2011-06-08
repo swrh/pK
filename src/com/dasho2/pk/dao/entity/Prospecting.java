@@ -23,6 +23,8 @@ public class Prospecting {
 
 	private Date visitDateTime;
 
+	private String productValue;
+
 	@ManyToOne
 	private FinishingReason finishingReason;
 	@ManyToOne
@@ -35,6 +37,8 @@ public class Prospecting {
 	private ProposalStatus proposalStatus;
 	@ManyToOne
 	private Customer customer;
+	@ManyToOne
+	private Product product;
 
 	@OneToMany
 	@OrderBy("time, id")
@@ -97,6 +101,14 @@ public class Prospecting {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Product getProduct() {
+		return product;
 	}
 
 	public void setHistory(List<History> history) {
@@ -175,6 +187,14 @@ public class Prospecting {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public void setProductValue(String productValue) {
+		this.productValue = productValue;
+	}
+
+	public String getProductValue() {
+		return productValue;
 	}
 
 	public long getModificationDate() {

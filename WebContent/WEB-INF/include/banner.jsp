@@ -25,7 +25,7 @@
 							</ul>
 						</li>
 						<li><a href="prospecting-index">Prospecções</a></li>
-						<li><a href="#">Relat&oacute;rios</a></li>
+						<li><a href="report-index">Relat&oacute;rios</a></li>
 						<li><a href="logout">Logout</a></li>
 					</ul>
 				</div>
