@@ -1,6 +1,6 @@
 To build the WAR file using Ant:
 
-  $ ant build
+  $ ant archive
 
 And the WAR file will be located under "dist/pK.war". To deploy it usually you
 just need to drop it under the "webapps" folder of the Apache Tomcat
