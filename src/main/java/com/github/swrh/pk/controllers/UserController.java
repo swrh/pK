@@ -3,6 +3,7 @@ package com.github.swrh.pk.controllers;
 import com.github.swrh.pk.entities.User;
 import com.github.swrh.pk.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 
+@Controller
 public class UserController {
 
     private final UserRepository userRepository;
@@ -45,7 +47,6 @@ public class UserController {
     public String showUpdateForm(@PathVariable("id") long id, Model model) {
         User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         model.addAttribute("user", user);
-
         return "update-user";
     }
 
