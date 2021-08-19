@@ -21,6 +21,7 @@
     <properties>
         <java.version>1.8</java.version>
         <struts.version>2.3.37</struts.version>
+        <mysql.version>8.0.26</mysql.version>
     </properties>
 
     <dependencies>
@@ -39,7 +40,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.49</version>
+            <version>${mysql.version}</version>
         </dependency>
 
         <dependency>
