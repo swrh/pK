@@ -1,118 +1,42 @@
-USAGE
-=====
+# perspeKtiva
 
-To build the WAR file using Ant:
+### Database configuration
 
-    $ ant archive
+Open the `src/main/resources/hibernate.properties` file and change the following lines accordingly:
 
-And the WAR file will be located under "dist/pK.war". To deploy it usually you
-just need to drop it under the "webapps" folder of the Apache Tomcat
-installation directory.
-
-After that you need to setup the MySQL database. You need to install it using
-your system instructions, create an user with a password and a database:
-
-    mysql> create database dbname;
-    mysql> create user 'username'@'localhost' identified by 'password';
-    mysql> grant all privileges on dbname.* to 'username'@'localhost';
-    mysql> flush privileges;
-
-Add those settings to the "src/hibernate.properties" file like this:
-
-    hibernate.connection.url = jdbc:mysql://localhost/dbname
+    hibernate.connection.url = jdbc:mysql://hostname/database
     hibernate.connection.username = username
     hibernate.connection.password = password
 
-You'll also need to uncomment the following line to create all needed tables
-into your database in the first time you run.
+### Building
 
-    hibernate.hbm2ddl.auto = update
+    $ ./mvnw package
 
-Just uncomment it, start the server, try to login once, comment it back and
-then restart the server.
+### Running
 
-After that you're good to go! ;)
+    $ ./mvnw jetty:run
 
-UBUNTU 12.04 HOWTO
-==================
+You could also run it in a Tomcat Apache server by first building it, getting the WAR file from the `target` directory
+and moving it to the `webapps` directory of the server.
 
-    $ sudo apt-get install tomcat6 openjdk-6-jdk mysql-server ant
-    $ mysql -u root -p
-    mysql> create database dbname;
-    mysql> create user 'username'@'localhost' identified by 'password';
-    mysql> grant all privileges on dbname.* to 'username'@'localhost';
-    mysql> flush privileges;
-    $ vi src/hibernate.properties
+### Setting up using Docker (the quick, dirty and insecure way)
 
-Set the following lines:
+    $ docker run --name pk-mysql -p 3306:3306 \
+        -e MYSQL_ROOT_PASSWORD="password" \
+        -e MYSQL_ROOT_HOST=% \
+        -e MYSQL_DATABASE=dbname \
+        mysql/mysql-server
+    $ ./mvnw jetty:run
 
-    hibernate.connection.url = jdbc:mysql://localhost/dbname
-    hibernate.connection.username = username
-    hibernate.connection.password = password
-    hibernate.hbm2ddl.auto = update
+Open the browser at http://localhost:8080, try to log in with any email and password, stop the Jetty server (CTRL-C) and
+run:
 
-... and then run:
-
-    $ ant archive
-    $ sudo install -o tomcat6 -g tomcat6 dist/pK.war /var/lib/tomcat6/webapps/pK.war
-
-Go to http://localhost:8080/pK and try to log into the server once. It
-shouldn't return a server failure, but just a wrong user/password error
-message.
-
-    $ mysql -u username -p dbname
-    Enter password: password
+    $ mysql -h 127.0.0.1 -u root -p
+    Enter password: 
     mysql> insert into Employee (email, password, creationDate, modificationDate) values('my@email.com', 'mypass', 0, 0);
-    $ vi src/hibernate.properties
+    Query OK, 1 row affected (0,01 sec)
+    
+    mysql> ^DBye
+    $ ./mvnw jetty:run
 
-Comment out the following line:
-
-    #hibernate.hbm2ddl.auto = update
-
-... and then run:
-
-    $ ant archive
-    $ sudo install -o tomcat6 -g tomcat6 dist/pK.war /var/lib/tomcat6/webapps/pK.war
-    $ sudo service tomcat6 restart
-
-UBUNTU 16.04 HOWTO
-==================
-
-    $ sudo apt-get install tomcat8 openjdk-8-jdk mysql-server ant
-    $ mysql -u root -p
-    mysql> create database dbname;
-    mysql> create user 'username'@'localhost' identified by 'password';
-    mysql> grant all privileges on dbname.* to 'username'@'localhost';
-    mysql> flush privileges;
-    $ vi src/hibernate.properties
-
-Set the following lines:
-
-    hibernate.connection.url = jdbc:mysql://localhost/dbname
-    hibernate.connection.username = username
-    hibernate.connection.password = password
-    hibernate.hbm2ddl.auto = update
-
-... and then run:
-
-    $ ant archive
-    $ sudo install -o tomcat8 -g tomcat8 dist/pK.war /var/lib/tomcat8/webapps/pK.war
-
-Go to http://localhost:8080/pK and try to log into the server once. It
-shouldn't return a server failure, but just a wrong user/password error
-message.
-
-    $ mysql -u username -p dbname
-    Enter password: password
-    mysql> insert into Employee (email, password, creationDate, modificationDate) values('my@email.com', 'mypass', 0, 0);
-    $ vi src/hibernate.properties
-
-Comment out the following line:
-
-    #hibernate.hbm2ddl.auto = update
-
-... and then run:
-
-    $ ant archive
-    $ sudo install -o tomcat8 -g tomcat8 dist/pK.war /var/lib/tomcat8/webapps/pK.war
-    $ sudo service tomcat8 restart
+Open the browser at the same link again and try to log with _my@email.com_ and _mypass_.
