@@ -12,7 +12,7 @@
 		
 		<link rel="shortcut icon" href="<s:url value='/favicon.ico' />" />
 
-		<script language="javascript" type="text/javascript" src="<s:url value='/js/jquery-1.5.2.min.js' />"></script>
+		<script language="javascript" type="text/javascript" src="<s:url value='/webjars/jquery/1.5.2/jquery.min.js' />"></script>
 		<script language="javascript" type="text/javascript" src="<s:url value='/js/menu.js' />"></script>
 
 		<title>perspeKtiva</title>
