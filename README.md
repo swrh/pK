@@ -19,9 +19,9 @@ Open the `src/main/resources/hibernate.properties` file and change the following
 You could also run it in a Tomcat Apache server by first building it, getting the WAR file from the `target` directory
 and moving it to the `webapps` directory of the server.
 
-### Setting up using Docker (the quick, dirty and insecure way)
+### Setting it up easily (the quick, dirty and insecure way)
 
-    $ docker run --name pk-mysql -p 3306:3306 \
+    $ docker run --name pk-mysql -p 3306:3306 -d \
         -e MYSQL_ROOT_PASSWORD="password" \
         -e MYSQL_ROOT_HOST=% \
         -e MYSQL_DATABASE=dbname \
@@ -31,12 +31,8 @@ and moving it to the `webapps` directory of the server.
 Open the browser at http://localhost:8080, try to log in with any email and password, stop the Jetty server (CTRL-C) and
 run:
 
-    $ mysql -h 127.0.0.1 -u root -p
-    Enter password: 
-    mysql> insert into Employee (email, password, creationDate, modificationDate) values('my@email.com', 'mypass', 0, 0);
-    Query OK, 1 row affected (0,01 sec)
-    
-    mysql> ^DBye
+    $ mysql -h 127.0.0.1 -u root -ppassword dbname \
+        -e 'insert into Employee (email,password,creationDate,modificationDate) values ("my@email.com","mypass",0,0);'
     $ ./mvnw jetty:run
 
 Open the browser at the same link again and try to log with _my@email.com_ and _mypass_.
