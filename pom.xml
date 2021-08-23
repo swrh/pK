@@ -22,6 +22,8 @@
         <java.version>1.8</java.version>
         <struts.version>2.3.37</struts.version>
         <mysql.version>8.0.26</mysql.version>
+        <hibernate.version>3.3.1.GA</hibernate.version>
+        <jquery.version>1.5.2</jquery.version>
     </properties>
 
     <dependencies>
@@ -46,19 +48,19 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>3.3.1.GA</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-annotations</artifactId>
-            <version>3.3.1.GA</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>1.5.2</version>
+            <version>${jquery.version}</version>
         </dependency>
 
     </dependencies>
