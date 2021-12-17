@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Update User</title>
+    <title>Add User</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
@@ -13,10 +13,10 @@
 </head>
 <body>
 <div class="container my-5">
-    <h2 class="mb-5">Update User</h2>
+    <h2 class="mb-5">New User</h2>
     <div class="row">
         <div class="col-md-6">
-            <form action="#" th:action="@{/update/{id}(id=${user.id})}" th:object="${user}" method="post">
+            <form action="#" th:action="@{/users/}" th:object="${user}" method="post">
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="name" class="col-form-label">Name</label>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 mt-5">
-                        <input type="submit" class="btn btn-primary" value="Update User">
+                        <input type="submit" class="btn btn-primary" value="Add User">
                     </div>
                 </div>
             </form>

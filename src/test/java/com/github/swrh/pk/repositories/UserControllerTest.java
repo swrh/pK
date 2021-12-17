@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
+import static com.github.swrh.pk.controllers.UserController.MAPPING_BASE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
@@ -30,7 +31,7 @@ class UserControllerTest {
     @Test
     public void whenCalledIndex_thenCorrect() {
         assertThat(userController.showUserList(mockedModel))
-                .isEqualTo("index");
+                .isEqualTo(MAPPING_BASE + "/index");
     }
 
     @Test
@@ -38,7 +39,7 @@ class UserControllerTest {
         User user = new User("John", "john@domain.com");
 
         assertThat(userController.showSignUpForm(user))
-                .isEqualTo("add-user");
+                .isEqualTo(MAPPING_BASE + "/new");
     }
 
     @Test
@@ -48,7 +49,7 @@ class UserControllerTest {
         when(mockedBindingResult.hasErrors()).thenReturn(false);
 
         assertThat(userController.addUser(user, mockedBindingResult, mockedModel))
-                .isEqualTo("redirect:/index");
+                .isEqualTo("redirect:/" + MAPPING_BASE + "/");
     }
 
     @Test
@@ -58,13 +59,12 @@ class UserControllerTest {
         when(mockedBindingResult.hasErrors()).thenReturn(true);
 
         assertThat(userController.addUser(user, mockedBindingResult, mockedModel))
-                .isEqualTo("add-user");
+                .isEqualTo(MAPPING_BASE + "/new");
     }
 
     @Test
     public void whenCalledshowUpdateForm_thenIllegalArgumentException() {
         assertThatThrownBy(() -> userController.showUpdateForm(0, mockedModel))
-                //.isEqualTo("update-user")
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -75,7 +75,7 @@ class UserControllerTest {
         when(mockedBindingResult.hasErrors()).thenReturn(false);
 
         assertThat(userController.updateUser(1l, user, mockedBindingResult, mockedModel))
-                .isEqualTo("redirect:/index");
+                .isEqualTo("redirect:/" + MAPPING_BASE + "/");
     }
 
     @Test
@@ -85,13 +85,12 @@ class UserControllerTest {
         when(mockedBindingResult.hasErrors()).thenReturn(true);
 
         assertThat(userController.updateUser(1l, user, mockedBindingResult, mockedModel))
-                .isEqualTo("update-user");
+                .isEqualTo(MAPPING_BASE + "/edit");
     }
 
     @Test
     public void whenCalleddeleteUser_thenIllegalArgumentException() {
         assertThatThrownBy(() -> userController.deleteUser(1l, mockedModel))
-                //.isEqualTo("redirect:/index")
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

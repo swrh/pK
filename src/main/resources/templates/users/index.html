@@ -31,15 +31,15 @@
                     <tr th:each="user : ${users}">
                         <td th:text="${user.name}"></td>
                         <td th:text="${user.email}"></td>
-                        <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-primary"><i
+                        <td><a th:href="@{/users/{id}(id=${user.id})}" class="btn btn-primary"><i
                                 class="fas fa-user-edit ml-2"></i></a></td>
-                        <td><a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-primary"><i
+                        <td><a th:href="@{/users/{id}/delete(id=${user.id})}" class="btn btn-primary"><i
                                 class="fas fa-user-times ml-2"></i></a></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-            <p class="my-5"><a href="/signup" class="btn btn-primary"><i class="fas fa-user-plus ml-2"></i></a></p>
+            <p class="my-5"><a href="/users/new" class="btn btn-primary"><i class="fas fa-user-plus ml-2"></i></a></p>
         </div>
     </div>
 </div>
