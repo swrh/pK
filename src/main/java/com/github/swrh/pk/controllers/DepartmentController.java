@@ -2,14 +2,10 @@ package com.github.swrh.pk.controllers;
 
 import com.github.swrh.pk.repositories.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping(DepartmentController.MAPPING_BASE)
+@RestController
 public class DepartmentController {
-    public static final String MAPPING_BASE = "departments";
-
     private final DepartmentRepository departmentRepository;
 
     @Autowired
