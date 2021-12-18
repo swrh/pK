@@ -15,7 +15,7 @@
     <artifactId>pk</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>pK</name>
-    <description>The perspeKtiva application rewritten using Spring</description>
+    <description>The perspeKtiva application rewritten using Spring and React</description>
 
     <properties>
         <java.version>17</java.version>
