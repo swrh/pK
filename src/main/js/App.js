@@ -1,5 +1,4 @@
 const React = require('react');
-const ReactDOM = require('react-dom');
 
 const App = () => {
     return (
@@ -9,7 +8,6 @@ const App = () => {
     );
 }
 
-ReactDOM.render(
-	<App />,
-	document.getElementById('root')
-);
+export {
+    App,
+};
