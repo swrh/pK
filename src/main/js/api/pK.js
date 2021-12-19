@@ -4,6 +4,19 @@ import React from 'react';
 
 import client from './client';
 
+const listDepartments = () => {
+    return new Promise((resolve, reject) => {
+        client({
+            method: 'GET',
+            path: '/api/departments',
+        }).done((response) => {
+            setTimeout(() => {
+                resolve(response.entity._embedded.departments);
+            }, 1000);
+        });
+    });
+}
+
 const listUsers = () => {
     return new Promise((resolve, reject) => {
         client({
@@ -18,5 +31,6 @@ const listUsers = () => {
 }
 
 export {
+    listDepartments,
     listUsers,
 }
