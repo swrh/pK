@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import client from './client';
+import { listUsers } from './api/pK';
 
 import { UserList } from './UserList';
 
@@ -12,14 +12,7 @@ const App = () => {
     const [users, setUsers] = useState(null);
 
     useEffect(() => {
-        client({
-            method: 'GET',
-            path: '/api/users',
-        }).done((response) => {
-            setTimeout(() => {
-                setUsers(response.entity._embedded.users);
-            }, 1000);
-        });
+        listUsers().then((userList) => setUsers(userList));
     }, []);
 
     return <div>
