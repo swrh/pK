@@ -1,15 +1,23 @@
 'use strict';
 
-import React from 'react';
+import React, { useMemo } from 'react';
+
+import { Table } from './Table';
 
 const UserList = ({ users }) => {
     if (users === null) {
         return <p>Loading...</p>;
-    } else {
-        return <>
-            {users.map((user, i) => <div key={i}>{`${user.name} <${user.email}>`}</div>)}
-        </>;
     }
+
+    const columns = useMemo(() => [
+        { Header: 'Id', accessor: 'id', },
+        { Header: 'Name', accessor: 'name', },
+        { Header: 'Email', accessor: 'email', },
+    ], []);
+
+    const data = useMemo(() => users, []);
+
+    return <Table columns={columns} data={data} />
 }
 
 export {
