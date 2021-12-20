@@ -1,13 +1,14 @@
 'use strict';
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { listDepartments, listUsers } from './api/pK';
 
 import UserList from './UserList';
 import DepartmentList from './DepartmentList';
-
-const React = require('react');
+import Toolbar from './Toolbar';
+import HomePage from './HomePage';
 
 export default () => {
     const [departments, setDepartments] = useState(null);
@@ -19,8 +20,19 @@ export default () => {
     }, []);
 
     return <div>
-        <h1>pK</h1>
-        <UserList users={users} />
-        <DepartmentList departments={departments} />
-    </div>;
+        <BrowserRouter>
+            <header>
+                <Toolbar />
+            </header>
+            <main>
+                <Routes>
+                    <Route path='/' element={<HomePage />} />
+                    <Route path='/users' element={<UserList users={users} />} />
+                    <Route path='/departments' element={<DepartmentList departments={departments} />} />
+                </Routes>
+            </main>
+            <footer>
+            </footer>
+        </BrowserRouter>
+    </div>
 }
