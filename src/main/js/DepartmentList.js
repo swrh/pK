@@ -2,9 +2,9 @@
 
 import React, { useMemo } from 'react';
 
-import { Table } from './Table';
+import Table from './Table';
 
-const DepartmentList = ({ departments }) => {
+export default ({ departments }) => {
     if (departments === null) {
         return <p>Loading...</p>;
     }
@@ -17,8 +17,4 @@ const DepartmentList = ({ departments }) => {
     const data = useMemo(() => departments, []);
 
     return <Table columns={columns} data={data} />
-}
-
-export {
-    DepartmentList,
 }

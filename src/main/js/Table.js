@@ -4,7 +4,7 @@ import React from 'react';
 
 import { useTable } from 'react-table';
 
-const Table = ({ columns, data }) => {
+export default ({ columns, data }) => {
     const tableInstance = useTable({ columns, data })
 
     const {
@@ -59,8 +59,4 @@ const Table = ({ columns, data }) => {
             </tbody>
         </table>
     )
-}
-
-export {
-    Table,
 }

@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 
 import { listDepartments, listUsers } from './api/pK';
 
-import { UserList } from './UserList';
-import { DepartmentList } from './DepartmentList';
+import UserList from './UserList';
+import DepartmentList from './DepartmentList';
 
 const React = require('react');
 
-const App = () => {
+export default () => {
     const [departments, setDepartments] = useState(null);
     const [users, setUsers] = useState(null);
 
@@ -24,7 +24,3 @@ const App = () => {
         <DepartmentList departments={departments} />
     </div>;
 }
-
-export {
-    App,
-};
