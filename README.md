@@ -1,38 +1,18 @@
-# perspeKtiva
+# pK
 
-### Database configuration
+## Development
 
-Open the `src/main/resources/hibernate.properties` file and change the following lines accordingly:
+First you need to download Node and NPM using Maven and install the dependencies:
 
-    hibernate.connection.url = jdbc:mysql://hostname/database
-    hibernate.connection.username = username
-    hibernate.connection.password = password
+    $ ./mvnw frontend:install-node-and-npm
+    $ ./mvnw frontend:npm
 
-### Building
+Then you can launch the frontend building scripts (I usually call it from the Code terminal):
 
-    $ ./mvnw package
+    $ ./node/npm run-script watch
 
-### Running
+Then you launch the backend server (I do it from IntelliJ):
 
-    $ ./mvnw jetty:run
+    $ ./mvnw spring-boot:run
 
-You could also run it in a Tomcat Apache server by first building it, getting the WAR file from the `target` directory
-and moving it to the `webapps` directory of the server.
-
-### Setting it up easily (the quick, dirty and insecure way)
-
-    $ docker run --name pk-mysql -p 3306:3306 -d \
-        -e MYSQL_ROOT_PASSWORD="password" \
-        -e MYSQL_ROOT_HOST=% \
-        -e MYSQL_DATABASE=dbname \
-        mysql/mysql-server
-    $ ./mvnw jetty:run
-
-Open the browser at http://localhost:8080, try to log in with any email and password, stop the Jetty server (CTRL-C) and
-run:
-
-    $ mysql -h 127.0.0.1 -u root -ppassword dbname \
-        -e 'insert into Employee (email,password,creationDate,modificationDate) values ("my@email.com","mypass",0,0);'
-    $ ./mvnw jetty:run
-
-Open the browser at the same link again and try to log with _my@email.com_ and _mypass_.
+And finally you can see the application running when opening the http://localhost:8080 URL from a web browser.
