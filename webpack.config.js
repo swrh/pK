@@ -1,10 +1,8 @@
 var path = require('path');
 
-module.exports = {
+const production = {
     entry: './src/main/js/index.js',
-    devtool: 'sourcemaps',
-    cache: true,
-    mode: 'development',
+    mode: 'production',
     output: {
         path: __dirname,
         filename: './src/main/resources/static/built/bundle.js'
@@ -17,10 +15,27 @@ module.exports = {
                 use: [{
                     loader: 'babel-loader',
                     options: {
-                        presets: ["@babel/preset-env", "@babel/preset-react"]
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-react',
+                        ]
                     }
                 }]
             }
         ]
     }
 };
+
+const development = {
+    ...production,
+    devtool: 'source-map',
+    mode: 'development',
+    output: {
+        path: __dirname,
+        filename: './target/classes/static/built/bundle.js',
+    },
+}
+
+module.exports = (env) => {
+    return env.production ? production : development;
+}
