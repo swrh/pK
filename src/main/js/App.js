@@ -1,26 +1,16 @@
 'use strict';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-
-import { listDepartments, listUsers } from './api/pK';
 
 import Header from './Header'
 import Footer from './Footer'
 
-import UserList from './UserList';
-import DepartmentList from './DepartmentList';
-import HomePage from './HomePage';
+import Home from './pages/Home'
+import Users from './pages/Users'
+import Departments from './pages/Departments'
 
 export default () => {
-    const [departments, setDepartments] = useState(null);
-    const [users, setUsers] = useState(null);
-
-    useEffect(() => {
-        listDepartments().then((departmentsList) => setDepartments(departmentsList));
-        listUsers().then((userList) => setUsers(userList));
-    }, []);
-
     return <div>
         <Router>
             <header>
@@ -28,9 +18,9 @@ export default () => {
             </header>
             <main>
                 <Routes>
-                    <Route path='/' element={<HomePage />} />
-                    <Route path='/users' element={<UserList users={users} />} />
-                    <Route path='/departments' element={<DepartmentList departments={departments} />} />
+                    <Route path='/' element={<Home />} />
+                    <Route path='/users' element={<Users />} />
+                    <Route path='/departments' element={<Departments />} />
                 </Routes>
             </main>
             <footer>
