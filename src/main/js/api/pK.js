@@ -2,33 +2,21 @@
 
 import React from 'react';
 
-import client from './client';
+import axios from 'axios'
 
-const listDepartments = () => {
-    return new Promise((resolve, reject) => {
-        client({
-            method: 'GET',
-            path: '/api/departments',
-        }).done((response) => {
-            setTimeout(() => {
-                resolve(response.entity._embedded.departments);
-            }, 1000);
-        });
+const delay = (t, v) => {
+    return new Promise((resolve) => {
+        setTimeout(resolve.bind(null, v), t);
     });
 }
 
-const listUsers = () => {
-    return new Promise((resolve, reject) => {
-        client({
-            method: 'GET',
-            path: '/api/users',
-        }).done((response) => {
-            setTimeout(() => {
-                resolve(response.entity._embedded.users);
-            }, 1000);
-        });
-    });
-}
+const listDepartments = () =>
+    axios.get('/api/departments')
+        .then((response) => delay(1000, response.data._embedded.departments));
+
+const listUsers = () =>
+    axios.get('/api/users')
+        .then((response) => delay(1000, response.data._embedded.users));
 
 export {
     listDepartments,
