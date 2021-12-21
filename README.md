@@ -9,7 +9,7 @@ First you need to download Node and NPM using Maven and install the dependencies
 
 Then you can launch the frontend building scripts (I usually call it from the Code terminal):
 
-    $ ./bin/node run-script watch
+    $ ./node/npm run-script watch
 
 Then you launch the backend server (I do it from IntelliJ):
 
