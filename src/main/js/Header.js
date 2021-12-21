@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { useMemo } from 'react';
+import React from 'react'
 import { Link } from 'react-router-dom';
 
 export default () => {

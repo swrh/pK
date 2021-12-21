@@ -1,13 +1,15 @@
 'use strict';
 
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import { listDepartments, listUsers } from './api/pK';
 
+import Header from './Header'
+import Footer from './Footer'
+
 import UserList from './UserList';
 import DepartmentList from './DepartmentList';
-import Toolbar from './Toolbar';
 import HomePage from './HomePage';
 
 export default () => {
@@ -20,9 +22,9 @@ export default () => {
     }, []);
 
     return <div>
-        <BrowserRouter>
+        <Router>
             <header>
-                <Toolbar />
+                <Header />
             </header>
             <main>
                 <Routes>
@@ -32,7 +34,8 @@ export default () => {
                 </Routes>
             </main>
             <footer>
+                <Footer />
             </footer>
-        </BrowserRouter>
+        </Router>
     </div>
 }
