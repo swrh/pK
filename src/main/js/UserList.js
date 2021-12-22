@@ -13,6 +13,7 @@ export default ({ users }) => {
         { Header: 'Id', accessor: 'id', },
         { Header: 'Name', accessor: 'name', },
         { Header: 'Email', accessor: 'email', },
+        { Header: '', accessor: 'links', },
     ], []);
 
     const data = useMemo(() => users, []);

@@ -4,24 +4,44 @@ import React, { useEffect, useState } from 'react'
 
 import UserList from '../../UserList'
 
-import { listUsers } from '../../api/pK'
+import { deleteUser, listUsers } from '../../api/pK'
 import { Link } from 'react-router-dom'
 
 export default () => {
-    const [users, setUsers] = useState(null);
+    const [users, setUsers] = useState(null)
 
     useEffect(() => {
-        let isMounted = true;
+        let isMounted = true
 
-        listUsers().then((usersList) => {
-            if (isMounted)
-                setUsers(usersList);
-        });
+        let refreshList = () => {
+            listUsers().then((usersList) => {
+                if (!isMounted)
+                    return
+
+                const onDeleteClick = (user) => {
+                    setUsers(null)
+                    deleteUser(user.id)
+                        .finally((response) => {
+                            if (refreshList !== null)
+                                refreshList()
+                        })
+                }
+
+                usersList.forEach((user) => {
+                    user.links = <button onClick={() => onDeleteClick(user)}>Delete</button>
+                })
+
+                setUsers(usersList)
+            })
+        }
+
+        refreshList()
 
         return () => {
-            isMounted = false;
+            isMounted = false
+            refreshList = null
         }
-    }, []);
+    }, [])
 
     return <>
         <UserList users={users} />

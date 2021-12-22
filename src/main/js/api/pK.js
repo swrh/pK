@@ -12,21 +12,23 @@ const delay = (t, v) =>
 
 const listDepartments = () =>
     axios.get('/api/departments')
-        .then((response) =>
-            delay(DELAY, response.data._embedded.departments))
+        .then((response) => delay(DELAY, response.data._embedded.departments))
 
 const listUsers = () =>
     axios.get('/api/users')
-        .then((response) =>
-            delay(DELAY, response.data._embedded.users))
+        .then((response) => delay(DELAY, response.data._embedded.users))
 
 const createUser = (user) =>
     axios.post('/api/users', user)
-        .then((response) =>
-            delay(DELAY, response))
+        .then((response) => delay(DELAY, response))
+
+const deleteUser = (id) =>
+    axios.delete(`/api/users/${id}`)
+        .then((response) => delay(DELAY, response))
 
 export {
     listDepartments,
     listUsers,
     createUser,
+    deleteUser,
 }
