@@ -2,9 +2,10 @@
 
 import React, { useEffect, useState } from 'react'
 
-import UserList from '../UserList'
+import UserList from '../../UserList'
 
-import { listUsers } from '../api/pK'
+import { listUsers } from '../../api/pK'
+import { Link } from 'react-router-dom'
 
 export default () => {
     const [users, setUsers] = useState(null);
@@ -22,5 +23,8 @@ export default () => {
         }
     }, []);
 
-    return <UserList users={users} />
+    return <>
+        <UserList users={users} />
+        <Link to={'/users/new'}>New</Link>
+    </>
 }

@@ -7,7 +7,8 @@ import Header from './Header'
 import Footer from './Footer'
 
 import Home from './pages/Home'
-import Users from './pages/Users'
+import Users from './pages/users/Index'
+import UsersNew from './pages/users/New'
 import Departments from './pages/Departments'
 
 export default () => {
@@ -20,6 +21,7 @@ export default () => {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/users' element={<Users />} />
+                    <Route path='/users/new' element={<UsersNew />} />
                     <Route path='/departments' element={<Departments />} />
                 </Routes>
             </main>

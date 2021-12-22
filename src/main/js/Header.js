@@ -10,10 +10,10 @@ export default () => {
         ['/users', 'Users'],
     ];
 
-    return <>
+    return <nav>
         {links.map((tag, i) => [
             i > 0 && ' | ',
             <Link to={tag[0]} key={i}>{tag[1]}</Link>,
         ])}
-    </>
+    </nav>
 }
