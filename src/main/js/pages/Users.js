@@ -10,7 +10,16 @@ export default () => {
     const [users, setUsers] = useState(null);
 
     useEffect(() => {
-        listUsers().then((userList) => setUsers(userList));
+        let isMounted = true;
+
+        listUsers().then((usersList) => {
+            if (isMounted)
+                setUsers(usersList);
+        });
+
+        return () => {
+            isMounted = false;
+        }
     }, []);
 
     return <UserList users={users} />

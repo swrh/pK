@@ -10,7 +10,16 @@ export default () => {
     const [departments, setDepartments] = useState(null);
 
     useEffect(() => {
-        listDepartments().then((departmentsList) => setDepartments(departmentsList));
+        let isMounted = true;
+
+        listDepartments().then((departmentsList) => {
+            if (isMounted)
+                setDepartments(departmentsList);
+        });
+
+        return () => {
+            isMounted = false;
+        }
     }, []);
 
     return <DepartmentList departments={departments} />
