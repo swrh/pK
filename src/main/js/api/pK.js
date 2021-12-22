@@ -12,11 +12,11 @@ const delay = (t, v) => {
 
 const listDepartments = () =>
     axios.get('/api/departments')
-        .then((response) => delay(1000, response.data._embedded.departments));
+        .then((response) => delay(250, response.data._embedded.departments));
 
 const listUsers = () =>
     axios.get('/api/users')
-        .then((response) => delay(1000, response.data._embedded.users));
+        .then((response) => delay(250, response.data._embedded.users));
 
 export {
     listDepartments,
