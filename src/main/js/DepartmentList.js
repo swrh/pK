@@ -12,6 +12,7 @@ export default ({ departments }) => {
     const columns = useMemo(() => [
         { Header: 'Id', accessor: 'id', },
         { Header: 'Name', accessor: 'name', },
+        { Header: '', accessor: 'links', },
     ], []);
 
     const data = useMemo(() => departments, []);
