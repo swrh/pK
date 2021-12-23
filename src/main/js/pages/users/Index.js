@@ -2,13 +2,16 @@
 
 import React, { useEffect, useState } from 'react'
 
-import UserList from '../../UserList'
+import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import { deleteUser, listUsers } from '../../api/pK'
-import { Link } from 'react-router-dom'
+
+import UserList from '../../UserList'
 
 export default () => {
     const [users, setUsers] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         let isMounted = true
@@ -17,6 +20,10 @@ export default () => {
             listUsers().then((usersList) => {
                 if (!isMounted)
                     return
+
+                const onEditClick = (user) => {
+                    navigate('' + user.id)
+                }
 
                 const onDeleteClick = (user) => {
                     setUsers(null)
@@ -28,7 +35,10 @@ export default () => {
                 }
 
                 usersList.forEach((user) => {
-                    user.links = <button onClick={() => onDeleteClick(user)}>Delete</button>
+                    user.links = <>
+                        <button onClick={() => onEditClick(user)}>Edit</button>
+                        <button onClick={() => onDeleteClick(user)}>Delete</button>
+                    </>
                 })
 
                 setUsers(usersList)
@@ -43,8 +53,10 @@ export default () => {
         }
     }, [])
 
-    return <>
+    return <div>
+        <h1>Users</h1>
         <UserList users={users} />
+        <br />
         <Link to={'/users/new'}>New</Link>
-    </>
+    </div>
 }

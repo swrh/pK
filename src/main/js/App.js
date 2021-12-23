@@ -9,6 +9,7 @@ import Footer from './Footer'
 import Home from './pages/Home'
 import Users from './pages/users/Index'
 import UsersNew from './pages/users/New'
+import UsersEdit from './pages/users/Edit'
 import Departments from './pages/Departments'
 
 export default () => {
@@ -22,6 +23,7 @@ export default () => {
                     <Route path='/' element={<Home />} />
                     <Route path='/users' element={<Users />} />
                     <Route path='/users/new' element={<UsersNew />} />
+                    <Route path='/users/:id' element={<UsersEdit />} />
                     <Route path='/departments' element={<Departments />} />
                 </Routes>
             </main>
