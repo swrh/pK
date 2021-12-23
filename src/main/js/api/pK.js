@@ -10,9 +10,25 @@ const delay = (t, v) =>
     new Promise((resolve) =>
         setTimeout(resolve.bind(null, v), t))
 
+const createDepartment = (data) =>
+    axios.post('/api/departments', data)
+        .then((response) => delay(DELAY, response))
+
+const deleteDepartment = (id) =>
+    axios.delete(`/api/departments/${id}`)
+        .then((response) => delay(DELAY, response))
+
+const getDepartment = (id) =>
+    axios.get(`/api/departments/${id}`)
+        .then((response) => delay(DELAY, response.data))
+
 const listDepartments = () =>
     axios.get('/api/departments')
         .then((response) => delay(DELAY, response.data._embedded.departments))
+
+const updateDepartment = (id, data) =>
+    axios.put(`/api/departments/${id}`, data)
+        .then((response) => delay(DELAY, response))
 
 const createUser = (data) =>
     axios.post('/api/users', data)
@@ -35,7 +51,11 @@ const updateUser = (id, data) =>
         .then((response) => delay(DELAY, response))
 
 export {
+    createDepartment,
+    deleteDepartment,
+    getDepartment,
     listDepartments,
+    updateDepartment,
     createUser,
     deleteUser,
     getUser,
