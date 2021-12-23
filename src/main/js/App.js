@@ -10,7 +10,7 @@ import Home from './pages/Home'
 import Users from './pages/users/Index'
 import UsersNew from './pages/users/New'
 import UsersEdit from './pages/users/Edit'
-import Departments from './pages/Departments'
+import Departments from './pages/departments/Index'
 
 export default () => {
     return <div>

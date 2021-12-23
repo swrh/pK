@@ -3,6 +3,7 @@
 import React from 'react';
 
 export default () => {
-    return <>
-    </>
+    return <div>
+        <h1>Home</h1>
+    </div>
 }

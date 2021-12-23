@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react'
 
-import DepartmentList from '../DepartmentList'
+import DepartmentList from '../../DepartmentList'
 
-import { listDepartments } from '../api/pK'
+import { listDepartments } from '../../api/pK'
 
 export default () => {
     const [departments, setDepartments] = useState(null);
@@ -22,5 +22,8 @@ export default () => {
         }
     }, []);
 
-    return <DepartmentList departments={departments} />
+    return <div>
+        <h1>Departments</h1>
+        <DepartmentList departments={departments} />
+    </div>
 }
