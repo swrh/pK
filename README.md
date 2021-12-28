@@ -23,10 +23,10 @@ And finally you can see the application running when opening the http://localhos
 
 ## History
 
-In 2011 this project was written, released and deployed using Java, Struts and MySQL. The version released was 1.0 and the only language supported was Brazilian Portuguese. The code can be found tagged as v1.0.
+In 2011 this project was written, released and deployed using Java, Struts and MySQL. It was released as version [1.0](https://github.com/swrh/pK/tree/v1.0) and the only language supported was Brazilian Portuguese.
 
 In 2017 I started rewriting it using Ruby on Rails, but after sometime I deleted the unfinished code. It was in a different repository.
 
-In mid 2021 I updated it using newer framework versions but it still has some big bugs. Its branch is named as release-1.1.
+In mid 2021 I updated it using newer framework versions but it still has some big bugs. It was released as version [1.1](https://github.com/swrh/pK/tree/v1.1) and its branch is [release-1.1](https://github.com/swrh/pK/tree/release-1.1).
 
 In late 2021 I decided to start rewriting it using newer technologies. The frontend will be written using React and in the backend I'm using Spring, but I'm not 100% satisfied with this decision and I might move to something else soon.
