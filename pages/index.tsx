@@ -1,9 +1,14 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { connectPromise } from '../lib/mongodb'
 
-const Home: NextPage = () => {
+type Props = {
+  isConnected: boolean
+}
+
+const Home: NextPage<Props> = ({ isConnected }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,6 +21,15 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        {isConnected ? (
+          <h2 className={styles.subtitle}>You are connected to MongoDB</h2>
+        ) : (
+          <h2 className={styles.subtitle}>
+            You are NOT connected to MongoDB. Check the <code>README.md</code>{' '}
+            for instructions.
+          </h2>
+        )}
 
         <p className={styles.description}>
           Get started by editing{' '}
@@ -70,3 +84,22 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  try {
+    // client.db() will be the default database passed in the MONGODB_URI
+    // You can change the database by calling the client.db() function and specifying a database like:
+    // const db = client.db("myDatabase");
+    // Then you can execute queries against your database like so:
+    // db.find({}) or any of the MongoDB Node Driver commands
+    await connectPromise
+    return {
+      props: { isConnected: true },
+    }
+  } catch (e) {
+    console.error(e)
+    return {
+      props: { isConnected: false },
+    }
+  }
+}

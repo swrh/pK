@@ -50,6 +50,10 @@
   text-align: center;
 }
 
+.subtitle {
+  font-size: 2rem;
+}
+
 .description {
   margin: 4rem 0;
   line-height: 1.5;
