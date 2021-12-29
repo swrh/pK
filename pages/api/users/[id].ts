@@ -2,32 +2,34 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { ObjectId, WithId } from 'mongodb'
 import { connectPromise, database } from '../../../lib/mongodb'
 
-const departmentCollection = database.collection('departments')
+const userCollection = database.collection('users')
 
-const departmentFields = [
+const userFields = [
     'name',
+    'email',
 ]
 
-interface DepartmentDoc {
+interface UserDoc {
     name?: string
+    email?: string
 }
 
 interface ErrorResult {
     error: string
 }
 
-const extractDocument = (body: DepartmentDoc) => {
-    const document: DepartmentDoc = {}
-    departmentFields.forEach((field) => {
-        const value = body[field as keyof DepartmentDoc]
+const extractDocument = (body: UserDoc) => {
+    const document: UserDoc = {}
+    userFields.forEach((field) => {
+        const value = body[field as keyof UserDoc]
         if (value !== undefined) {
-            document[field as keyof DepartmentDoc] = value
+            document[field as keyof UserDoc] = value
         }
     })
     return document
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse<WithId<DepartmentDoc> | ErrorResult>) => {
+export default async (req: NextApiRequest, res: NextApiResponse<WithId<UserDoc> | ErrorResult>) => {
     let { id } = req.query
     if (typeof id !== 'string') {
         id = '' + id
@@ -39,7 +41,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<WithId<Departmen
         const query = {
             _id: new ObjectId(id),
         }
-        const document = await departmentCollection
+        const document = await userCollection
             .findOne(query)
 
         if (!document)
@@ -55,7 +57,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<WithId<Departmen
 
         const document = extractDocument(req.body)
 
-        const result = await departmentCollection
+        const result = await userCollection
             .findOneAndUpdate(filter, {
                 $set: document,
             }, {
