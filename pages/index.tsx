@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { connectPromise } from '../lib/mongodb'
+import Link from 'next/link'
 
 type Props = {
   isConnected: boolean
@@ -37,6 +38,13 @@ const Home: NextPage<Props> = ({ isConnected }) => {
         </p>
 
         <div className={styles.grid}>
+          <Link href='/departments'>
+            <a className={styles.card}>
+              <h2>Departments &rarr;</h2>
+              <p>List, create, delete and modify department entities.</p>
+            </a>
+          </Link>
+
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
