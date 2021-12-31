@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { ObjectId, WithId } from 'mongodb'
+import { DeleteResult, ObjectId, WithId } from 'mongodb'
 import { connectPromise, database } from '../../../lib/mongodb'
 
 const userCollection = database.collection('users')
@@ -29,7 +29,7 @@ const extractDocument = (body: UserDoc) => {
     return document
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse<WithId<UserDoc> | ErrorResult>) => {
+export default async (req: NextApiRequest, res: NextApiResponse<WithId<UserDoc> | DeleteResult | ErrorResult>) => {
     let { id } = req.query
     if (typeof id !== 'string') {
         id = '' + id
@@ -70,6 +70,15 @@ export default async (req: NextApiRequest, res: NextApiResponse<WithId<UserDoc> 
             })
         else
             res.json(result.value as WithId<typeof result.value>)
+    } else if (req.method === 'DELETE') {
+        const filter = {
+            _id: new ObjectId(id),
+        }
+
+        const result = await userCollection
+            .deleteOne(filter)
+
+        res.json(result)
     } else {
         res.status(405).json({
             error: '405 Method Not Allowed',
