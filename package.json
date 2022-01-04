@@ -2,6 +2,8 @@
   "name": "pk",
   "private": true,
   "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
