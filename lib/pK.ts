@@ -10,7 +10,7 @@ export interface Department {
     name: string;
 }
 
-const DELAY = 500
+const DELAY = 250
 
 type Delay = {
     (t: number): Promise<unknown>;
