@@ -16,16 +16,16 @@ type Props = {
 
 const DepartmentList: NextPage<Props> = ({ departments }) => {
     if (departments === null) {
-        return <p>Loading...</p>;
+        return <p>Loading...</p>
     }
 
     const columns = useMemo(() => [
         { Header: 'Id', accessor: 'id', },
         { Header: 'Name', accessor: 'name', },
         { Header: '', accessor: 'links', },
-    ], []);
+    ], [])
 
-    const data = useMemo(() => departments, []);
+    const data = useMemo(() => departments, [])
 
     return <Table columns={columns} data={data} />
 }

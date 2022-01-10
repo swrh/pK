@@ -2,19 +2,19 @@ import axios from 'axios'
 import { DeleteResult, ObjectId, WithId } from 'mongodb'
 
 export interface User {
-    name: string;
-    email: string;
+    name: string
+    email: string
 }
 
 export interface Department {
-    name: string;
+    name: string
 }
 
 const DELAY = 250
 
 type Delay = {
-    (t: number): Promise<unknown>;
-    <T>(t: number, v: T): Promise<T>;
+    (t: number): Promise<unknown>
+    <T>(t: number, v: T): Promise<T>
 }
 
 const delay: Delay = <T>(t: number, v?: T) =>
