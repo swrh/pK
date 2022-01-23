@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-export default () => {
+const departmentsNew = () => {
     return <div>
         <Head>
             <title>pK | New Department</title>
@@ -12,3 +12,5 @@ export default () => {
         <Link href='/departments'><a>Back</a></Link>
     </div>
 }
+
+export default departmentsNew

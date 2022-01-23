@@ -27,7 +27,7 @@ const extractDocument = (body: DepartmentDoc) => {
     return document
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse<WithId<DepartmentDoc> | WithId<DepartmentDoc>[] | ErrorResult>) => {
+const departmentsIndex = async (req: NextApiRequest, res: NextApiResponse<WithId<DepartmentDoc> | WithId<DepartmentDoc>[] | ErrorResult>) => {
     await connectPromise
 
     if (req.method === 'GET') {
@@ -50,3 +50,5 @@ export default async (req: NextApiRequest, res: NextApiResponse<WithId<Departmen
         })
     }
 }
+
+export default departmentsIndex

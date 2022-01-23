@@ -30,22 +30,26 @@ describe('Departments API', () => {
         const name = chance.name()
 
         // Horrible horizontal code. Please, fix it up.
-        return list().then((first: WithId<Department>[]) => {
+        return list().then((first: any) => {
             expect(first).to.be.an('array')
             expect(first.length).to.not.be.lessThan(0)
-            return create({ name }).then((created: WithId<Department>) => {
+            const firstDepartment: WithId<Department>[] = first
+            return create({ name }).then((created: any) => {
                 expect(created).to.have.property('name', name)
                 expect(created).to.have.property('_id').to.be.a('string')
-                expect(first.reduce((n, e) => n + (e._id == created._id ? 1 : 0), 0)).to.be.eq(0)
-                return list().then((second: WithId<Department>[]) => {
+                const createdDepartment: WithId<Department> = created
+                expect(firstDepartment.reduce((n, e) => n + (e._id == createdDepartment._id ? 1 : 0), 0)).to.be.eq(0)
+                return list().then((second: any) => {
                     expect(second).to.be.an('array')
-                    expect(second.length).to.be.eq(first.length + 1)
-                    expect(second.reduce((n, e) => n + (e._id == created._id ? 1 : 0), 0)).to.be.eq(1)
-                    return del(created._id).then((deleted) => {
-                        return list().then((third: WithId<Department>[]) => {
+                    expect(second.length).to.be.eq(firstDepartment.length + 1)
+                    const secondDepartment: WithId<Department>[] = second
+                    expect(secondDepartment.reduce((n, e) => n + (e._id == createdDepartment._id ? 1 : 0), 0)).to.be.eq(1)
+                    return del(createdDepartment._id).then((deleted) => {
+                        return list().then((third: any) => {
                             expect(third).to.be.an('array')
-                            expect(third.length).to.be.eq(first.length)
-                            expect(third.reduce((n, e) => n + (e._id == created._id ? 1 : 0), 0)).to.be.eq(0)
+                            expect(third.length).to.be.eq(firstDepartment.length)
+                            const thirdDepartment: WithId<Department>[] = third
+                            expect(thirdDepartment.reduce((n, e) => n + (e._id == createdDepartment._id ? 1 : 0), 0)).to.be.eq(0)
                         })
                     })
                 })

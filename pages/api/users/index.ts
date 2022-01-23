@@ -29,7 +29,7 @@ const extractDocument = (body: UserDoc) => {
     return document
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse<WithId<UserDoc> | WithId<UserDoc>[] | ErrorResult>) => {
+const usersIndex = async (req: NextApiRequest, res: NextApiResponse<WithId<UserDoc> | WithId<UserDoc>[] | ErrorResult>) => {
     await connectPromise
 
     if (req.method === 'GET') {
@@ -52,3 +52,5 @@ export default async (req: NextApiRequest, res: NextApiResponse<WithId<UserDoc> 
         })
     }
 }
+
+export default usersIndex

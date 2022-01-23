@@ -15,19 +15,17 @@ type Props = {
 }
 
 const DepartmentList: NextPage<Props> = ({ departments }) => {
-    if (departments === null) {
-        return <p>Loading...</p>
-    }
-
     const columns = useMemo(() => [
         { Header: 'Id', accessor: 'id', },
         { Header: 'Name', accessor: 'name', },
         { Header: '', accessor: 'links', },
     ], [])
 
-    const data = useMemo(() => departments, [])
+    if (departments === null) {
+        return <p>Loading...</p>
+    }
 
-    return <Table columns={columns} data={data} />
+    return <Table columns={columns} data={departments} />
 }
 
 export default DepartmentList

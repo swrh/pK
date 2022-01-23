@@ -27,7 +27,7 @@ const extractDocument = (body: DepartmentDoc) => {
     return document
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse<WithId<DepartmentDoc> | DeleteResult | ErrorResult>) => {
+const departmentsId = async (req: NextApiRequest, res: NextApiResponse<WithId<DepartmentDoc> | DeleteResult | ErrorResult>) => {
     let { id } = req.query
     if (typeof id !== 'string') {
         id = '' + id
@@ -83,3 +83,5 @@ export default async (req: NextApiRequest, res: NextApiResponse<WithId<Departmen
         })
     }
 }
+
+export default departmentsId
